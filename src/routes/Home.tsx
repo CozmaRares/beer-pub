@@ -7,10 +7,15 @@ import heroBG from "../assets/background.mp4";
 import beer from "../assets/beer.png";
 import hamburger from "../assets/hamburger.png";
 import pretzels from "../assets/pretzels.png";
+
 import BeerBottle from "../svg/BeerBottle";
 import BeerGlass from "../svg/BeerGlass";
 import Sandwich from "../svg/Sandwich";
 import Cocktail from "../svg/Cocktail";
+
+import IPA from "../assets/IPA.png";
+import lagerBeer from "../assets/lager-beer.png";
+import bitter from "../assets/bitter.png";
 
 const App = () => {
   return (
@@ -19,6 +24,7 @@ const App = () => {
       <main>
         <Hero />
         <Menu />
+        <BeerSpecials />
       </main>
     </div>
   );
@@ -182,6 +188,79 @@ const Menu = () => (
       <p>Get a 30% discount on the food menu every Friday!</p>
       <a href="">learn more</a>
     </div>
+  </section>
+);
+
+const BeerSpecials = () => (
+  <section>
+    <div>
+      <p>Bottled beer</p>
+      <h2>bottled beer specials</h2>
+      <p>
+        Appreciate the taste of craft bottled beer from the best producers.{" "}
+      </p>
+    </div>
+    {/* TODO: horizontal infinite scroll*/}
+    <ul>
+      <li>
+        <div>
+          <img
+            src={IPA}
+            alt="Beer bottle."
+          />
+        </div>
+        <div>
+          <h3>ipa</h3>
+          <p>
+            Ideal for those who prefer strong and bitter beer with rich aroma.
+          </p>
+          <p>
+            <span>ABV - 8%</span>
+            <span>IBU - 80%</span>
+            <span>Very bitter, hoppy, with grainy notes.</span>
+          </p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <img
+            src={lagerBeer}
+            alt="Beer bottle."
+          />
+        </div>
+        <div>
+          <h3>lager beer</h3>
+          <p>
+            This classic bottled beer features a wheat aroma and mild taste.
+          </p>
+          <p>
+            <span>ABV - 4.2%</span>
+            <span>IBU - 12%</span>
+            <span>Light, mild, with very little bitterness.</span>
+          </p>
+        </div>
+      </li>
+      <li>
+        <div>
+          <img
+            src={bitter}
+            alt="Beer bottle."
+          />
+        </div>
+        <div>
+          <h3>bitter</h3>
+          <p>
+            "England's favorite beer" is a great choice for those who like dark
+            varieties of beer.
+          </p>
+          <p>
+            <span>ABV - 4.6%</span>
+            <span>IBU - 40%</span>
+            <span>Bitter, malty, with a slight aftertaste of toasts.</span>
+          </p>
+        </div>
+      </li>
+    </ul>
   </section>
 );
 
