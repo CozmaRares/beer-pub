@@ -39,6 +39,15 @@ import budweiser from "../assets/budweiser.svg";
 import heineken from "../assets/heineken.svg";
 import corona from "../assets/corona.svg";
 
+import X from "../svg/logos/X";
+import TikTok from "../svg/logos/TikTok";
+import YouTube from "../svg/logos/YouTube";
+import Waze from "../svg/logos/Waze";
+import Phone from "../svg/Phone";
+import Mail from "../svg/Mail";
+import Location from "../svg/Location";
+import Clock from "../svg/Clock";
+
 const Home = () => {
   return (
     <div>
@@ -53,6 +62,7 @@ const Home = () => {
         <Blog />
         <Brands />
       </main>
+      <Footer />
     </div>
   );
 };
@@ -114,10 +124,7 @@ const Menu = () => (
     </div>
     <ul>
       <li>
-        <img
-          src={beer}
-          alt="A glass of beer"
-        />
+        <img src={beer} />
         <div>
           <h3>beer menu</h3>
           <div>
@@ -132,10 +139,7 @@ const Menu = () => (
         </div>
       </li>
       <li>
-        <img
-          src={hamburger}
-          alt="A hamburger"
-        />
+        <img src={hamburger} />
         <div>
           <h3>food menu</h3>
           <div>
@@ -150,10 +154,7 @@ const Menu = () => (
         </div>
       </li>
       <li>
-        <img
-          src={pretzels}
-          alt="A bucker full of pretzels"
-        />
+        <img src={pretzels} />
         <div>
           <h3>happy hour</h3>
           <div>
@@ -232,10 +233,7 @@ const BeerSpecials = () => (
     <ul>
       <li>
         <div>
-          <img
-            src={IPA}
-            alt="Beer bottle."
-          />
+          <img src={IPA} />
         </div>
         <div>
           <h3>ipa</h3>
@@ -251,10 +249,7 @@ const BeerSpecials = () => (
       </li>
       <li>
         <div>
-          <img
-            src={lagerBeer}
-            alt="Beer bottle."
-          />
+          <img src={lagerBeer} />
         </div>
         <div>
           <h3>lager beer</h3>
@@ -270,10 +265,7 @@ const BeerSpecials = () => (
       </li>
       <li>
         <div>
-          <img
-            src={bitter}
-            alt="Beer bottle."
-          />
+          <img src={bitter} />
         </div>
         <div>
           <h3>bitter</h3>
@@ -301,28 +293,16 @@ const BestOffers = () => (
     </div>
     <ul>
       <li>
-        <img
-          src={fries}
-          alt=""
-        />
+        <img src={fries} />
       </li>
       <li>
-        <img
-          src={beerMug}
-          alt=""
-        />
+        <img src={beerMug} />
       </li>
       <li>
-        <img
-          src={hamburgerCut}
-          alt=""
-        />
+        <img src={hamburgerCut} />
       </li>
       <li>
-        <img
-          src={women}
-          alt=""
-        />
+        <img src={women} />
       </li>
     </ul>
     <div>
@@ -403,10 +383,7 @@ const About = () => (
       <a href="">more about us</a>
     </div>
     <div>
-      <img
-        src={about}
-        alt=""
-      />
+      <img src={about} />
     </div>
   </section>
 );
@@ -420,10 +397,7 @@ const Testimonials = () => (
     </div>
     <ul>
       <li>
-        <img
-          src={samWhite}
-          alt=""
-        />
+        <img src={samWhite} />
         <h3>sam white</h3>
         <p>
           This place is definitely worth visiting and making friends there. I
@@ -434,10 +408,7 @@ const Testimonials = () => (
         <span>May 28, 2022</span>
       </li>
       <li>
-        <img
-          src={bernardRedhead}
-          alt=""
-        />
+        <img src={bernardRedhead} />
         <h3>Bernard Redhead</h3>
         <p>
           I am definitely a beer person, and my girlfriend loves cider offered
@@ -449,10 +420,7 @@ const Testimonials = () => (
       </li>
     </ul>
     <div>
-      <img
-        src={group}
-        alt=""
-      />
+      <img src={group} />
     </div>
   </section>
 );
@@ -466,10 +434,7 @@ const Blog = () => (
     </div>
     <ul>
       <li>
-        <img
-          src={waiter}
-          alt=""
-        />
+        <img src={waiter} />
         <p>EVENT</p>
         <h3>Beer Tasting</h3>
         <p>
@@ -480,10 +445,7 @@ const Blog = () => (
         <a href="">read more</a>
       </li>
       <li>
-        <img
-          src={counter}
-          alt=""
-        />
+        <img src={counter} />
         <p>BEER BLOG</p>
         <h3>How to Find a Perfect Match?</h3>
         <p>
@@ -494,10 +456,7 @@ const Blog = () => (
         <a href="">read more</a>
       </li>
       <li>
-        <img
-          src={irish}
-          alt=""
-        />
+        <img src={irish} />
         <p>EVENT</p>
         <h3>Irish Beer Festival</h3>
         <p>
@@ -515,43 +474,97 @@ const Brands = () => (
   <section>
     <ul>
       <li>
-        <img
-          src={miller}
-          alt=""
-        />
+        <img src={miller} />
       </li>
       <li>
-        <img
-          src={hoegaarden}
-          alt=""
-        />
+        <img src={hoegaarden} />
       </li>
       <li>
-        <img
-          src={carlsberg}
-          alt=""
-        />
+        <img src={carlsberg} />
       </li>
       <li>
-        <img
-          src={budweiser}
-          alt=""
-        />
+        <img src={budweiser} />
       </li>
       <li>
-        <img
-          src={heineken}
-          alt=""
-        />
+        <img src={heineken} />
       </li>
       <li>
-        <img
-          src={corona}
-          alt=""
-        />
+        <img src={corona} />
       </li>
     </ul>
   </section>
+);
+
+const Footer = () => (
+  <footer>
+    <div>
+      <span>
+        <Logo />
+      </span>
+      <p>
+        Welcome to your favorite pub with draft and bottled beer from the best
+        local and world-famous producers.
+      </p>
+      <ul>
+        <li>
+          <X />
+        </li>
+        <li>
+          <TikTok />
+        </li>
+        <li>
+          <YouTube />
+        </li>
+        <li>
+          <Waze />
+        </li>
+      </ul>
+    </div>
+    <div>
+      <span>navigation</span>
+      <ul>
+        <li>About us</li>
+        <li>Menu</li>
+        <li>Blog</li>
+        <li>Contacts</li>
+      </ul>
+    </div>
+    <div>
+      <span>contacts</span>
+      <ul>
+        <li>
+          <Phone />
+          <span>+1 (234) 567 89 00</span>
+        </li>
+        <li>
+          <Mail />
+          <span>beerboutique@fake.email.com</span>
+        </li>
+        <li>
+          <Location />
+          <span>Somewhere in New York</span>
+        </li>
+        <li>
+          <Clock />
+          <span>4 PM — 02 AM</span>
+        </li>
+      </ul>
+    </div>
+    <div>
+      <span>newsletter</span>
+      <div>
+        <div>
+          <input
+            type="email"
+            name="email"
+            id="email"
+          />
+          <label htmlFor="email"></label>
+        </div>
+        <button>subscribe</button>
+      </div>
+    </div>
+  </footer>
 );
 
 export default Home;
