@@ -24,6 +24,10 @@ import women from "../assets/women.png";
 
 import about from "../assets/about.png";
 
+import samWhite from "../assets/sam-white.png";
+import bernardRedhead from "../assets/bernard-redhead.png";
+import group from "../assets/group.webp"
+
 const Home = () => {
   return (
     <div>
@@ -34,6 +38,7 @@ const Home = () => {
         <BeerSpecials />
         <BestOffers />
         <About />
+        <Testimonials />
       </main>
     </div>
   );
@@ -78,6 +83,7 @@ const Hero = () => (
     </video>
     <div></div>
     <div>
+      {/* TODO: component */}
       <p>Enjoy your beer!</p>
       <h1>beer boutique</h1>
       <p>The best beer comes with the best foods!</p>
@@ -388,6 +394,49 @@ const About = () => (
         src={about}
         alt=""
       />
+    </div>
+  </section>
+);
+
+const Testimonials = () => (
+  <section>
+    <div>
+      <p>Testimonials</p>
+      <h2>Our clients about us</h2>
+      <p>We're so happy to receive your feedback!</p>
+    </div>
+    <ul>
+      <li>
+        <img
+          src={samWhite}
+          alt=""
+        />
+        <h3>sam white</h3>
+        <p>
+          This place is definitely worth visiting and making friends there. I
+          don't know how you do it, but it is a strange combination of a posh
+          place for beer snobs and a local pub at the same time. It's so weird
+          that it works. Love it!
+        </p>
+        <span>May 28, 2022</span>
+      </li>
+      <li>
+        <img
+          src={bernardRedhead}
+          alt=""
+        />
+        <h3>Bernard Redhead</h3>
+        <p>
+          I am definitely a beer person, and my girlfriend loves cider offered
+          at Beer Boutique as well. We love to taste different craft beer
+          varieties on Sundays here. Besides, the concerts there are amazing.
+          Rock it on!
+        </p>
+        <span>March 15, 2022</span>
+      </li>
+    </ul>
+    <div>
+      <img src={group} alt=""/>
     </div>
   </section>
 );
