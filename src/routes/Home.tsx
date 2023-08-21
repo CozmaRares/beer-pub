@@ -17,6 +17,11 @@ import IPA from "../assets/IPA.png";
 import lagerBeer from "../assets/lager-beer.png";
 import bitter from "../assets/bitter.png";
 
+import fries from "../assets/fries.png";
+import beerMug from "../assets/beer-mug.png";
+import hamburgerCut from "../assets/hamburger-cut.png";
+import women from "../assets/women.png";
+
 const App = () => {
   return (
     <div>
@@ -25,6 +30,7 @@ const App = () => {
         <Hero />
         <Menu />
         <BeerSpecials />
+        <BestOffers />
       </main>
     </div>
   );
@@ -261,6 +267,98 @@ const BeerSpecials = () => (
         </div>
       </li>
     </ul>
+  </section>
+);
+
+const BestOffers = () => (
+  <section>
+    <div>
+      <p>Top choice</p>
+      <h2>our best offers</h2>
+      <p>Enjoy your meal at Beer Boutique!</p>
+    </div>
+    <ul>
+      <li>
+        <img
+          src={fries}
+          alt=""
+        />
+      </li>
+      <li>
+        <img
+          src={beerMug}
+          alt=""
+        />
+      </li>
+      <li>
+        <img
+          src={hamburgerCut}
+          alt=""
+        />
+      </li>
+      <li>
+        <img
+          src={women}
+          alt=""
+        />
+      </li>
+    </ul>
+    <div>
+      {/* TODO: generalize list*/}
+      <ul>
+        <li>
+          <h3>Spicy Nachos</h3>
+          <span>15</span>
+          <p>
+            Cheddar cheese, jalapenos, queso fresco, sour cream, salsa,
+            guacamole, beer cheese sauce + 3 sauces on your choice
+          </p>
+        </li>
+        <li>
+          <h3>Fish & Chips</h3>
+          <span>12</span>
+          <p>
+            Our iconic dish paired with any draft or bottled beer: ale battered
+            cod, coleslaw, French fries, and tartar sauce
+          </p>
+        </li>
+        <li>
+          <h3>Chicken Wrap</h3>
+          <span>18</span>
+          <p>
+            Grilled chicken, honey bacon, tomato, fresh cucumber, lettuce,
+            avocado, village sauce, and a whole-wheat wrap
+          </p>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <h3>Fried Calamary</h3>
+          <span>12</span>
+          <p>
+            Another iconic snack paired with beer: fried calamari served with
+            spicy tartar sauce and dill aioli
+          </p>
+        </li>
+        <li>
+          <h3>Beer Boutique Pizza</h3>
+          <span>18</span>
+          <p>
+            Goat cheese, red onion, baby spinach, pepperoni, smoked sausages,
+            ham, and spicy beer sauce
+          </p>
+        </li>
+        <li>
+          <h3>Classic Burger</h3>
+          <span>14</span>
+          <p>
+            Beef, tomato, pickle, lettuce, cucumber, cheddar cheese, bacon,
+            ketchup, and American mustard
+          </p>
+        </li>
+      </ul>
+    </div>
+    <a href="">watch all menu</a>
   </section>
 );
 
