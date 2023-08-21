@@ -32,6 +32,13 @@ import waiter from "../assets/waiter.png";
 import counter from "../assets/counter.png";
 import irish from "../assets/irish.png";
 
+import miller from "../assets/miller.svg";
+import hoegaarden from "../assets/hoegaarden.svg";
+import carlsberg from "../assets/carlsberg.svg";
+import budweiser from "../assets/budweiser.svg";
+import heineken from "../assets/heineken.svg";
+import corona from "../assets/corona.svg";
+
 const Home = () => {
   return (
     <div>
@@ -44,6 +51,7 @@ const Home = () => {
         <About />
         <Testimonials />
         <Blog />
+        <Brands />
       </main>
     </div>
   );
@@ -498,6 +506,49 @@ const Blog = () => (
           ales especially for our guests at the festival.
         </p>
         <a href=""></a>
+      </li>
+    </ul>
+  </section>
+);
+
+const Brands = () => (
+  <section>
+    <ul>
+      <li>
+        <img
+          src={miller}
+          alt=""
+        />
+      </li>
+      <li>
+        <img
+          src={hoegaarden}
+          alt=""
+        />
+      </li>
+      <li>
+        <img
+          src={carlsberg}
+          alt=""
+        />
+      </li>
+      <li>
+        <img
+          src={budweiser}
+          alt=""
+        />
+      </li>
+      <li>
+        <img
+          src={heineken}
+          alt=""
+        />
+      </li>
+      <li>
+        <img
+          src={corona}
+          alt=""
+        />
       </li>
     </ul>
   </section>
