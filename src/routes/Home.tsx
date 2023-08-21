@@ -22,7 +22,9 @@ import beerMug from "../assets/beer-mug.png";
 import hamburgerCut from "../assets/hamburger-cut.png";
 import women from "../assets/women.png";
 
-const App = () => {
+import about from "../assets/about.png";
+
+const Home = () => {
   return (
     <div>
       <NavBar />
@@ -31,6 +33,7 @@ const App = () => {
         <Menu />
         <BeerSpecials />
         <BestOffers />
+        <About />
       </main>
     </div>
   );
@@ -362,4 +365,31 @@ const BestOffers = () => (
   </section>
 );
 
-export default App;
+const About = () => (
+  <section>
+    <div>
+      <p>Our story</p>
+      <h2>about beer boutique</h2>
+      <p>
+        Welcome to Beer Boutique, your favorite pub serving the best draft and
+        bottled beer.
+      </p>
+      <p>
+        We strive to promote the culture of drinking beer as something beyond a
+        football match. It is a drink with a long history and an immense depth
+        of flavor, which is why we build our menu foods around their
+        compatibility with the beers. Beer Boutique is a place to find the
+        favorite beer flavor and learn more about the drink.
+      </p>
+      <a href="">more about us</a>
+    </div>
+    <div>
+      <img
+        src={about}
+        alt=""
+      />
+    </div>
+  </section>
+);
+
+export default Home;
