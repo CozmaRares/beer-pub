@@ -26,7 +26,11 @@ import about from "../assets/about.png";
 
 import samWhite from "../assets/sam-white.png";
 import bernardRedhead from "../assets/bernard-redhead.png";
-import group from "../assets/group.webp"
+import group from "../assets/group.webp";
+
+import waiter from "../assets/waiter.png";
+import counter from "../assets/counter.png";
+import irish from "../assets/irish.png";
 
 const Home = () => {
   return (
@@ -39,6 +43,7 @@ const Home = () => {
         <BestOffers />
         <About />
         <Testimonials />
+        <Blog />
       </main>
     </div>
   );
@@ -436,8 +441,65 @@ const Testimonials = () => (
       </li>
     </ul>
     <div>
-      <img src={group} alt=""/>
+      <img
+        src={group}
+        alt=""
+      />
     </div>
+  </section>
+);
+
+const Blog = () => (
+  <section>
+    <div>
+      <p>Latest posts</p>
+      <h2>Blog & Events</h2>
+      <p>Read interesting articles about beer culture and our news.</p>
+    </div>
+    <ul>
+      <li>
+        <img
+          src={waiter}
+          alt=""
+        />
+        <p>EVENT</p>
+        <h3>Beer Tasting</h3>
+        <p>
+          Beer Boutique has always been something bigger than just a pub. We
+          often host different events and tastings with local and world-famous
+          beer producers.
+        </p>
+        <a href="">read more</a>
+      </li>
+      <li>
+        <img
+          src={counter}
+          alt=""
+        />
+        <p>BEER BLOG</p>
+        <h3>How to Find a Perfect Match?</h3>
+        <p>
+          What goes first, the food or the beer? Here is a brief guide to
+          choosing the combination of beer and snack, so that they complement
+          each other's flavor. Spoiler: no chips in this list.
+        </p>
+        <a href="">read more</a>
+      </li>
+      <li>
+        <img
+          src={irish}
+          alt=""
+        />
+        <p>EVENT</p>
+        <h3>Irish Beer Festival</h3>
+        <p>
+          Irish Beer festival is a small celebration of the Irish tradition in
+          drinking culture. Our brewmasters will introduce an exclusive line of
+          ales especially for our guests at the festival.
+        </p>
+        <a href=""></a>
+      </li>
+    </ul>
   </section>
 );
 
