@@ -3,3 +3,98 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .visually-hidden {
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap;
+  }
+
+  .slider-link {
+    position: relative;
+    padding: 0.35rem;
+  }
+
+  .slider-link::after {
+    @apply bg-mainAccent transition-[scale];
+
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 100%;
+    scale: 0 1;
+    transform-origin: right;
+  }
+
+  .slider-link:hover::after {
+    scale: 1 1;
+    transform-origin: left;
+  }
+
+  .bounded-section {
+    @apply w-page px-8 xl:px-0;
+  }
+
+  /* hamburger menu  */
+  .hamburger-button {
+    @apply grid grid-cols-[auto,30px] items-center gap-4 p-1
+         md:hidden;
+  }
+
+  .hamburger-button > div {
+    --gap: 6px;
+
+    @apply grid w-full grid-cols-1 grid-rows-3;
+
+    gap: var(--gap);
+  }
+
+  .hamburger-button .bar {
+    --height: 4px;
+    --translate: calc(var(--gap) + var(--height));
+    --rotate: 405deg;
+
+    @apply rounded-sm bg-white transition-transform;
+
+    height: var(--height);
+  }
+
+  .hamburger-button.open .bar1 {
+    transform: translateY(var(--translate)) rotate(var(--rotate));
+  }
+
+  .hamburger-button.open .bar2 {
+    transform: rotateY(90deg);
+  }
+
+  .hamburger-button.open .bar3 {
+    transform: translateY(calc(-1 * var(--translate)))
+      rotate(calc(-1 * var(--rotate)));
+  }
+
+  .hamburger-menu {
+    @apply absolute left-0 top-full flex w-full flex-col justify-between bg-zinc-900
+           md:contents;
+  }
+
+  .hamburger-menu li {
+    @apply flex h-0 w-full items-center justify-center overflow-hidden transition-[height,margin] 
+           md:h-auto md:w-auto;
+  }
+
+  .hamburger-menu.open li,
+  .hamburger-menu:focus-within li {
+    @apply h-[2em] mb-2
+  }
+
+  .hamburger-menu.open li:first-child,
+  .hamburger-menu:focus-within li:first-child {
+  }
+}
