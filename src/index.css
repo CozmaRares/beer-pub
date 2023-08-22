@@ -4,12 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :focus {
-    outline: 2px solid white;
-  }
-}
-
 @layer components {
   .visually-hidden {
     clip: rect(0 0 0 0);
@@ -55,10 +49,14 @@
          md:hidden;
   }
 
+  .hamburger-button > p {
+    @apply hidden sm:block;
+  }
+
   .hamburger-button > div {
     --gap: 6px;
 
-    @apply grid w-full grid-cols-1 grid-rows-3;
+    @apply col-start-2 grid min-h-[1em] w-full min-w-[1em] grid-cols-1 grid-rows-3;
 
     gap: var(--gap);
   }

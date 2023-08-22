@@ -33,6 +33,7 @@ import carlsberg from "../assets/carlsberg.svg";
 import budweiser from "../assets/budweiser.svg";
 import heineken from "../assets/heineken.svg";
 import corona from "../assets/corona.svg";
+import EyebrowHeading from "../components/EyebrowHeading";
 
 const Home = () => {
   return (
@@ -50,25 +51,47 @@ const Home = () => {
 };
 
 const Hero = () => (
-  <section>
+  <section className="relative isolate">
     <video
+      tabIndex={-1}
       loop
       muted
       autoPlay
+      className="pointer-events-none h-[100vmin] object-cover md:w-full"
     >
       <source
         src={heroBG}
         type="video/mp4"
       />
     </video>
-    <div></div>
-    <div>
-      {/* TODO: component */}
-      <p>Enjoy your beer!</p>
-      <h1>beer boutique</h1>
-      <p>The best beer comes with the best foods!</p>
-      <a>reserve a table</a>
-    </div>
+    <div className="absolute bottom-0 left-0 right-0 top-0 bg-black/50"></div>
+    <EyebrowHeading
+      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center md:left-3/4"
+      eyebrow={{ content: "Enjoy your beer!", className: "text-white" }}
+      heading={
+        <h1 className="font-teko text-2xl uppercase text-mainAccent sm:text-5xl md:text-7xl lg:text-8xl">
+          Beer Boutique
+        </h1>
+      }
+      description={
+        <div className="mt-1 space-y-3 text-xs font-bold sm:mt-4 sm:text-base md:text-lg lg:text-2xl">
+          <p>
+            <span className="md:block">
+              The <span className="text-mainAccent">best beer</span> comes
+            </span>{" "}
+            <span className="md:block">
+              with the <span className="text-mainAccent">best foods</span>!
+            </span>
+          </p>
+          <a
+            className="block w-full rounded-md bg-mainAccent p-0.5 text-xs font-bold uppercase text-black brightness-90 transition-[filter] hover:brightness-100 sm:p-2 sm:text-base md:text-xl"
+            href="/menu"
+          >
+            see menu
+          </a>
+        </div>
+      }
+    />
   </section>
 );
 

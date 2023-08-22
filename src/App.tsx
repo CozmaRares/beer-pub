@@ -27,7 +27,7 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => (
-  <div className="bg-zinc-950 font-openSans text-white">
+  <div className="isolate bg-zinc-950 font-openSans text-white">
     <NavBar />
     <main className="space-y-8 py-8">
       <RouterProvider router={router} />
@@ -40,9 +40,9 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bounded-section relative flex flex-row items-center justify-between pt-8 text-base lg:text-lg">
+    <header className="bounded-section relative z-[1] flex flex-row items-center justify-between pt-8 text-base lg:text-lg">
       <a
-        className="max-w-[40%]"
+        className="w-full sm:w-auto sm:max-w-[40%]"
         href="/"
       >
         <img
@@ -204,7 +204,10 @@ const Footer = () => {
           </ul>
         </nav>
       </div>
-      <div className="flex-col justify-between lg:flex">
+      <div
+        className="flex-col justify-between lg:flex"
+        style={{ overflowWrap: "anywhere" }}
+      >
         <span className="mb-4 font-teko text-4xl text-white">Contacts</span>
         <ul className="contents space-y-3 opacity-80">
           {contacts.map(({ icon, text }) => (
