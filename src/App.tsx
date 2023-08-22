@@ -27,9 +27,9 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => (
-  <div className="bg-zinc-900 text-white">
+  <div className="bg-zinc-950 font-openSans text-white">
     <NavBar />
-    <main>
+    <main className="space-y-8 py-8">
       <RouterProvider router={router} />
     </main>
     <Footer />
@@ -40,8 +40,11 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bounded-section relative mx-auto flex max-w-full flex-row items-center justify-between py-4 text-base lg:text-lg">
-      <div className="w-fit md:max-w-[15%]">
+    <header className="bounded-section relative flex flex-row items-center justify-between pt-8 text-base lg:text-lg">
+      <a
+        className="max-w-[40%]"
+        href="/"
+      >
         <img
           src={logo}
           width="200px"
@@ -49,7 +52,7 @@ const NavBar = () => {
           className="max-w-full text-white"
           alt=""
         />
-      </div>
+      </a>
       <button
         className={`hamburger-button ${isOpen ? "open" : ""}`}
         onClick={() => setIsOpen(prev => !prev)}
@@ -62,33 +65,33 @@ const NavBar = () => {
         </div>
       </button>
       <nav className={`hamburger-menu ${isOpen ? "open" : ""}`}>
-        <ul className="flex flex-col font-openSans font-bold capitalize md:flex-row md:gap-8">
+        <ul className="flex flex-col font-bold md:flex-row md:gap-8">
           <li>
             <SliderLink
-              text="about us"
+              text="About Us"
               link="/about"
             />
           </li>
           <li>
             <SliderLink
-              text="menu"
+              text="Menu"
               link="/menu"
             />
           </li>
           <li>
             <SliderLink
-              text="blog"
+              text="Blog"
               link="/blog"
             />
           </li>
           <li>
             <SliderLink
-              text="contacts"
-              link="/contacts"
+              text="Contact"
+              link="/contact"
             />
           </li>
         </ul>
-        <ul className="mx-auto flex flex-row gap-3 text-mainAccent md:m-0 md:p-0">
+        <ul className="mx-auto flex flex-row gap-3 md:m-0 md:p-0">
           <li>
             <Social
               icon={<GitHub />}
@@ -116,81 +119,123 @@ const NavBar = () => {
   );
 };
 
-const Footer = () => (
-  <footer>
-    <div>
-      <img
-        src={logo}
-        alt=""
-      />
-      <p>
-        Welcome to your favorite pub with draft and bottled beer from the best
-        local and world-famous producers.
-      </p>
-      <ul>
-        <li>
-          <div className="visually-hidden">X</div>
-          <X />
-        </li>
-        <li>
-          <div className="visually-hidden">TikTok</div>
-          <TikTok />
-        </li>
-        <li>
-          <div className="visually-hidden">YouTube</div>
-          <YouTube />
-        </li>
-        <li>
-          <div className="visually-hidden">Waze</div>
-          <Waze />
-        </li>
-      </ul>
-    </div>
-    <div>
-      <span>navigation</span>
-      <ul>
-        <li>About us</li>
-        <li>Menu</li>
-        <li>Blog</li>
-        <li>Contacts</li>
-      </ul>
-    </div>
-    <div>
-      <span>contacts</span>
-      <ul>
-        <li>
-          <Phone />
-          <span>+1 (234) 567 89 00</span>
-        </li>
-        <li>
-          <Mail />
-          <span>beerboutique@fake.email.com</span>
-        </li>
-        <li>
-          <Location />
-          <span>Somewhere in New York</span>
-        </li>
-        <li>
-          <Clock />
-          <span>4 PM — 02 AM</span>
-        </li>
-      </ul>
-    </div>
-    <div>
-      <span>newsletter</span>
-      <div>
-        <div>
-          <input
-            type="email"
-            name="email"
-            id="email"
+const Footer = () => {
+  const contacts: { icon: React.ReactNode; text: string }[] = [
+    { icon: <Phone />, text: "+1 (234) 567 89 00" },
+    { icon: <Mail />, text: "beerboutique@fake.email.com" },
+    { icon: <Location />, text: "Somewhere in New York" },
+    { icon: <Clock />, text: "4 PM — 2 AM" },
+  ];
+
+  return (
+    <footer className="bounded-section flex grid-cols-[4fr,3fr,4fr,5fr] flex-col items-center gap-10 pb-8 text-center text-white/70 lg:grid lg:text-left [&>*]:space-y-4 [&>*]:lg:h-full">
+      <div className="flex w-fit flex-col items-center lg:items-start lg:justify-between">
+        <a href="/">
+          <img
+            src={logo}
+            alt=""
+            width="200px"
+            height="auto"
           />
-          <label htmlFor="email"></label>
-        </div>
-        <button>subscribe</button>
+        </a>
+        <p className="w-2/3 md:w-1/2 lg:w-4/5">
+          Welcome to your favorite pub with draft and bottled beer from the best
+          local and world-famous producers.
+        </p>
+        <ul className="flex flex-row gap-3">
+          <li>
+            <Social
+              icon={<X />}
+              name="X"
+              link="#"
+            />
+          </li>
+          <li>
+            <Social
+              icon={<TikTok />}
+              name="TikTok"
+              link="#"
+            />
+          </li>
+          <li>
+            <Social
+              icon={<YouTube />}
+              name="YouTube"
+              link="#"
+            />
+          </li>
+          <li>
+            <Social
+              icon={<Waze />}
+              name="Waze"
+              link="#"
+            />
+          </li>
+        </ul>
       </div>
-    </div>
-  </footer>
-);
+      <div>
+        <span className="mb-4 font-teko text-4xl text-white">Navigation</span>
+        <nav>
+          <ul className="space-y-3 font-bold opacity-70 ">
+            <li>
+              <SliderLink
+                text="About Us"
+                link="/about"
+              />
+            </li>
+            <li>
+              <SliderLink
+                text="Menu"
+                link="/menu"
+              />
+            </li>
+            <li>
+              <SliderLink
+                text="Blog"
+                link="/blog"
+              />
+            </li>
+            <li>
+              <SliderLink
+                text="Contact"
+                link="/contact"
+              />
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div className="flex-col justify-between lg:flex">
+        <span className="mb-4 font-teko text-4xl text-white">Contacts</span>
+        <ul className="contents space-y-3 opacity-80">
+          {contacts.map(({ icon, text }) => (
+            <li className="flex flex-row items-center justify-center gap-3 lg:justify-start">
+              <span className="text-mainAccent">{icon}</span>
+              <span>{text}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div className="w-full md:w-2/3 lg:w-full">
+        <span className="mb-4 font-teko text-4xl text-white">Newsletter</span>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          placeholder="Email Address"
+          className="mt-auto block w-full rounded-md bg-zinc-800 p-3 text-center"
+        />
+        <label
+          htmlFor="email"
+          className="visually-hidden"
+        >
+          Email Address
+        </label>
+        <button className="w-full rounded-md border border-mainAccent p-3 font-bold uppercase text-white transition-colors hover:bg-mainAccent hover:text-black">
+          subscribe
+        </button>
+      </div>
+    </footer>
+  );
+};
 
 export default App;

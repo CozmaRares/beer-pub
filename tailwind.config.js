@@ -11,9 +11,9 @@ export default {
         shadows: ["Shadows Into Light Two", "cursive"],
         teko: ["Teko", "sans-serif"],
       },
-      width:{
-        page:"1200px"
-      }
+      width: {
+        page: "1200px",
+      },
     },
   },
   plugins: [],

@@ -8,7 +8,7 @@ const Social: React.FC<{
 }> = ({ icon, name, link, className }) => (
   <a
     className={tw(
-      "flex aspect-square w-[2em] cursor-pointer items-center justify-center rounded-[3px] border border-mainAccent transition-colors hover:bg-mainAccent hover:text-black",
+      "flex aspect-square w-[2em] cursor-pointer items-center justify-center rounded-[3px] border border-mainAccent text-mainAccent -outline-offset-[3px] transition-colors hover:bg-mainAccent hover:text-black",
       className,
     )}
     href={link}

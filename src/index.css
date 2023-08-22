@@ -4,6 +4,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :focus {
+    outline: 2px solid white;
+  }
+}
+
 @layer components {
   .visually-hidden {
     clip: rect(0 0 0 0);
@@ -18,6 +24,7 @@
   .slider-link {
     position: relative;
     padding: 0.35rem;
+    outline-offset: 3px;
   }
 
   .slider-link::after {
@@ -39,7 +46,7 @@
   }
 
   .bounded-section {
-    @apply w-page px-8 xl:px-0;
+    @apply mx-auto w-page max-w-full px-8 xl:px-0;
   }
 
   /* hamburger menu  */
@@ -80,21 +87,17 @@
   }
 
   .hamburger-menu {
-    @apply absolute left-0 top-full flex w-full flex-col justify-between bg-zinc-900
+    @apply pointer-events-none absolute -top-[10px] left-0 flex  w-full flex-col justify-between bg-zinc-950 pb-4 opacity-0 transition-[top,opacity]
            md:contents;
   }
 
   .hamburger-menu li {
-    @apply flex h-0 w-full items-center justify-center overflow-hidden transition-[height,margin] 
-           md:h-auto md:w-auto;
+    @apply flex w-full items-center justify-center transition-[height,margin]
+           md:w-auto;
   }
 
-  .hamburger-menu.open li,
-  .hamburger-menu:focus-within li {
-    @apply h-[2em] mb-2
-  }
-
-  .hamburger-menu.open li:first-child,
-  .hamburger-menu:focus-within li:first-child {
+  .hamburger-menu.open,
+  .hamburger-menu:focus-within {
+    @apply pointer-events-auto top-full opacity-100;
   }
 }
