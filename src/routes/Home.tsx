@@ -35,6 +35,7 @@ import heineken from "../assets/heineken.svg";
 import corona from "../assets/corona.svg";
 import EyebrowHeading from "../components/EyebrowHeading";
 import ButtonSkeleton from "../components/ButtonSkeleton";
+import HorizontalList from "../components/HorizontalList";
 
 const Home = () => {
   return (
@@ -146,7 +147,7 @@ const Menu = () => {
   ];
 
   return (
-    <section className="bounded-section space-y-16">
+    <section className="bounded-section">
       <EyebrowHeading
         eyebrow={{ content: "Menu" }}
         heading={{ content: "Explore our menu" }}
@@ -243,69 +244,93 @@ const Menu = () => {
   );
 };
 
-const BeerSpecials = () => (
-  <section>
-    <div>
-      <p>Bottled beer</p>
-      <h2>bottled beer specials</h2>
-      <p>
-        Appreciate the taste of craft bottled beer from the best producers.{" "}
-      </p>
+const BeerSpecials = () => {
+  type mata = {
+    img: string;
+    title: string;
+    description: string;
+    abv: number;
+    ibu: number;
+    taste: string;
+  };
+  const items: mata[] = [
+    {
+      img: IPA,
+      title: "IPA",
+      description:
+        "Ideal for those who prefer strong and bitter beer with rich aroma.",
+      abv: 8,
+      ibu: 80,
+      taste: "Very bitter, hoppy, with grainy notes.",
+    },
+    {
+      img: lagerBeer,
+      title: "Lager Beer",
+      description:
+        "This classic bottled beer features a wheat aroma and mild taste.",
+      abv: 4.2,
+      ibu: 12,
+      taste: "Light, mild, with very little bitterness.",
+    },
+    {
+      img: bitter,
+      title: "Bitter",
+      description:
+        '"England\'s favorite beer" is a great choice for those who like dark varieties of beer.',
+      abv: 4.6,
+      ibu: 40,
+      taste: "Bitter, malty, with a slight aftertaste of toasts.",
+    },
+  ];
+
+  const Item: React.FC<mata> = ({
+    img,
+    title,
+    description,
+    abv,
+    ibu,
+    taste,
+  }) => (
+    <div className="flex flex-col items-center justify-center gap-4 toMd:flex-row toMd:px-16 ">
+      <div className="">
+        <img
+          src={img}
+          className="max-h-[200px] toMd:max-h-[400px]"
+          draggable="false"
+        />
+      </div>
+      <div className="w-2/3 space-y-4 py-8">
+        <h3 className="font-teko text-6xl font-bold capitalize">{title}</h3>
+        <p className="text-lg opacity-60">{description}</p>
+        <p>
+          <span className="mt-4 block">ABV - {abv}%</span>
+          <span className="block">IBU - {ibu}%</span>
+          <span className="mt-4 block">{taste}</span>
+        </p>
+      </div>
     </div>
-    {/* TODO: horizontal infinite scroll*/}
-    <ul>
-      <li>
-        <div>
-          <img src={IPA} />
-        </div>
-        <div>
-          <h3>ipa</h3>
-          <p>
-            Ideal for those who prefer strong and bitter beer with rich aroma.
-          </p>
-          <p>
-            <span>ABV - 8%</span>
-            <span>IBU - 80%</span>
-            <span>Very bitter, hoppy, with grainy notes.</span>
-          </p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <img src={lagerBeer} />
-        </div>
-        <div>
-          <h3>lager beer</h3>
-          <p>
-            This classic bottled beer features a wheat aroma and mild taste.
-          </p>
-          <p>
-            <span>ABV - 4.2%</span>
-            <span>IBU - 12%</span>
-            <span>Light, mild, with very little bitterness.</span>
-          </p>
-        </div>
-      </li>
-      <li>
-        <div>
-          <img src={bitter} />
-        </div>
-        <div>
-          <h3>bitter</h3>
-          <p>
-            "England's favorite beer" is a great choice for those who like dark
-            varieties of beer.
-          </p>
-          <p>
-            <span>ABV - 4.6%</span>
-            <span>IBU - 40%</span>
-            <span>Bitter, malty, with a slight aftertaste of toasts.</span>
-          </p>
-        </div>
-      </li>
-    </ul>
-  </section>
-);
+  );
+
+  return (
+    <section className="bounded-section">
+      <EyebrowHeading
+        className="text-center"
+        eyebrow={{ content: "Bottled beer" }}
+        heading={{ content: "Bottled Beer Specials" }}
+        description={{
+          content:
+            "Appreciate the taste of craft bottled beer from the best producers.",
+        }}
+      />
+      <HorizontalList
+        listName="bottled-beers"
+        fc={Item}
+        items={items}
+        scrollDuration={500}
+      />
+    </section>
+  );
+};
 
 const BestOffers = () => (
   <section>

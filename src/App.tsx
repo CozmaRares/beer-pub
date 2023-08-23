@@ -59,7 +59,7 @@ const NavBar = () => {
         onClick={() => setIsOpen(prev => !prev)}
       >
         <p>{isOpen ? "Close" : "Open"} Menu</p>
-        <div aria-hidden="true">
+        <div aria-hidden>
           <div className="bar bar1" />
           <div className="bar bar2" />
           <div className="bar bar3" />
