@@ -17,6 +17,7 @@ import Clock from "./svg/Clock";
 import Social from "./components/Social";
 import SliderLink from "./components/SliderLink";
 import { useState } from "react";
+import ButtonSkeleton from "./components/ButtonSkeleton";
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,7 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => (
-  <div className="isolate bg-zinc-950 font-openSans text-white">
+  <div className="isolate bg-neutral-900 font-openSans text-white">
     <NavBar />
     <main className="space-y-8 py-8">
       <RouterProvider router={router} />
@@ -49,7 +50,7 @@ const NavBar = () => {
           src={logo}
           width="200px"
           height="auto"
-          className="max-w-full text-white"
+          className="max-w-full"
           alt=""
         />
       </a>
@@ -210,9 +211,12 @@ const Footer = () => {
       >
         <span className="mb-4 font-teko text-4xl text-white">Contacts</span>
         <ul className="contents space-y-3 opacity-80">
-          {contacts.map(({ icon, text }) => (
-            <li className="flex flex-row items-center justify-center gap-3 lg:justify-start">
-              <span className="text-mainAccent">{icon}</span>
+          {contacts.map(({ icon, text }, idx) => (
+            <li
+              key={idx}
+              className="flex flex-row items-center justify-center gap-3 lg:justify-start"
+            >
+              <span className="text-accent">{icon}</span>
               <span>{text}</span>
             </li>
           ))}
@@ -233,8 +237,8 @@ const Footer = () => {
         >
           Email Address
         </label>
-        <button className="w-full rounded-md border border-mainAccent p-3 font-bold uppercase text-white transition-colors hover:bg-mainAccent hover:text-black">
-          subscribe
+        <button className="w-full ">
+          <ButtonSkeleton>subscribe</ButtonSkeleton>
         </button>
       </div>
     </footer>

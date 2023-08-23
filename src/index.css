@@ -18,11 +18,10 @@
   .slider-link {
     position: relative;
     padding: 0.35rem;
-    outline-offset: 3px;
   }
 
   .slider-link::after {
-    @apply bg-mainAccent transition-[scale];
+    @apply bg-accent transition-[scale];
 
     content: "";
     position: absolute;
@@ -40,7 +39,7 @@
   }
 
   .bounded-section {
-    @apply mx-auto w-page max-w-full px-8 xl:px-0;
+    @apply mx-auto w-page max-w-full px-2 sm:px-8 xl:px-0;
   }
 
   /* hamburger menu  */
@@ -85,7 +84,7 @@
   }
 
   .hamburger-menu {
-    @apply pointer-events-none absolute -top-[10px] left-0 flex  w-full flex-col justify-between bg-zinc-950 pb-4 opacity-0 transition-[top,opacity]
+    @apply pointer-events-none absolute -top-[10px] left-0 flex w-full flex-col justify-between bg-neutral-900 pb-4 opacity-0 transition-[top,opacity]
            md:contents;
   }
 

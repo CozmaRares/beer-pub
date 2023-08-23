@@ -5,9 +5,10 @@ export default {
     extend: {
       screens: {
         sm: "300px",
+        toMd: "500px",
       },
       colors: {
-        mainAccent: "#FFC123",
+        accent: "#FFC123",
       },
       fontFamily: {
         openSans: ["Open Sans", "sans-serif"],

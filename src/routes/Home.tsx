@@ -3,10 +3,10 @@ import beer from "../assets/beer.png";
 import hamburger from "../assets/hamburger.png";
 import pretzels from "../assets/pretzels.png";
 
-import BeerBottle from "../svg/BeerBottle";
-import BeerGlass from "../svg/BeerGlass";
-import Sandwich from "../svg/Sandwich";
-import Cocktail from "../svg/Cocktail";
+import beerBottle from "../assets/beer-bottle.svg";
+import beerGlass from "../assets/beer-glass.svg";
+import sandwich from "../assets/sandwich.svg";
+import cocktail from "../assets/cocktail.svg";
 
 import IPA from "../assets/IPA.png";
 import lagerBeer from "../assets/lager-beer.png";
@@ -34,6 +34,7 @@ import budweiser from "../assets/budweiser.svg";
 import heineken from "../assets/heineken.svg";
 import corona from "../assets/corona.svg";
 import EyebrowHeading from "../components/EyebrowHeading";
+import ButtonSkeleton from "../components/ButtonSkeleton";
 
 const Home = () => {
   return (
@@ -69,7 +70,7 @@ const Hero = () => (
       className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center md:left-3/4"
       eyebrow={{ content: "Enjoy your beer!", className: "text-white" }}
       heading={
-        <h1 className="font-teko text-2xl uppercase text-mainAccent sm:text-5xl md:text-7xl lg:text-8xl">
+        <h1 className="font-teko text-2xl uppercase text-accent sm:text-5xl md:text-7xl lg:text-8xl">
           Beer Boutique
         </h1>
       }
@@ -77,17 +78,17 @@ const Hero = () => (
         <div className="mt-1 space-y-3 text-xs font-bold sm:mt-4 sm:text-base md:text-lg lg:text-2xl">
           <p>
             <span className="md:block">
-              The <span className="text-mainAccent">best beer</span> comes
+              The <span className="text-accent">best beer</span> comes
             </span>{" "}
             <span className="md:block">
-              with the <span className="text-mainAccent">best foods</span>!
+              with the <span className="text-accent">best foods</span>!
             </span>
           </p>
           <a
-            className="block w-full rounded-md bg-mainAccent p-0.5 text-xs font-bold uppercase text-black brightness-90 transition-[filter] hover:brightness-100 sm:p-2 sm:text-base md:text-xl"
+            className="block w-full rounded-md bg-accent p-0.5 text-xs font-bold uppercase text-black transition-colors hover:bg-orange-500 sm:p-2 sm:text-base md:text-xl"
             href="/menu"
           >
-            see menu
+            See Menu
           </a>
         </div>
       }
@@ -95,110 +96,152 @@ const Hero = () => (
   </section>
 );
 
-const Menu = () => (
-  <section>
-    <div>
-      <p>menu</p>
-      <h2>explore our menu</h2>
-      <p>See what we have to offer</p>
-    </div>
-    <ul>
-      <li>
-        <img src={beer} />
-        <div>
-          <h3>beer menu</h3>
-          <div>
-            <p>
-              We are proud to introduce our collection of crafted beers. Try our
-              special recipes of beers and ciders separately or in a beer
-              flight. If you’re not much into beer, order some wine, a spirit,
-              or a cocktail. We also have a broad selection of soft drinks.
+const Menu = () => {
+  const menuCards: { img: string; title: string; description: string }[] = [
+    {
+      img: beer,
+      title: "Beer Menu",
+      description:
+        "We are proud to introduce our collection of crafted beers. Try our special recipes of beers and ciders separately or in a beer flight. If you’re not much into beer, order some wine, a spirit, or a cocktail. We also have a broad selection of soft drinks.",
+    },
+    {
+      img: hamburger,
+      title: "Food Menu",
+      description:
+        "We adjust our menu to any tastes and needs. Apart from an impressive grill menu, we have vegetarian and gluten-free options. Try a single meal or share a plate with the company. Also, ask a waiter about the best gastronomic match for your drink.",
+    },
+    {
+      img: pretzels,
+      title: "Happy Hour",
+      description:
+        "This is a special offer available from 3 to 5 p.m. Check the Happy Hour menu online or ask a waiter about the special offer, so you can save your money and enjoy a delicious meal. Hours may change from time to time, so make sure to join our newsletter.",
+    },
+  ];
+
+  const menuItems: { img: string; title: string; description: string }[] = [
+    {
+      img: beerBottle,
+      title: "Bottled Beer",
+      description:
+        "We sell craft bottled beer from the best local and foreign producers.",
+    },
+    {
+      img: sandwich,
+      title: "Snacks",
+      description:
+        "Explore the fresh dishes in our menu that will complement your drink.",
+    },
+    {
+      img: beerGlass,
+      title: "Beer On Tap",
+      description:
+        "Our waiters will gladly tell you about the draft craft beer available today.",
+    },
+    {
+      img: cocktail,
+      title: "Cocktails",
+      description:
+        "Enjoy your favorite cocktails, from classic long drinks to exotic mixes.",
+    },
+  ];
+
+  return (
+    <section className="bounded-section space-y-16">
+      <EyebrowHeading
+        eyebrow={{ content: "Menu" }}
+        heading={{ content: "Explore our menu" }}
+        description={{ content: "See what we offer" }}
+        className="text-center"
+      />
+      <ul className="flex flex-col flex-wrap items-center justify-center gap-4 md:flex-row lg:flex-nowrap">
+        {menuCards.map(({ img, title, description }) => (
+          // TODO: fix scroll on small screens
+          <li
+            key={title}
+            className="group relative isolate flex aspect-[4/5] w-full flex-col justify-center rounded-lg p-2 text-center sm:gap-3 md:w-2/5 md:px-8"
+            style={{
+              background: `url(${img})`,
+              backgroundSize: "cover",
+              resize: "both",
+              overflowY: "auto",
+            }}
+          >
+            <div className="absolute left-0 right-0 top-0 -z-[1] h-full bg-black opacity-60  transition-opacity lg:opacity-0 lg:group-hover:opacity-60"></div>
+            <h3 className="z-[1] font-teko text-3xl uppercase md:text-4xl lg:text-5xl">
+              {title}
+            </h3>
+            <p className="mx-auto transition-opacity toMd:w-4/5 md:w-full lg:opacity-0 lg:group-hover:opacity-100">
+              {description}
             </p>
-            <a href="">watch full menu</a>
-          </div>
-        </div>
-      </li>
-      <li>
-        <img src={hamburger} />
-        <div>
-          <h3>food menu</h3>
-          <div>
-            <p>
-              We adjust our menu to any tastes and needs. Apart from an
-              impressive grill menu, we have vegetarian and gluten-free options.
-              Try a single meal or share a plate with the company. Also, ask a
-              waiter about the best gastronomic match for your drink.
-            </p>
-            <a href="">watch full menu</a>
-          </div>
-        </div>
-      </li>
-      <li>
-        <img src={pretzels} />
-        <div>
-          <h3>happy hour</h3>
-          <div>
-            <p>
-              This is a special offer available from 3 to 5 p.m. Check the Happy
-              Hour menu online or ask a waiter about the special offer, so you
-              can save your money and enjoy a delicious meal. Hours may change
-              from time to time, so make sure to subscribe.
-            </p>
-            <a href="">watch full menu</a>
-          </div>
-        </div>
-      </li>
-    </ul>
-    <div>
-      <div>
-        <p>What we offer</p>
-        <h2>cold beer and tasty snacks</h2>
-        <p>We offer a simple and tasty menu for true beer connoisseurs. </p>
-        <a href="">learn more</a>
-      </div>
-      <ul>
-        <li>
-          <BeerBottle />
-          <h3>bottled beer</h3>
-          <p>
-            We sell craft bottled beer from the best local and foreign
-            producers.
-          </p>
-        </li>
-        <li>
-          <Sandwich />
-          <h3>snacks</h3>
-          <p>
-            Explore the fresh dishes in our menu that will complement your
-            drink.
-          </p>
-        </li>
-        <li>
-          <BeerGlass />
-          <h3>beer on tap</h3>
-          <p>
-            Our waiters will gladly tell you about the draft craft beer
-            available today.
-          </p>
-        </li>
-        <li>
-          <Cocktail />
-          <h3>cocktails</h3>
-          <p>
-            Enjoy your favorite cocktails, from classic long drinks to exotic
-            mixes.
-          </p>
-        </li>
+            <a
+              href="/menu"
+              className="font-teko text-lg font-bold uppercase text-accent transition-opacity md:text-xl lg:text-2xl lg:opacity-0 lg:group-hover:opacity-100"
+            >
+              See full menu
+            </a>
+          </li>
+        ))}
       </ul>
-    </div>
-    <div>
-      <p>-30% every Friday</p>
-      <h2>friday deal</h2>
-      <p>Get a 30% discount on the food menu every Friday!</p>
-      <a href="">learn more</a>
-    </div>
-  </section>
-);
+      <div className="grid grid-cols-1 gap-12 lg:grid-cols-[2fr,5fr]">
+        <EyebrowHeading
+          className="space-y-4"
+          eyebrow={{ content: "What we offer" }}
+          heading={{ content: "Cold Beer And Tasty Snacks" }}
+          description={
+            <>
+              <p>
+                We offer a simple and tasty menu for true beer connoisseurs.
+              </p>
+              <a
+                href="/menu"
+                className="block w-fit"
+              >
+                <ButtonSkeleton>Learn more</ButtonSkeleton>
+              </a>
+            </>
+          }
+        />
+        <ul className="grid items-center gap-y-8 text-center sm:grid-cols-[minmax(100px,1fr),4fr] sm:text-left md:grid-cols-[minmax(180px,1fr),4fr,minmax(180px,1fr),4fr]">
+          {menuItems.map(({ img, title, description }) => (
+            <li
+              key={title}
+              className="contents"
+            >
+              <img
+                src={img}
+                className="mx-auto w-1/2 sm:h-full sm:max-w-full"
+                alt=""
+              />
+              <div>
+                <h3 className="font-teko text-3xl uppercase sm:text-2xl md:text-4xl">
+                  {title}
+                </h3>
+                <p className="opacity-70">{description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <EyebrowHeading
+        className="space-y-4 bg-accent py-8 text-center text-black md:py-16"
+        eyebrow={{ content: "-30% every Friday", className: "text-black" }}
+        heading={{ content: "friday deal" }}
+        description={
+          <>
+            <p>Get a 30% discount on the food menu every Friday!</p>
+
+            <a
+              href="/menu"
+              className="mx-auto block w-fit rounded-md bg-black p-2 text-xs font-bold uppercase text-white transition-colors hover:bg-neutral-800 hover:text-accent sm:p-4 sm:text-base md:text-xl"
+            >
+              Learn more
+            </a>
+          </>
+        }
+      />
+    </section>
+  );
+};
 
 const BeerSpecials = () => (
   <section>
