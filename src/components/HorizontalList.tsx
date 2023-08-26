@@ -5,12 +5,12 @@ import CaretRight from "../svg/CaretRight";
 
 export default function HorizontalList<T>({
   listName,
-  fc,
+  component,
   items,
   scrollDuration,
 }: {
   listName: string;
-  fc: React.FC<T>;
+  component: React.FC<T>;
   items: T[];
   scrollDuration: number;
 }) {
@@ -41,27 +41,22 @@ export default function HorizontalList<T>({
   const onMouseDown: MouseEventHandler<HTMLDivElement> = e => {
     didClick.current = true;
     mouseX.current = e.pageX;
-    console.log(e.pageX);
   };
   const onMouseUp = () => (didClick.current = false);
+  const onMouseOut = onMouseUp;
   const onMouseMove: MouseEventHandler<HTMLDivElement> = async e => {
     if (!didClick.current || isScrolling.current) return;
-    console.log(e.pageX);
 
     const diff = mouseX.current - e.pageX;
-    if (Math.abs(diff) > 100) {
+    if (Math.abs(diff) > 50) {
       mouseX.current = e.pageX;
       handleScroll(Math.sign(diff));
     }
   };
-  const onMouseOut = () => {
-    console.log("mata");
-    onMouseUp();
-  };
 
   return (
     <div
-      className="horizontal-list-container relative isolate"
+      className="horizontal-list-container"
       ref={containerRef}
     >
       <button
@@ -79,7 +74,7 @@ export default function HorizontalList<T>({
         <CaretRight />
       </button>
       <div
-        className="w-full overflow-hidden"
+        className="overflow-hidden"
         onMouseUp={onMouseUp}
         onMouseDown={onMouseDown}
         onMouseMove={onMouseMove}
@@ -98,27 +93,20 @@ export default function HorizontalList<T>({
           {items.map((item, idx) => (
             <li
               key={`${listName}-list-1-${idx}`}
-              className=""
               aria-hidden
             >
-              {fc(item)}
+              {component(item)}
             </li>
           ))}
           {items.map((item, idx) => (
-            <li
-              key={`${listName}-list-2-${idx}`}
-              className=""
-            >
-              {fc(item)}
-            </li>
+            <li key={`${listName}-list-2-${idx}`}>{component(item)}</li>
           ))}
           {items.map((item, idx) => (
             <li
               key={`${listName}-list-3-${idx}`}
-              className=""
               aria-hidden
             >
-              {fc(item)}
+              {component(item)}
             </li>
           ))}
         </ul>

@@ -43,7 +43,12 @@
   }
 
   section.bounded-section {
-    @apply space-y-16;
+    @apply space-y-8;
+  }
+
+  /* horizontal scroll list */
+  .horizontal-list-container {
+    @apply relative isolate;
   }
 
   .horizontal-list {

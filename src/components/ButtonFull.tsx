@@ -1,12 +1,12 @@
 import { twMerge as tw } from "tailwind-merge";
 
-const ButtonSkeleton: React.FC<{
+const ButtonFull: React.FC<{
   children: React.ReactNode;
   className?: string;
 }> = ({ children, className }) => (
   <span
     className={tw(
-      "block rounded-md border border-accent p-3 font-bold uppercase text-accent transition-colors hover:bg-accent hover:text-black",
+      "block rounded-md bg-accent p-2 text-center font-bold uppercase text-black transition-colors hover:bg-orange-500",
       className,
     )}
   >
@@ -14,4 +14,4 @@ const ButtonSkeleton: React.FC<{
   </span>
 );
 
-export default ButtonSkeleton;
+export default ButtonFull;

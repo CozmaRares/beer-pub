@@ -1,6 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./routes/Home";
 import Error from "./routes/Error";
+import Social from "./components/Social";
+import SliderLink from "./components/SliderLink";
+import { useState } from "react";
+import ButtonSkeleton from "./components/ButtonSkeleton";
 
 import Facebook from "./svg/logos/Facebook";
 import GitHub from "./svg/logos/GitHub";
@@ -14,10 +18,6 @@ import Phone from "./svg/Phone";
 import Mail from "./svg/Mail";
 import Location from "./svg/Location";
 import Clock from "./svg/Clock";
-import Social from "./components/Social";
-import SliderLink from "./components/SliderLink";
-import { useState } from "react";
-import ButtonSkeleton from "./components/ButtonSkeleton";
 
 const router = createBrowserRouter([
   {
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
 const App = () => (
   <div className="isolate bg-neutral-900 font-openSans text-white">
     <NavBar />
-    <main className="space-y-8 py-8">
+    <main className="space-y-8 py-8 sm:space-y-16">
       <RouterProvider router={router} />
     </main>
     <Footer />
@@ -177,7 +177,7 @@ const Footer = () => {
       <div>
         <span className="mb-4 font-teko text-4xl text-white">Navigation</span>
         <nav>
-          <ul className="space-y-3 font-bold opacity-70 ">
+          <ul className="space-y-3 font-bold text-gray-400">
             <li>
               <SliderLink
                 text="About Us"
@@ -210,7 +210,7 @@ const Footer = () => {
         style={{ overflowWrap: "anywhere" }}
       >
         <span className="mb-4 font-teko text-4xl text-white">Contacts</span>
-        <ul className="contents space-y-3 opacity-80">
+        <ul className="contents space-y-3 text-gray-400">
           {contacts.map(({ icon, text }, idx) => (
             <li
               key={idx}

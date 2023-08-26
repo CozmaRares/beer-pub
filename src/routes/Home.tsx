@@ -1,3 +1,9 @@
+import EyebrowHeading from "../components/EyebrowHeading";
+import ButtonSkeleton from "../components/ButtonSkeleton";
+import HorizontalList from "../components/HorizontalList";
+import InferProps from "../utils/InferProps";
+import MenuList from "../components/MenuItem";
+
 import heroBG from "../assets/background.mp4";
 import beer from "../assets/beer.png";
 import hamburger from "../assets/hamburger.png";
@@ -33,9 +39,7 @@ import carlsberg from "../assets/carlsberg.svg";
 import budweiser from "../assets/budweiser.svg";
 import heineken from "../assets/heineken.svg";
 import corona from "../assets/corona.svg";
-import EyebrowHeading from "../components/EyebrowHeading";
-import ButtonSkeleton from "../components/ButtonSkeleton";
-import HorizontalList from "../components/HorizontalList";
+import ButtonFull from "../components/ButtonFull";
 
 const Home = () => {
   return (
@@ -86,10 +90,10 @@ const Hero = () => (
             </span>
           </p>
           <a
-            className="block w-full rounded-md bg-accent p-0.5 text-xs font-bold uppercase text-black transition-colors hover:bg-orange-500 sm:p-2 sm:text-base md:text-xl"
+            className="block text-xs sm:text-base md:text-xl"
             href="/menu"
           >
-            See Menu
+            <ButtonFull>See Menu</ButtonFull>
           </a>
         </div>
       }
@@ -159,7 +163,7 @@ const Menu = () => {
           // TODO: fix scroll on small screens
           <li
             key={title}
-            className="group relative isolate flex aspect-[4/5] w-full flex-col justify-center rounded-lg p-2 text-center sm:gap-3 md:w-2/5 md:px-8"
+            className="group relative isolate flex aspect-[4/5] w-full flex-col justify-center rounded-lg p-2 text-center sm:gap-3 toMd:w-2/3 md:w-2/5 md:px-8"
             style={{
               background: `url(${img})`,
               backgroundSize: "cover",
@@ -217,7 +221,7 @@ const Menu = () => {
                 <h3 className="font-teko text-3xl uppercase sm:text-2xl md:text-4xl">
                   {title}
                 </h3>
-                <p className="opacity-70">{description}</p>
+                <p className="text-gray-400">{description}</p>
               </div>
             </li>
           ))}
@@ -229,13 +233,17 @@ const Menu = () => {
         heading={{ content: "friday deal" }}
         description={
           <>
-            <p>Get a 30% discount on the food menu every Friday!</p>
+            <p className="mx-auto toMd:w-5/6">
+              Get a 30% discount on the food menu every Friday!
+            </p>
 
             <a
               href="/menu"
-              className="mx-auto block w-fit rounded-md bg-black p-2 text-xs font-bold uppercase text-white transition-colors hover:bg-neutral-800 hover:text-accent sm:p-4 sm:text-base md:text-xl"
+              className="mx-auto block w-fit text-xs sm:text-base md:text-xl"
             >
-              Learn more
+              <ButtonFull className="bg-black text-accent hover:bg-neutral-800 hover:text-accent toMd:p-3">
+                Learn more
+              </ButtonFull>
             </a>
           </>
         }
@@ -292,16 +300,16 @@ const BeerSpecials = () => {
     taste,
   }) => (
     <div className="flex flex-col items-center justify-center gap-4 toMd:flex-row toMd:px-16 ">
-      <div className="">
-        <img
-          src={img}
-          className="max-h-[200px] toMd:max-h-[400px]"
-          draggable="false"
-        />
-      </div>
-      <div className="w-2/3 space-y-4 py-8">
-        <h3 className="font-teko text-6xl font-bold capitalize">{title}</h3>
-        <p className="text-lg opacity-60">{description}</p>
+      <img
+        src={img}
+        className="max-h-[200px] toMd:max-h-[400px]"
+        draggable="false"
+      />
+      <div className="w-2/3 space-y-4 pt-8">
+        <h3 className="font-teko text-4xl font-bold capitalize toMd:text-6xl">
+          {title}
+        </h3>
+        <p className="text-gray-400 toMd:text-lg">{description}</p>
         <p>
           <span className="mt-4 block">ABV - {abv}%</span>
           <span className="block">IBU - {ibu}%</span>
@@ -324,7 +332,7 @@ const BeerSpecials = () => {
       />
       <HorizontalList
         listName="bottled-beers"
-        fc={Item}
+        component={Item}
         items={items}
         scrollDuration={500}
       />
@@ -332,85 +340,90 @@ const BeerSpecials = () => {
   );
 };
 
-const BestOffers = () => (
-  <section>
-    <div>
-      <p>Top choice</p>
-      <h2>our best offers</h2>
-      <p>Enjoy your meal at Beer Boutique!</p>
-    </div>
-    <ul>
-      <li>
-        <img src={fries} />
-      </li>
-      <li>
-        <img src={beerMug} />
-      </li>
-      <li>
-        <img src={hamburgerCut} />
-      </li>
-      <li>
-        <img src={women} />
-      </li>
-    </ul>
-    <div>
-      {/* TODO: generalize list*/}
-      <ul>
-        <li>
-          <h3>Spicy Nachos</h3>
-          <span>15</span>
-          <p>
-            Cheddar cheese, jalapenos, queso fresco, sour cream, salsa,
-            guacamole, beer cheese sauce + 3 sauces on your choice
-          </p>
-        </li>
-        <li>
-          <h3>Fish & Chips</h3>
-          <span>12</span>
-          <p>
-            Our iconic dish paired with any draft or bottled beer: ale battered
-            cod, coleslaw, French fries, and tartar sauce
-          </p>
-        </li>
-        <li>
-          <h3>Chicken Wrap</h3>
-          <span>18</span>
-          <p>
-            Grilled chicken, honey bacon, tomato, fresh cucumber, lettuce,
-            avocado, village sauce, and a whole-wheat wrap
-          </p>
-        </li>
+const BestOffers = () => {
+  const images = [fries, beerMug, hamburgerCut, women];
+
+  const lists: Omit<InferProps<[typeof MenuList]>, "className">[] = [
+    {
+      listName: "snacks",
+      items: [
+        {
+          name: "Spicy Nachos",
+          price: 15,
+          description:
+            "Cheddar cheese, jalapenos, queso fresco, sour cream, salsa, guacamole, beer cheese sauce + 3 sauces on your choice",
+        },
+        {
+          name: "Fish & Chips",
+          price: 12,
+          description:
+            "Our iconic dish paired with any draft or bottled beer: ale battered cod, coleslaw, French fries, and tartar sauce",
+        },
+        {
+          name: "Chicken Wrap",
+          price: 18,
+          description:
+            "Grilled chicken, honey bacon, tomato, fresh cucumber, lettuce, avocado, village sauce, and a whole-wheat wrap",
+        },
+      ],
+    },
+    {
+      listName: "meals",
+      items: [
+        {
+          name: "Fried Calamary",
+          price: 12,
+          description:
+            "Another iconic snack paired with beer: fried calamari served with spicy tartar sauce and dill aioli",
+        },
+        {
+          name: "Beer Boutique Pizza",
+          price: 18,
+          description:
+            "Goat cheese, red onion, baby spinach, pepperoni, smoked sausages, ham, and spicy beer sauce",
+        },
+        {
+          name: "Classic Burger",
+          price: 14,
+          description:
+            "Beef, tomato, pickle, lettuce, cucumber, cheddar cheese, bacon, ketchup, and American mustard",
+        },
+      ],
+    },
+  ];
+
+  return (
+    <section className="bounded-section">
+      <EyebrowHeading
+        className="text-center"
+        eyebrow={{ content: "Top choice" }}
+        heading={{ content: "Our Best Offers" }}
+        description={{ content: "Enjoy your meal at Beer Boutique!" }}
+      />
+      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
+        {images.map(img => (
+          <li className="aspect-square w-full">
+            <img
+              className="h-full w-full object-cover"
+              src={img}
+            />
+          </li>
+        ))}
       </ul>
-      <ul>
-        <li>
-          <h3>Fried Calamary</h3>
-          <span>12</span>
-          <p>
-            Another iconic snack paired with beer: fried calamari served with
-            spicy tartar sauce and dill aioli
-          </p>
-        </li>
-        <li>
-          <h3>Beer Boutique Pizza</h3>
-          <span>18</span>
-          <p>
-            Goat cheese, red onion, baby spinach, pepperoni, smoked sausages,
-            ham, and spicy beer sauce
-          </p>
-        </li>
-        <li>
-          <h3>Classic Burger</h3>
-          <span>14</span>
-          <p>
-            Beef, tomato, pickle, lettuce, cucumber, cheddar cheese, bacon,
-            ketchup, and American mustard
-          </p>
-        </li>
-      </ul>
-    </div>
-    <a href="">watch all menu</a>
-  </section>
-);
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+        {lists.map(list => (
+          <MenuList {...list} />
+        ))}
+      </div>
+      <a
+        href="/menu"
+        className="block"
+      >
+        <ButtonFull className="mx-auto w-fit px-4">See All Menu</ButtonFull>
+      </a>
+    </section>
+  );
+};
 
 const About = () => (
   <section>
