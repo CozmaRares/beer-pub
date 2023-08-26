@@ -108,7 +108,7 @@
   }
 
   .hamburger-button.open .bar2 {
-    transform: rotateY(90deg);
+    transform: scale(0) rotate(360deg);
   }
 
   .hamburger-button.open .bar3 {
@@ -122,12 +122,12 @@
   }
 
   .hamburger-menu li {
-    @apply flex w-full items-center justify-center transition-[height,margin]
+    @apply flex w-full items-center justify-center
            md:w-auto;
   }
 
   .hamburger-menu.open,
   .hamburger-menu:focus-within {
-    @apply pointer-events-auto top-full opacity-100;
+    @apply pointer-events-auto top-[105%] opacity-100;
   }
 }

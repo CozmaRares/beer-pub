@@ -22,7 +22,7 @@ const EyebrowHeading: React.FC<{
     eyebrowElement = (
       <p
         className={tw(
-          "pb-1 font-shadows text-sm text-accent md:text-xl",
+          "pb-1 font-shadows text-accent md:text-xl lg:text-2xl",
           eyebrow.className,
         )}
       >
@@ -37,7 +37,7 @@ const EyebrowHeading: React.FC<{
     headingElement = (
       <h2
         className={tw(
-          "font-teko text-2xl uppercase sm:text-4xl md:text-6xl lg:text-7xl",
+          "font-teko text-3xl uppercase sm:text-4xl md:text-5xl lg:text-6xl",
           heading.className,
         )}
       >
@@ -52,7 +52,7 @@ const EyebrowHeading: React.FC<{
     descriptionElement = (
       <p
         className={tw(
-          "text-base sm:text-lg md:text-2xl lg:text-3xl",
+          "text-lg sm:text-xl md:text-2xl lg:text-3xl",
           description.className,
         )}
       >

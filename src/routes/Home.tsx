@@ -75,7 +75,7 @@ const Hero = () => (
       className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center md:left-3/4"
       eyebrow={{ content: "Enjoy your beer!", className: "text-white" }}
       heading={
-        <h1 className="font-teko text-2xl uppercase text-accent sm:text-5xl md:text-7xl lg:text-8xl">
+        <h1 className="font-teko text-3xl uppercase text-accent sm:text-5xl md:text-7xl lg:text-8xl">
           Beer Boutique
         </h1>
       }
@@ -426,25 +426,41 @@ const BestOffers = () => {
 };
 
 const About = () => (
-  <section>
+  <section className="grid gap-4 bg-black md:grid-cols-2">
     <div>
-      <p>Our story</p>
-      <h2>about beer boutique</h2>
-      <p>
-        Welcome to Beer Boutique, your favorite pub serving the best draft and
-        bottled beer.
-      </p>
-      <p>
-        We strive to promote the culture of drinking beer as something beyond a
-        football match. It is a drink with a long history and an immense depth
-        of flavor, which is why we build our menu foods around their
-        compatibility with the beers. Beer Boutique is a place to find the
-        favorite beer flavor and learn more about the drink.
-      </p>
-      <a href="">more about us</a>
+      <EyebrowHeading
+        className="mx-auto flex h-full max-w-[600px] flex-col justify-center space-y-4 p-8"
+        eyebrow={{ content: "Our story" }}
+        heading={{ content: "About Beer Boutique" }}
+        description={
+          <>
+            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl">
+              Welcome to Beer Boutique, your favorite pub serving the best draft
+              and bottled beer.
+            </p>
+            <p className="text-gray-400">
+              We strive to promote the culture of drinking beer as something
+              beyond a football match. It is a drink with a long history and an
+              immense depth of flavor, which is why we build our menu foods
+              around their compatibility with the beers. Beer Boutique is a
+              place to find the favorite beer flavor and learn more about the
+              drink.
+            </p>
+            <a
+              href="/about"
+              className="block"
+            >
+              <ButtonFull className="w-fit px-4">More About Us</ButtonFull>
+            </a>
+          </>
+        }
+      />
     </div>
-    <div>
-      <img src={about} />
+    <div className="aspect-video max-h-[800px] md:aspect-auto md:h-full">
+      <img
+        src={about}
+        className="h-full w-full object-cover object-[50%,30%]"
+      />
     </div>
   </section>
 );
