@@ -66,7 +66,7 @@ const NavBar = () => {
         </div>
       </button>
       <nav className={`hamburger-menu ${isOpen ? "open" : ""}`}>
-        <ul className="flex flex-col font-bold md:flex-row md:gap-8">
+        <ul className="flex flex-col md:flex-row md:gap-8">
           <li>
             <SliderLink
               text="About Us"
@@ -177,7 +177,7 @@ const Footer = () => {
       <div>
         <span className="mb-4 font-teko text-4xl text-white">Navigation</span>
         <nav>
-          <ul className="space-y-3 font-bold text-gray-400">
+          <ul className="space-y-3 text-gray-400">
             <li>
               <SliderLink
                 text="About Us"

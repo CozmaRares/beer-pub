@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Shadows+Into+Light+Two&family=Teko&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Shadows+Into+Light+Two&family=Teko:wght@400;700&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -118,7 +118,7 @@
 
   .hamburger-menu {
     @apply pointer-events-none absolute -top-[10px] left-0 flex w-full flex-col justify-between bg-neutral-900 pb-4 opacity-0 transition-[top,opacity]
-           md:contents;
+           md:pointer-events-auto md:contents;
   }
 
   .hamburger-menu li {

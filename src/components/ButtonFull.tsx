@@ -6,7 +6,7 @@ const ButtonFull: React.FC<{
 }> = ({ children, className }) => (
   <span
     className={tw(
-      "block rounded-md bg-accent p-2 text-center font-bold uppercase text-black transition-colors hover:bg-orange-500",
+      "block w-fit rounded-md bg-accent px-4 py-2 text-center text-xs font-bold uppercase text-black transition-colors hover:bg-orange-500 sm:text-base",
       className,
     )}
   >

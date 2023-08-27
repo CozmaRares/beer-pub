@@ -70,9 +70,9 @@ const Hero = () => (
         type="video/mp4"
       />
     </video>
-    <div className="absolute bottom-0 left-0 right-0 top-0 bg-black/50"></div>
+    <div className="absolute bottom-0 left-0 right-0 top-0 bg-black/50" />
     <EyebrowHeading
-      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center md:left-3/4"
+      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center md:left-[70%]"
       eyebrow={{ content: "Enjoy your beer!", className: "text-white" }}
       heading={
         <h1 className="font-teko text-3xl uppercase text-accent sm:text-5xl md:text-7xl lg:text-8xl">
@@ -80,7 +80,7 @@ const Hero = () => (
         </h1>
       }
       description={
-        <div className="mt-1 space-y-3 text-xs font-bold sm:mt-4 sm:text-base md:text-lg lg:text-2xl">
+        <div className="mt-1 space-y-3 text-xs sm:mt-4 sm:text-base md:text-lg lg:text-2xl">
           <p>
             <span className="md:block">
               The <span className="text-accent">best beer</span> comes
@@ -90,7 +90,7 @@ const Hero = () => (
             </span>
           </p>
           <a
-            className="block text-xs sm:text-base md:text-xl"
+            className="mx-auto block w-fit"
             href="/menu"
           >
             <ButtonFull>See Menu</ButtonFull>
@@ -163,7 +163,7 @@ const Menu = () => {
           // TODO: fix scroll on small screens
           <li
             key={title}
-            className="group relative isolate flex aspect-[4/5] w-full flex-col justify-center rounded-lg p-2 text-center sm:gap-3 toMd:w-2/3 md:w-2/5 md:px-8"
+            className="group relative isolate flex aspect-[4/5] w-full flex-col justify-center rounded-lg p-3 text-center sm:gap-3 toMd:w-2/3 md:w-2/5 md:px-8"
             style={{
               background: `url(${img})`,
               backgroundSize: "cover",
@@ -171,7 +171,7 @@ const Menu = () => {
               overflowY: "auto",
             }}
           >
-            <div className="absolute left-0 right-0 top-0 -z-[1] h-full bg-black opacity-60  transition-opacity lg:opacity-0 lg:group-hover:opacity-60"></div>
+            <div className="absolute left-0 right-0 top-0 -z-[1] h-full bg-black opacity-60 transition-opacity lg:opacity-0 lg:group-hover:opacity-60" />
             <h3 className="z-[1] font-teko text-3xl uppercase md:text-4xl lg:text-5xl">
               {title}
             </h3>
@@ -180,7 +180,7 @@ const Menu = () => {
             </p>
             <a
               href="/menu"
-              className="font-teko text-lg font-bold uppercase text-accent transition-opacity md:text-xl lg:text-2xl lg:opacity-0 lg:group-hover:opacity-100"
+              className="mx-auto w-fit border-b border-transparent font-bold uppercase text-accent transition-opacity hover:border-accent lg:opacity-0 lg:group-hover:opacity-100"
             >
               See full menu
             </a>
@@ -239,7 +239,7 @@ const Menu = () => {
 
             <a
               href="/menu"
-              className="mx-auto block w-fit text-xs sm:text-base md:text-xl"
+              className="mx-auto block w-fit"
             >
               <ButtonFull className="bg-black text-accent hover:bg-neutral-800 hover:text-accent toMd:p-3">
                 Learn more
@@ -306,9 +306,7 @@ const BeerSpecials = () => {
         draggable="false"
       />
       <div className="w-2/3 space-y-4 pt-8">
-        <h3 className="font-teko text-4xl font-bold capitalize toMd:text-6xl">
-          {title}
-        </h3>
+        <h3 className="font-teko text-4xl font-bold capitalize">{title}</h3>
         <p className="text-gray-400 toMd:text-lg">{description}</p>
         <p>
           <span className="mt-4 block">ABV - {abv}%</span>
