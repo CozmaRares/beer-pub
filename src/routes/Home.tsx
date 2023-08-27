@@ -334,7 +334,7 @@ const BeerSpecials = () => {
         listName="bottled-beers"
         component={Item}
         items={items}
-        scrollDuration={500}
+        numItems={{ lg: 2 }}
       />
     </section>
   );
@@ -404,7 +404,7 @@ const BestOffers = () => {
         {images.map(img => (
           <li className="aspect-square w-full">
             <img
-              className="h-full w-full object-cover rounded-2xl "
+              className="h-full w-full rounded-2xl object-cover"
               src={img}
             />
           </li>
@@ -587,29 +587,36 @@ const Blog = () => {
   );
 };
 
-const Brands = () => (
-  <section>
-    <ul>
-      <li>
-        <img src={miller} />
-      </li>
-      <li>
-        <img src={hoegaarden} />
-      </li>
-      <li>
-        <img src={carlsberg} />
-      </li>
-      <li>
-        <img src={budweiser} />
-      </li>
-      <li>
-        <img src={heineken} />
-      </li>
-      <li>
-        <img src={corona} />
-      </li>
-    </ul>
-  </section>
-);
+const Brands = () => {
+  const images = [miller, hoegaarden, carlsberg, budweiser, heineken, corona];
+
+  const Item: React.FC<string> = img => (
+    <li className="flex h-full items-center justify-center bg-black/10 px-4 py-2">
+      <img
+        src={img}
+        className="w-[150px]"
+      />
+    </li>
+  );
+
+  return (
+    <section className="bg-accent">
+      <div className="bounded-section py-4">
+        <HorizontalList
+          listName="brands"
+          component={Item}
+          items={images}
+          numItems={{ lg: 5, md: 3 }}
+          buttonClass={{
+            both: "text-black",
+            left: "lg:-left-[5%]",
+            right: "lg:-right-[5%]",
+          }}
+          itemGap="2rem"
+        />
+      </div>
+    </section>
+  );
+};
 
 export default Home;

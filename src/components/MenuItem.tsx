@@ -8,7 +8,7 @@ const MenuList: React.FC<{
   <ul className={tw("flex flex-col justify-between space-y-6", className)}>
     {items.map(({ name, price, description }) => (
       <li key={listName + name}>
-        <div className="flex flex-row justify-between font-teko text-2xl sm:text-3xl lg:text-4xl">
+        <div className="flex flex-row justify-between pb-1.5 font-teko text-2xl sm:text-3xl lg:text-4xl">
           <h3 className="uppercase">{name}</h3>
           <div className="flex-grow border-b border-dotted border-accent" />
           <span className="text-accent before:content-['$']">{price}</span>

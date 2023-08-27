@@ -48,10 +48,25 @@
   }
 
   .horizontal-list {
-    --gap: 6rem;
-    --item-width: 100%;
+    /*
+      Custom properties from jsx (see 'HorizontalList.tsx'):
+        --scroll
+        --duration
+        --sm-num-items
+        --md-num-items
+        --lg-num-items
+        --gap
+    */
 
-    @apply select-none lg:[--item-width:calc(50%-var(--gap)/2)];
+    --num-items: 1;
+    --sm-num-items: 1;
+    --md-num-items: 1;
+    --lg-num-items: 1;
+    --item-width: calc(
+      (100% - (var(--num-items) - 1) * var(--gap)) / var(--num-items)
+    );
+
+    @apply select-none sm:[--num-items:var(--sm-num-items)] md:[--num-items:var(--md-num-items)] lg:[--num-items:var(--lg-num-items)];
 
     display: grid;
     grid-auto-flow: column;

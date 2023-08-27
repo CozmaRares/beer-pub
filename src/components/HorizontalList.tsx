@@ -1,19 +1,26 @@
 import { MouseEventHandler, useRef } from "react";
+import { twMerge as tw } from "tailwind-merge";
 
 import CaretLeft from "../svg/CaretLeft";
 import CaretRight from "../svg/CaretRight";
 
-export default function HorizontalList<T>({
+const HorizontalList = <T,>({
   listName,
   component,
   items,
-  scrollDuration,
+  scrollDuration = 500,
+  numItems,
+  buttonClass,
+  itemGap = "6rem",
 }: {
   listName: string;
   component: React.FC<T>;
   items: T[];
-  scrollDuration: number;
-}) {
+  numItems?: { sm?: number; md?: number; lg?: number };
+  scrollDuration?: number;
+  buttonClass?: { both?: string; left?: string; right?: string };
+  itemGap?: string;
+}) => {
   const didClick = useRef(false);
   const isScrolling = useRef(false);
   const mouseX = useRef(0);
@@ -60,14 +67,22 @@ export default function HorizontalList<T>({
       ref={containerRef}
     >
       <button
-        className="absolute left-0 top-1/2 z-[1] flex aspect-square w-fit -translate-y-1/2 items-center justify-center rounded-full p-3 text-2xl text-accent transition-colors hover:bg-neutral-700"
+        className={tw(
+          "absolute left-0 top-1/2 z-[1] flex aspect-square w-fit -translate-y-1/2 items-center justify-center rounded-full p-3 text-2xl text-accent transition-colors hover:bg-neutral-700",
+          buttonClass?.both,
+          buttonClass?.left,
+        )}
         onClick={() => handleScroll(-1)}
         aria-hidden
       >
         <CaretLeft />
       </button>
       <button
-        className="absolute right-0 top-1/2 z-[1] flex aspect-square w-fit -translate-y-1/2 items-center justify-center rounded-full p-3 text-2xl text-accent transition-colors hover:bg-neutral-700"
+        className={tw(
+          "absolute right-0 top-1/2 z-[1] flex aspect-square w-fit -translate-y-1/2 items-center justify-center rounded-full p-3 text-2xl text-accent transition-colors hover:bg-neutral-700",
+          buttonClass?.both,
+          buttonClass?.right,
+        )}
         onClick={() => handleScroll(1)}
         aria-hidden
       >
@@ -87,6 +102,10 @@ export default function HorizontalList<T>({
             {
               "--scroll": scroll.current,
               "--duration": `${scrollDuration}ms`,
+              "--sm-num-items": numItems?.sm,
+              "--md-num-items": numItems?.md,
+              "--lg-num-items": numItems?.lg,
+              "--gap": itemGap,
             } as React.CSSProperties
           }
         >
@@ -113,4 +132,6 @@ export default function HorizontalList<T>({
       </div>
     </div>
   );
-}
+};
+
+export default HorizontalList;
