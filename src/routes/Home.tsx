@@ -400,11 +400,11 @@ const BestOffers = () => {
         heading={{ content: "Our Best Offers" }}
         description={{ content: "Enjoy your meal at Beer Boutique!" }}
       />
-      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
+      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 md:[&>:first-child>img]:rounded-tl-[100px] md:[&>:last-child>img]:rounded-br-[100px]">
         {images.map(img => (
           <li className="aspect-square w-full">
             <img
-              className="h-full w-full object-cover"
+              className="h-full w-full object-cover rounded-2xl "
               src={img}
             />
           </li>
