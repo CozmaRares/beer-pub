@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # CHANGE ME ########################
-CHROME_PATH="/bin/microsoft-edge-stable" # path to Chrome/Chromium executable
+CHROME_PATH="" # path to Chrome/Chromium executable
 ####################################
 
 # don't change anything below, or change at your own risk
