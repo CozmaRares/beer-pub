@@ -10,7 +10,7 @@ import Facebook from "./svg/logos/Facebook";
 import GitHub from "./svg/logos/GitHub";
 import Instagram from "./svg/logos/Ingtagram";
 import logo from "./assets/logo.svg";
-import X from "./svg/logos/X";
+import XLogo from "./svg/logos/X";
 import TikTok from "./svg/logos/TikTok";
 import YouTube from "./svg/logos/YouTube";
 import Waze from "./svg/logos/Waze";
@@ -146,7 +146,7 @@ const Footer = () => {
         <ul className="flex flex-row gap-3">
           <li>
             <Social
-              icon={<X />}
+              icon={<XLogo />}
               name="X"
               link="#"
             />
