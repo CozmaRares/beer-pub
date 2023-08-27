@@ -14,7 +14,7 @@ const Social: React.FC<{
     href={link}
     rel="noreferrer"
   >
-    <p className="visually-hidden">{name}</p>
+    <p className="sr-only">{name}</p>
     {icon}
   </a>
 );

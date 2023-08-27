@@ -233,7 +233,7 @@ const Footer = () => {
         />
         <label
           htmlFor="email"
-          className="visually-hidden"
+          className="sr-only"
         >
           Email Address
         </label>

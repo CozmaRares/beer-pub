@@ -608,7 +608,7 @@ const Brands = () => {
           items={images}
           numItems={{ lg: 5, md: 3, sm: 2 }}
           buttonClass={{
-            both: "text-black",
+            both: "text-black hover:bg-amber-500",
             left: "-left-[2%] xl:-left-[5%]",
             right: "-right-[2%] xl:-right-[5%]",
           }}
