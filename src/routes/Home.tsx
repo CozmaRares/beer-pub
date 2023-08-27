@@ -606,11 +606,11 @@ const Brands = () => {
           listName="brands"
           component={Item}
           items={images}
-          numItems={{ lg: 5, md: 3 }}
+          numItems={{ lg: 5, md: 3, sm: 2 }}
           buttonClass={{
             both: "text-black",
-            left: "lg:-left-[5%]",
-            right: "lg:-right-[5%]",
+            left: "-left-[2%] xl:-left-[5%]",
+            right: "-right-[2%] xl:-right-[5%]",
           }}
           itemGap="2rem"
         />

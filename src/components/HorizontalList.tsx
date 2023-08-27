@@ -48,10 +48,14 @@ const HorizontalList = <T,>({
   const onMouseDown: MouseEventHandler<HTMLDivElement> = e => {
     didClick.current = true;
     mouseX.current = e.pageX;
+    containerRef.current!.classList.add("drag");
   };
-  const onMouseUp = () => (didClick.current = false);
+  const onMouseUp = () => {
+    didClick.current = false;
+    containerRef.current!.classList.remove("drag");
+  };
   const onMouseOut = onMouseUp;
-  const onMouseMove: MouseEventHandler<HTMLDivElement> = async e => {
+  const onMouseMove: MouseEventHandler<HTMLDivElement> = e => {
     if (!didClick.current || isScrolling.current) return;
 
     const diff = mouseX.current - e.pageX;

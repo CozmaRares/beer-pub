@@ -28,7 +28,7 @@ const router = createBrowserRouter([
 ]);
 
 const App = () => (
-  <div className="isolate bg-neutral-900 font-openSans text-white">
+  <div className="isolate overflow-x-hidden bg-neutral-900 font-openSans text-white">
     <NavBar />
     <main className="space-y-8 py-8 sm:space-y-16">
       <RouterProvider router={router} />

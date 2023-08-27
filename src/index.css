@@ -21,8 +21,6 @@
   }
 
   .slider-link::after {
-    @apply bg-accent transition-[scale];
-
     content: "";
     position: absolute;
     left: 0;
@@ -31,6 +29,8 @@
     width: 100%;
     scale: 0 1;
     transform-origin: right;
+
+    @apply bg-accent transition-[scale];
   }
 
   .slider-link:hover::after {
@@ -45,6 +45,14 @@
   /* horizontal scroll list */
   .horizontal-list-container {
     @apply relative isolate;
+  }
+
+  .horizontal-list-container > div {
+    cursor: grab;
+  }
+
+  .horizontal-list-container.drag > div {
+    cursor: grabbing;
   }
 
   .horizontal-list {
@@ -66,14 +74,16 @@
       (100% - (var(--num-items) - 1) * var(--gap)) / var(--num-items)
     );
 
-    @apply select-none sm:[--num-items:var(--sm-num-items)] md:[--num-items:var(--md-num-items)] lg:[--num-items:var(--lg-num-items)];
-
     display: grid;
     grid-auto-flow: column;
     grid-auto-columns: var(--item-width);
     gap: var(--gap);
     translate: calc(-1 * (var(--scroll) * (var(--item-width) + var(--gap)))) 0;
     pointer-events: none;
+    user-select: none;
+    cursor: grab;
+
+    @apply sm:[--num-items:var(--sm-num-items)] md:[--num-items:var(--md-num-items)] lg:[--num-items:var(--lg-num-items)];
   }
 
   .horizontal-list-container.scroll button {
@@ -98,20 +108,18 @@
 
   .hamburger-button > div {
     --gap: 6px;
+    gap: var(--gap);
 
     @apply col-start-2 grid min-h-[1em] w-full min-w-[1em] grid-cols-1 grid-rows-3;
-
-    gap: var(--gap);
   }
 
   .hamburger-button .bar {
     --height: 4px;
     --translate: calc(var(--gap) + var(--height));
     --rotate: 405deg;
+    height: var(--height);
 
     @apply rounded-sm bg-white transition-transform;
-
-    height: var(--height);
   }
 
   .hamburger-button.open .bar1 {
