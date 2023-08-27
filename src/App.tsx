@@ -129,7 +129,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bounded-section flex grid-cols-[4fr,3fr,4fr,5fr] flex-col items-center gap-10 pb-8 text-center text-white/70 lg:grid lg:text-left [&>*]:space-y-4 [&>*]:lg:h-full">
+    <footer className="bounded-section flex grid-cols-[4fr,3fr,4fr,5fr] flex-col items-center gap-10 space-y-0 pb-8 text-center text-white/70 lg:grid lg:text-left [&>*]:space-y-4 [&>*]:lg:h-full">
       <div className="flex w-fit flex-col items-center lg:items-start lg:justify-between">
         <a href="/">
           <img
