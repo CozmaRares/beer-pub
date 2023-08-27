@@ -29,7 +29,7 @@
   }
 
   .bounded-section {
-    @apply mx-auto w-page max-w-full space-y-8 px-2 sm:px-4 xl:px-0;
+    @apply mx-auto w-page max-w-full space-y-8 px-2 sm:space-y-16 sm:px-4 xl:px-0;
   }
 
   /* horizontal scroll list */

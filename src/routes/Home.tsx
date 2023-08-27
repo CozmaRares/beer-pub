@@ -152,41 +152,43 @@ const Menu = () => {
 
   return (
     <section className="bounded-section">
-      <EyebrowHeading
-        eyebrow={{ content: "Menu" }}
-        heading={{ content: "Explore our menu" }}
-        description={{ content: "See what we offer" }}
-        className="text-center"
-      />
-      <ul className="flex flex-col flex-wrap items-center justify-center gap-4 md:flex-row lg:flex-nowrap">
-        {menuCards.map(({ img, title, description }) => (
-          // TODO: fix scroll on small screens
-          <li
-            key={title}
-            className="group relative isolate flex aspect-[4/5] w-full flex-col justify-center rounded-lg p-3 text-center sm:gap-3 toMd:w-2/3 md:w-2/5 md:px-8"
-            style={{
-              background: `url(${img})`,
-              backgroundSize: "cover",
-              resize: "both",
-              overflowY: "auto",
-            }}
-          >
-            <div className="absolute left-0 right-0 top-0 -z-[1] h-full bg-black opacity-60 transition-opacity lg:opacity-0 lg:group-hover:opacity-60" />
-            <h3 className="z-[1] font-teko text-3xl uppercase md:text-4xl lg:text-5xl">
-              {title}
-            </h3>
-            <p className="mx-auto transition-opacity toMd:w-4/5 md:w-full lg:opacity-0 lg:group-hover:opacity-100">
-              {description}
-            </p>
-            <a
-              href="/menu"
-              className="mx-auto w-fit border-b border-transparent font-bold uppercase text-accent transition-opacity hover:border-current lg:opacity-0 lg:group-hover:opacity-100"
+      <div>
+        <EyebrowHeading
+          eyebrow={{ content: "Menu" }}
+          heading={{ content: "Explore our menu" }}
+          description={{ content: "See what we offer" }}
+          className="pb-8 text-center"
+        />
+        <ul className="flex flex-col flex-wrap items-center justify-center gap-4 md:flex-row lg:flex-nowrap">
+          {menuCards.map(({ img, title, description }) => (
+            // TODO: fix scroll on small screens
+            <li
+              key={title}
+              className="group relative isolate flex aspect-[4/5] w-full flex-col justify-center rounded-lg p-3 text-center sm:gap-3 toMd:w-2/3 md:w-2/5 md:px-8"
+              style={{
+                background: `url(${img})`,
+                backgroundSize: "cover",
+                resize: "both",
+                overflowY: "auto",
+              }}
             >
-              See full menu
-            </a>
-          </li>
-        ))}
-      </ul>
+              <div className="absolute left-0 right-0 top-0 -z-[1] h-full bg-black opacity-60 transition-opacity lg:opacity-0 lg:group-hover:opacity-60" />
+              <h3 className="z-[1] font-teko text-3xl uppercase md:text-4xl lg:text-5xl">
+                {title}
+              </h3>
+              <p className="mx-auto transition-opacity toMd:w-4/5 md:w-full lg:opacity-0 lg:group-hover:opacity-100">
+                {description}
+              </p>
+              <a
+                href="/menu"
+                className="mx-auto w-fit border-b border-transparent font-bold uppercase text-accent transition-opacity hover:border-current lg:opacity-0 lg:group-hover:opacity-100"
+              >
+                See full menu
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
       <div className="grid grid-cols-1 gap-12 lg:grid-cols-[2fr,5fr]">
         <EyebrowHeading
           className="space-y-4"
@@ -253,15 +255,14 @@ const Menu = () => {
 };
 
 const BeerSpecials = () => {
-  type mata = {
+  const items: {
     img: string;
     title: string;
     description: string;
     abv: number;
     ibu: number;
     taste: string;
-  };
-  const items: mata[] = [
+  }[] = [
     {
       img: IPA,
       title: "IPA",
@@ -291,7 +292,7 @@ const BeerSpecials = () => {
     },
   ];
 
-  const Item: React.FC<mata> = ({
+  const Item: React.FC<(typeof items)[number]> = ({
     img,
     title,
     description,
@@ -410,7 +411,7 @@ const BestOffers = () => {
           </li>
         ))}
       </ul>
-      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-8">
         {lists.map(list => (
           <MenuList {...list} />
         ))}
@@ -508,7 +509,7 @@ const Testimonials = () => {
             >
               {text}
             </p>
-            <span className="block font-bold text-accent">{date}</span>
+            <time className="block font-bold text-accent">{date}</time>
           </li>
         ))}
       </ul>
@@ -591,7 +592,7 @@ const Brands = () => {
   const images = [miller, hoegaarden, carlsberg, budweiser, heineken, corona];
 
   const Item: React.FC<string> = img => (
-    <li className="flex h-full items-center justify-center bg-black/10 px-4 py-2">
+    <li className="flex h-full items-center justify-center bg-neutral-500/30 px-4 py-2">
       <img
         src={img}
         className="w-[150px]"
