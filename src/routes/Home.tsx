@@ -456,7 +456,7 @@ const About = () => (
         }
       />
     </div>
-    <div className="aspect-[9/13] max-h-[800px] md:aspect-auto md:h-full">
+    <div className="aspect-[9/13] max-h-[800px] w-full md:aspect-auto md:h-full">
       <img
         src={about}
         className="h-full w-full object-cover object-[50%,30%]"
@@ -514,7 +514,7 @@ const Testimonials = () => {
       </ul>
       <img
         src={group}
-        className="rounded-md"
+        className="min-h-[300px] rounded-md object-cover"
       />
     </section>
   );
