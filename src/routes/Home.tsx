@@ -180,7 +180,7 @@ const Menu = () => {
             </p>
             <a
               href="/menu"
-              className="mx-auto w-fit border-b border-transparent font-bold uppercase text-accent transition-opacity hover:border-accent lg:opacity-0 lg:group-hover:opacity-100"
+              className="mx-auto w-fit border-b border-transparent font-bold uppercase text-accent transition-opacity hover:border-current lg:opacity-0 lg:group-hover:opacity-100"
             >
               See full menu
             </a>
@@ -520,50 +520,72 @@ const Testimonials = () => {
   );
 };
 
-const Blog = () => (
-  <section>
-    <div>
-      <p>Latest posts</p>
-      <h2>Blog & Events</h2>
-      <p>Read interesting articles about beer culture and our news.</p>
-    </div>
-    <ul>
-      <li>
-        <img src={waiter} />
-        <p>EVENT</p>
-        <h3>Beer Tasting</h3>
-        <p>
-          Beer Boutique has always been something bigger than just a pub. We
-          often host different events and tastings with local and world-famous
-          beer producers.
-        </p>
-        <a href="">read more</a>
-      </li>
-      <li>
-        <img src={counter} />
-        <p>BEER BLOG</p>
-        <h3>How to Find a Perfect Match?</h3>
-        <p>
-          What goes first, the food or the beer? Here is a brief guide to
-          choosing the combination of beer and snack, so that they complement
-          each other's flavor. Spoiler: no chips in this list.
-        </p>
-        <a href="">read more</a>
-      </li>
-      <li>
-        <img src={irish} />
-        <p>EVENT</p>
-        <h3>Irish Beer Festival</h3>
-        <p>
-          Irish Beer festival is a small celebration of the Irish tradition in
-          drinking culture. Our brewmasters will introduce an exclusive line of
-          ales especially for our guests at the festival.
-        </p>
-        <a href=""></a>
-      </li>
-    </ul>
-  </section>
-);
+const Blog = () => {
+  const posts: {
+    img: string;
+    type: string;
+    title: string;
+    description: string;
+  }[] = [
+    {
+      img: waiter,
+      type: "Event",
+      title: "Beer Tasting",
+      description:
+        "Beer Boutique has always been something bigger than just a pub. We often host different events and tastings with local and world-famous beer producers.",
+    },
+    {
+      img: counter,
+      type: "Beer Blog",
+      title: "How to Find a Perfect Match?",
+      description:
+        "What goes first, the food or the beer? Here is a brief guide to choosing the combination of beer and snack, so that they complement each other's flavor. Spoiler: no chips in this list.",
+    },
+    {
+      img: irish,
+      type: "Event",
+      title: "Irish Beer Festival",
+      description:
+        "Irish Beer festival is a small celebration of the Irish tradition in drinking culture. Our brewmasters will introduce an exclusive line of ales especially for our guests at the festival.",
+    },
+  ];
+
+  return (
+    <section className="bounded-section">
+      <EyebrowHeading
+        className="text-center"
+        eyebrow={{ content: "Latest posts" }}
+        heading={{ content: "Blog & Events" }}
+        description={{
+          content: "Read interesting articles about beer culture and our news",
+        }}
+      />
+      <ul className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {posts.map(({ img, type, title, description }) => (
+          <li>
+            <article className="flex h-full flex-col justify-between gap-4">
+              <img
+                src={img}
+                className="rounded-md"
+              />
+              <p className="font-bold uppercase text-accent">{type}</p>
+              <h3 className="font-teko text-3xl uppercase">{title}</h3>
+              <p className="text-gray-400">{description}</p>
+              <a
+                href="/blog"
+                className="block"
+              >
+                <ButtonSkeleton className="w-fit border-white text-white hover:bg-white">
+                  Read More
+                </ButtonSkeleton>
+              </a>
+            </article>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+};
 
 const Brands = () => (
   <section>

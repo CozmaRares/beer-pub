@@ -39,11 +39,7 @@
   }
 
   .bounded-section {
-    @apply mx-auto w-page max-w-full px-2 sm:px-8 xl:px-0;
-  }
-
-  section.bounded-section {
-    @apply space-y-8;
+    @apply mx-auto w-page max-w-full space-y-8 px-2 sm:px-4 xl:px-0;
   }
 
   /* horizontal scroll list */
