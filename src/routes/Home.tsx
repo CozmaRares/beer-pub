@@ -306,7 +306,9 @@ const BeerSpecials = () => {
         draggable="false"
       />
       <div className="w-2/3 space-y-4 pt-8">
-        <h3 className="font-teko text-4xl font-bold capitalize">{title}</h3>
+        <h3 className="font-teko text-3xl font-bold capitalize toMd:text-4xl">
+          {title}
+        </h3>
         <p className="text-gray-400 toMd:text-lg">{description}</p>
         <p>
           <span className="mt-4 block">ABV - {abv}%</span>
@@ -454,7 +456,7 @@ const About = () => (
         }
       />
     </div>
-    <div className="aspect-video max-h-[800px] md:aspect-auto md:h-full">
+    <div className="aspect-[9/13] max-h-[800px] md:aspect-auto md:h-full">
       <img
         src={about}
         className="h-full w-full object-cover object-[50%,30%]"
@@ -463,42 +465,60 @@ const About = () => (
   </section>
 );
 
-const Testimonials = () => (
-  <section>
-    <div>
-      <p>Testimonials</p>
-      <h2>Our clients about us</h2>
-      <p>We're so happy to receive your feedback!</p>
-    </div>
-    <ul>
-      <li>
-        <img src={samWhite} />
-        <h3>sam white</h3>
-        <p>
-          This place is definitely worth visiting and making friends there. I
-          don't know how you do it, but it is a strange combination of a posh
-          place for beer snobs and a local pub at the same time. It's so weird
-          that it works. Love it!
-        </p>
-        <span>May 28, 2022</span>
-      </li>
-      <li>
-        <img src={bernardRedhead} />
-        <h3>Bernard Redhead</h3>
-        <p>
-          I am definitely a beer person, and my girlfriend loves cider offered
-          at Beer Boutique as well. We love to taste different craft beer
-          varieties on Sundays here. Besides, the concerts there are amazing.
-          Rock it on!
-        </p>
-        <span>March 15, 2022</span>
-      </li>
-    </ul>
-    <div>
-      <img src={group} />
-    </div>
-  </section>
-);
+const Testimonials = () => {
+  const testimonials: {
+    img: string;
+    name: string;
+    text: string;
+    date: string;
+  }[] = [
+    {
+      img: samWhite,
+      name: "Sam White",
+      text: "This place is definitely worth visiting and making friends there. I don't know how you do it, but it is a strange combination of a posh place for beer snobs and a local pub at the same time. It's so weird that it works. Love it!",
+      date: "May 28, 2022",
+    },
+    {
+      img: bernardRedhead,
+      name: "Bernard Redhead",
+      text: "I am definitely a beer person, and my girlfriend loves cider offered at Beer Boutique as well. We love to taste different craft beer varieties on Sundays here. Besides, the concerts there are amazing. Rock it on!",
+      date: "March 15, 2022",
+    },
+  ];
+
+  return (
+    <section className="bounded-section">
+      <EyebrowHeading
+        className="text-center"
+        eyebrow={{ content: "Testimonials" }}
+        heading={{ content: "Our clients about us" }}
+        description={{ content: "We're so happy to receive your feedback" }}
+      />
+      <ul className="flex flex-col gap-16 md:flex-row">
+        {testimonials.map(({ img, name, text, date }) => (
+          <li className="space-y-6 rounded-md bg-black px-6 py-8 text-center">
+            <img
+              src={img}
+              className="mx-auto aspect-square h-[100px] rounded-full"
+            />
+            <h3 className="font-teko text-3xl uppercase">{name}</h3>
+            <p
+              className="text-gray-400 before:content-[attr(data-quote)] after:content-[attr(data-quote)]"
+              data-quote='"'
+            >
+              {text}
+            </p>
+            <span className="block font-bold text-accent">{date}</span>
+          </li>
+        ))}
+      </ul>
+      <img
+        src={group}
+        className="rounded-md"
+      />
+    </section>
+  );
+};
 
 const Blog = () => (
   <section>
