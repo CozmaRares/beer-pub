@@ -5,6 +5,14 @@
 @tailwind utilities;
 
 @layer components {
+  .bounded-section {
+    @apply mx-auto w-page max-w-full space-y-8 px-3 sm:space-y-16 sm:px-8;
+  }
+
+  .space-children {
+    @apply space-y-8 sm:space-y-16;
+  }
+
   .slider-link {
     position: relative;
     padding: 0.35rem;
@@ -26,10 +34,6 @@
   .slider-link:hover::after {
     scale: 1 1;
     transform-origin: left;
-  }
-
-  .bounded-section {
-    @apply mx-auto w-page max-w-full space-y-8 px-2 sm:space-y-16 sm:px-4 xl:px-0;
   }
 
   /* horizontal scroll list */
@@ -136,6 +140,6 @@
 
   .hamburger-menu.open,
   .hamburger-menu:focus-within {
-    @apply pointer-events-auto top-[105%] opacity-100;
+    @apply pointer-events-auto top-[100%] opacity-100;
   }
 }

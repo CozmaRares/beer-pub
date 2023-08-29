@@ -40,10 +40,11 @@ import budweiser from "../assets/budweiser.svg";
 import heineken from "../assets/heineken.svg";
 import corona from "../assets/corona.svg";
 import ButtonFull from "../components/ButtonFull";
+import HalfSection from "../components/HalfSection";
 
 const Home = () => {
   return (
-    <>
+    <div className="space-children">
       <Hero />
       <Menu />
       <BeerSpecials />
@@ -52,7 +53,7 @@ const Home = () => {
       <Testimonials />
       <Blog />
       <Brands />
-    </>
+    </div>
   );
 };
 
@@ -426,42 +427,42 @@ const BestOffers = () => {
 };
 
 const About = () => (
-  <section className="grid gap-4 bg-black md:grid-cols-2">
-    <div>
-      <EyebrowHeading
-        className="mx-auto flex h-full max-w-[600px] flex-col justify-center space-y-4 p-8"
-        eyebrow={{ content: "Our story" }}
-        heading={{ content: "About Beer Boutique" }}
-        description={
-          <>
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl">
-              Welcome to Beer Boutique, your favorite pub serving the best draft
-              and bottled beer.
-            </p>
-            <p className="text-gray-400">
-              We strive to promote the culture of drinking beer as something
-              beyond a football match. It is a drink with a long history and an
-              immense depth of flavor, which is why we build our menu foods
-              around their compatibility with the beers. Beer Boutique is a
-              place to find the favorite beer flavor and learn more about the
-              drink.
-            </p>
-            <a
-              href="/about"
-              className="block"
-            >
-              <ButtonFull className="w-fit px-4">More About Us</ButtonFull>
-            </a>
-          </>
-        }
-      />
-    </div>
-    <div className="aspect-video max-h-[800px] w-full md:aspect-auto md:h-full portrait:aspect-[9/13]">
-      <img
-        src={about}
-        className="h-full w-full object-cover object-[50%,30%]"
-      />
-    </div>
+  <section>
+    <HalfSection
+      content={
+        <EyebrowHeading
+          className="mx-auto flex h-full max-w-[600px] flex-col justify-center space-y-4"
+          eyebrow={{ content: "Our story" }}
+          heading={{ content: "About Beer Boutique" }}
+          description={
+            <>
+              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl">
+                Welcome to Beer Boutique, your favorite pub serving the best
+                draft and bottled beer.
+              </p>
+              <p className="text-gray-400">
+                We strive to promote the culture of drinking beer as something
+                beyond a football match. It is a drink with a long history and
+                an immense depth of flavor, which is why we build our menu foods
+                around their compatibility with the beers. Beer Boutique is a
+                place to find the favorite beer flavor and learn more about the
+                drink.
+              </p>
+              <a
+                href="/about"
+                className="block"
+              >
+                <ButtonFull className="w-fit px-4">More About Us</ButtonFull>
+              </a>
+            </>
+          }
+        />
+      }
+      img={{
+        src: about,
+        className: "object-[50%,30%]",
+      }}
+    />
   </section>
 );
 

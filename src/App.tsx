@@ -5,6 +5,7 @@ import Social from "./components/Social";
 import SliderLink from "./components/SliderLink";
 import { useState } from "react";
 import ButtonSkeleton from "./components/ButtonSkeleton";
+import About from "./routes/About";
 
 import Facebook from "./svg/logos/Facebook";
 import GitHub from "./svg/logos/GitHub";
@@ -25,12 +26,16 @@ const router = createBrowserRouter([
     element: <Home />,
     errorElement: <Error />,
   },
+  {
+    path: "/about",
+    element: <About />,
+  },
 ]);
 
 const App = () => (
   <div className="isolate overflow-x-hidden bg-neutral-900 font-openSans text-white">
     <NavBar />
-    <main className="space-y-8 py-8 sm:space-y-16">
+    <main className="py-8">
       <RouterProvider router={router} />
     </main>
     <Footer />
