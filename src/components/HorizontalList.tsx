@@ -1,4 +1,4 @@
-import { MouseEventHandler, useRef } from "react";
+import { PointerEventHandler, TouchEventHandler, useRef } from "react";
 import { twMerge as tw } from "tailwind-merge";
 
 import CaretLeft from "../svg/CaretLeft";
@@ -45,25 +45,34 @@ const HorizontalList = <T,>({
     }, 10);
   };
 
-  const onMouseDown: MouseEventHandler<HTMLDivElement> = e => {
+  const click = (x: number) => {
     didClick.current = true;
-    mouseX.current = e.pageX;
+    mouseX.current = x;
     containerRef.current!.classList.add("drag");
   };
-  const onMouseUp = () => {
-    didClick.current = false;
-    containerRef.current!.classList.remove("drag");
-  };
-  const onMouseOut = onMouseUp;
-  const onMouseMove: MouseEventHandler<HTMLDivElement> = e => {
+  const drag = (x: number) => {
     if (!didClick.current || isScrolling.current) return;
 
-    const diff = mouseX.current - e.pageX;
+    const diff = mouseX.current - x;
     if (Math.abs(diff) > 50) {
-      mouseX.current = e.pageX;
+      mouseX.current = x;
       handleScroll(Math.sign(diff));
     }
   };
+
+  const onPointerDown: PointerEventHandler<HTMLDivElement> = e =>
+    click(e.pageX);
+  const onPointerUp = () => {
+    didClick.current = false;
+    containerRef.current!.classList.remove("drag");
+  };
+  const onPointerMove: PointerEventHandler<HTMLDivElement> = e => drag(e.pageX);
+
+  const onTouchStart: TouchEventHandler<HTMLDivElement> = e =>
+    click(e.targetTouches[0].pageX);
+  const onTouchEnd = onPointerUp;
+  const onTouchMove: TouchEventHandler<HTMLDivElement> = e =>
+    drag(e.targetTouches[0].pageX);
 
   return (
     <div
@@ -94,10 +103,12 @@ const HorizontalList = <T,>({
       </button>
       <div
         className="overflow-hidden"
-        onMouseUp={onMouseUp}
-        onMouseDown={onMouseDown}
-        onMouseMove={onMouseMove}
-        onMouseOut={onMouseOut}
+        onPointerUp={onPointerUp}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onTouchStart={onTouchStart}
+        onTouchEnd={onTouchEnd}
+        onTouchMove={onTouchMove}
       >
         <ul
           ref={listRef}
