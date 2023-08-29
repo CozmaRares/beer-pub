@@ -41,7 +41,7 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bounded-section relative z-[1] flex flex-row items-center justify-between pt-8 text-base lg:text-lg">
+    <header className="bounded-section relative z-[1] flex flex-row items-center justify-between space-y-0 pt-8 text-base lg:text-lg">
       <a
         className="w-full sm:w-auto sm:max-w-[40%]"
         href="/"

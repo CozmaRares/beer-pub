@@ -71,7 +71,6 @@
     translate: calc(-1 * (var(--scroll) * (var(--item-width) + var(--gap)))) 0;
     pointer-events: none;
     user-select: none;
-    cursor: grab;
 
     @apply sm:[--num-items:var(--sm-num-items)] md:[--num-items:var(--md-num-items)] lg:[--num-items:var(--lg-num-items)];
   }

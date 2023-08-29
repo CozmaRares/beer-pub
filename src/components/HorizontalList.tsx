@@ -67,12 +67,12 @@ const HorizontalList = <T,>({
 
   return (
     <div
-      className="horizontal-list-container"
+      className="horizontal-list-container max-h-[100vh]"
       ref={containerRef}
     >
       <button
         className={tw(
-          "absolute left-0 top-1/2 z-[1] flex aspect-square w-fit -translate-y-1/2 items-center justify-center rounded-full p-3 text-2xl text-accent transition-colors hover:bg-neutral-700",
+          "absolute left-0 top-1/2 z-[1] flex aspect-square min-h-fit -translate-y-1/2 items-center justify-center rounded-full p-3 text-2xl text-accent transition-colors hover:bg-neutral-700",
           buttonClass?.both,
           buttonClass?.left,
         )}
@@ -83,7 +83,7 @@ const HorizontalList = <T,>({
       </button>
       <button
         className={tw(
-          "absolute right-0 top-1/2 z-[1] flex aspect-square w-fit -translate-y-1/2 items-center justify-center rounded-full p-3 text-2xl text-accent transition-colors hover:bg-neutral-700",
+          "absolute right-0 top-1/2 z-[1] flex aspect-square min-h-fit -translate-y-1/2 items-center justify-center rounded-full p-3 text-2xl text-accent transition-colors hover:bg-neutral-700",
           buttonClass?.both,
           buttonClass?.right,
         )}

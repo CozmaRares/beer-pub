@@ -63,7 +63,7 @@ const Hero = () => (
       loop
       muted
       autoPlay
-      className="pointer-events-none h-[100vmin] object-cover md:w-full"
+      className="pointer-events-none h-[100vmin] w-full object-cover"
     >
       <source
         src={heroBG}
@@ -164,7 +164,7 @@ const Menu = () => {
             // TODO: fix scroll on small screens
             <li
               key={title}
-              className="group relative isolate flex aspect-[4/5] w-full flex-col justify-center rounded-lg p-3 text-center sm:gap-3 toMd:w-2/3 md:w-2/5 md:px-8"
+              className="group relative isolate flex aspect-[4/5] w-full flex-col justify-center rounded-lg p-3 text-center sm:gap-3 md:w-2/5 md:px-8 toMd:w-2/3"
               style={{
                 background: `url(${img})`,
                 backgroundSize: "cover",
@@ -176,7 +176,7 @@ const Menu = () => {
               <h3 className="z-[1] font-teko text-3xl uppercase md:text-4xl lg:text-5xl">
                 {title}
               </h3>
-              <p className="mx-auto transition-opacity toMd:w-4/5 md:w-full lg:opacity-0 lg:group-hover:opacity-100">
+              <p className="mx-auto transition-opacity md:w-full lg:opacity-0 lg:group-hover:opacity-100 toMd:w-4/5">
                 {description}
               </p>
               <a
@@ -230,7 +230,7 @@ const Menu = () => {
         </ul>
       </div>
       <EyebrowHeading
-        className="space-y-4 bg-accent py-8 text-center text-black md:py-16"
+        className="space-y-4 bg-accent px-4 py-8 text-center text-black md:py-16"
         eyebrow={{ content: "-30% every Friday", className: "text-black" }}
         heading={{ content: "friday deal" }}
         description={
@@ -300,11 +300,10 @@ const BeerSpecials = () => {
     ibu,
     taste,
   }) => (
-    <div className="flex flex-col items-center justify-center gap-4 toMd:flex-row toMd:px-16 ">
+    <div className="flex flex-col items-center justify-center gap-4 toMd:flex-row toMd:px-16">
       <img
         src={img}
-        className="max-h-[200px] toMd:max-h-[400px]"
-        draggable="false"
+        className="h-[200px] max-h-[90vh] toMd:h-[400px]"
       />
       <div className="w-2/3 space-y-4 pt-8">
         <h3 className="font-teko text-3xl font-bold capitalize toMd:text-4xl">
@@ -401,7 +400,7 @@ const BestOffers = () => {
         heading={{ content: "Our Best Offers" }}
         description={{ content: "Enjoy your meal at Beer Boutique!" }}
       />
-      <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 md:[&>:first-child>img]:rounded-tl-[100px] md:[&>:last-child>img]:rounded-br-[100px]">
+      <ul className="mx-auto grid max-w-[400px] grid-cols-1 gap-4 sm:grid-cols-2 md:w-full md:grid-cols-4 md:[&>:first-child>img]:rounded-tl-[100px] md:[&>:last-child>img]:rounded-br-[100px]">
         {images.map(img => (
           <li className="aspect-square w-full">
             <img
@@ -457,7 +456,7 @@ const About = () => (
         }
       />
     </div>
-    <div className="aspect-[9/13] max-h-[800px] w-full md:aspect-auto md:h-full">
+    <div className="aspect-video max-h-[800px] w-full md:aspect-auto md:h-full portrait:aspect-[9/13]">
       <img
         src={about}
         className="h-full w-full object-cover object-[50%,30%]"
@@ -592,12 +591,12 @@ const Brands = () => {
   const images = [miller, hoegaarden, carlsberg, budweiser, heineken, corona];
 
   const Item: React.FC<string> = img => (
-    <li className="flex h-full items-center justify-center bg-neutral-500/30 px-4 py-2">
+    <div className="flex h-[90px] items-center justify-center bg-neutral-500/20 px-8 py-4">
       <img
         src={img}
-        className="w-[150px]"
+        className="max-h-[40px] opacity-90"
       />
-    </li>
+    </div>
   );
 
   return (
@@ -613,7 +612,7 @@ const Brands = () => {
             left: "-left-[2%] xl:-left-[5%]",
             right: "-right-[2%] xl:-right-[5%]",
           }}
-          itemGap="2rem"
+          itemGap="1rem"
         />
       </div>
     </section>
