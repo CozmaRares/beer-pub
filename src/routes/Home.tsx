@@ -163,6 +163,7 @@ const Menu = () => {
         <ul className="flex flex-col flex-wrap items-center justify-center gap-4 md:flex-row lg:flex-nowrap">
           {menuCards.map(({ img, title, description }) => (
             // TODO: fix scroll on small screens
+            // TODO: fix md wrap
             <li
               key={title}
               className="group relative isolate flex aspect-[4/5] w-full flex-col justify-center rounded-lg p-3 text-center sm:gap-3 md:w-2/5 md:px-8 toMd:w-2/3"
