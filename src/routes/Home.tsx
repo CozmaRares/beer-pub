@@ -400,7 +400,7 @@ const BestOffers = () => {
         heading={{ content: "Our Best Offers" }}
         description={{ content: "Enjoy your meal at Beer Boutique!" }}
       />
-      <ul className="mx-auto grid max-w-[400px] grid-cols-1 gap-4 sm:grid-cols-2 md:w-full md:grid-cols-4 md:[&>:first-child>img]:rounded-tl-[100px] md:[&>:last-child>img]:rounded-br-[100px]">
+      <ul className="mx-auto grid max-w-[400px] grid-cols-1 gap-4 sm:grid-cols-2 md:max-w-full md:grid-cols-4 md:[&>:first-child>img]:rounded-tl-[100px] md:[&>:last-child>img]:rounded-br-[100px]">
         {images.map(img => (
           <li className="aspect-square w-full">
             <img
