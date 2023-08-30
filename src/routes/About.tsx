@@ -13,7 +13,7 @@ import { Link } from "react-router-dom";
 
 const About = () => (
   <>
-    <Banner text={"About Beer Boutique"} />
+    <Banner text="About Beer Boutique" />
     <div className="space-children">
       <Story />
       <Staff />

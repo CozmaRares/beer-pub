@@ -7,6 +7,7 @@ import { useLayoutEffect, useState } from "react";
 import ButtonSkeleton from "./components/ButtonSkeleton";
 import About from "./routes/About";
 import Menu from "./routes/Menu";
+import Contact from "./routes/Contact";
 
 import Facebook from "./svg/logos/Facebook";
 import GitHub from "./svg/logos/GitHub";
@@ -64,6 +65,14 @@ const router = createHashRouter([
     element: (
       <WithNavAndFooter>
         <Menu />
+      </WithNavAndFooter>
+    ),
+  },
+  {
+    path: "/contact",
+    element: (
+      <WithNavAndFooter>
+        <Contact />
       </WithNavAndFooter>
     ),
   },
@@ -243,10 +252,7 @@ const Footer = () => {
           </ul>
         </nav>
       </div>
-      <div
-        className="flex-col justify-between lg:flex"
-        style={{ overflowWrap: "anywhere" }}
-      >
+      <div className="flex-col justify-between lg:flex">
         <span className="mb-4 font-teko text-4xl text-white">Contacts</span>
         <ul className="contents space-y-3 text-gray-400">
           {contacts.map(({ icon, text }, idx) => (
