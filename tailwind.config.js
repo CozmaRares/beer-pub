@@ -6,7 +6,6 @@ export default {
       screens: {
         sm: "300px",
         toMd: "500px",
-        portrait: { raw: "(orientation: portrait)" },
       },
       colors: {
         accent: "#FFC123",

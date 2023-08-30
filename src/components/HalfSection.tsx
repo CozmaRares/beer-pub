@@ -11,10 +11,10 @@ const HalfSection: React.FC<{
   reverse?: boolean;
 }> = ({ content, img, className, reverse }) => (
   <div className={tw("grid gap-4 bg-black md:grid-cols-2", className)}>
-    <div className={"p-4 sm:p-8" + (reverse && " order-1")}>{content}</div>
+    <div className={"p-4 sm:p-8" + (reverse ? " order-1" : "")}>{content}</div>
     <div
       className={tw(
-        "aspect-video max-h-[400px] w-full md:aspect-auto md:h-full md:max-h-[650px] portrait:aspect-[9/13]",
+        "aspect-video h-full w-full md:aspect-auto",
         img.containerClassName,
       )}
     >

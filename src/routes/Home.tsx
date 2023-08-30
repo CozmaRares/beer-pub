@@ -166,7 +166,7 @@ const Menu = () => {
             // TODO: fix md wrap
             <li
               key={title}
-              className="group relative isolate flex aspect-[4/5] w-full flex-col justify-center rounded-lg p-3 text-center sm:gap-3 md:w-2/5 md:px-8 toMd:w-2/3"
+              className="group relative isolate flex aspect-[4/5] w-full flex-col justify-center rounded-lg p-3 text-center sm:gap-3 toMd:w-2/3 md:w-2/5 md:px-8"
               style={{
                 background: `url(${img})`,
                 backgroundSize: "cover",
@@ -178,7 +178,7 @@ const Menu = () => {
               <h3 className="z-[1] font-teko text-3xl uppercase md:text-4xl lg:text-5xl">
                 {title}
               </h3>
-              <p className="mx-auto transition-opacity md:w-full lg:opacity-0 lg:group-hover:opacity-100 toMd:w-4/5">
+              <p className="mx-auto transition-opacity toMd:w-4/5 md:w-full lg:opacity-0 lg:group-hover:opacity-100">
                 {description}
               </p>
               <a

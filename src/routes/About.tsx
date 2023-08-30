@@ -8,12 +8,15 @@ import john from "../assets/john.png";
 import anthony from "../assets/anthony.png";
 import thomas from "../assets/thomas.png";
 
+import beerMug from "../assets/beer-mug.svg";
+
 const About = () => (
   <>
     <Banner text={"About Beer Boutique"} />
     <div className="space-children">
       <Story />
       <Staff />
+      <CallToAction />
     </div>
   </>
 );
@@ -23,16 +26,16 @@ const Story = () => (
     <HalfSection
       content={
         <EyebrowHeading
-          className="mx-auto flex h-full max-w-[600px] flex-col justify-center space-y-4 p-8"
+          className="mx-auto flex h-full max-w-[600px] flex-col justify-center space-y-4"
           eyebrow={{ content: "Our story" }}
           heading={{ content: "Process of Creating" }}
           description={
             <>
-              <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl">
+              <p className="sm:text-lg md:text-2xl lg:text-3xl">
                 Our main goal has always been to create a pub with the best
                 selection of beers and simple food.
               </p>
-              <p className="text-gray-400">
+              <p className="text-sm text-gray-400 sm:text-base">
                 Our selection of beers is a result of long and scrupulous
                 experiments that give us thousands of taste combinations. Each
                 and every beer of ours has a unique recipe and a solid standard
@@ -114,5 +117,31 @@ const Staff = () => {
     </section>
   );
 };
+
+const CallToAction = () => (
+  <section className="bounded-section space-y-0 overflow-hidden">
+    <div className="relative flex flex-col justify-around gap-12 bg-accent p-8 text-black md:flex-row md:items-center">
+      <div className="space-y-8 text-xl md:w-3/5 ">
+        <h2 className="font-teko text-4xl uppercase md:text-5xl">
+          We are hiring!
+        </h2>
+        <p>
+          We are always looking for communicable waiters and professional
+          bartenders.
+        </p>
+      </div>
+      <a
+        href="/contact"
+        className="text-lg font-bold uppercase underline hover:decoration-2"
+      >
+        Join our team
+      </a>
+      <img
+        src={beerMug}
+        className="absolute -right-2 -top-2 h-[100px] opacity-30 [rotate:z_-45deg]"
+      />
+    </div>
+  </section>
+);
 
 export default About;
