@@ -6,6 +6,7 @@ import SliderLink from "./components/SliderLink";
 import { useState } from "react";
 import ButtonSkeleton from "./components/ButtonSkeleton";
 import About from "./routes/About";
+import Menu from "./routes/Menu";
 
 import Facebook from "./svg/logos/Facebook";
 import GitHub from "./svg/logos/GitHub";
@@ -25,7 +26,7 @@ const WithNavAndFooter: React.FC<{ children: React.ReactNode }> = ({
 }) => (
   <>
     <NavBar />
-    <main className="py-8">{children}</main>
+    <main>{children}</main>
     <Footer />
   </>
 );
@@ -52,6 +53,14 @@ const router = createHashRouter([
       </WithNavAndFooter>
     ),
   },
+  {
+    path: "/menu",
+    element: (
+      <WithNavAndFooter>
+        <Menu />
+      </WithNavAndFooter>
+    ),
+  },
 ]);
 
 const App = () => (
@@ -64,7 +73,7 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bounded-section relative z-[1] flex flex-row items-center justify-between pt-8 text-base lg:text-lg">
+    <header className="bounded-section relative z-[1] flex flex-row items-center justify-between py-8 text-base lg:text-lg">
       <a
         className="w-full sm:w-auto sm:max-w-[40%]"
         href="/"
@@ -152,7 +161,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bounded-section flex grid-cols-[4fr,3fr,4fr,5fr] flex-col items-center gap-10 pb-8 text-center text-white/70 lg:grid lg:text-left [&>*]:space-y-4 [&>*]:lg:h-full">
+    <footer className="bounded-section flex grid-cols-[4fr,3fr,4fr,5fr] flex-col items-center gap-10 py-16 text-center text-white/70 lg:grid lg:text-left [&>*]:space-y-4 [&>*]:lg:h-full">
       <div className="flex w-fit flex-col items-center lg:items-start lg:justify-between">
         <a href="/">
           <img

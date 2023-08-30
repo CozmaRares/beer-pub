@@ -342,7 +342,7 @@ const BeerSpecials = () => {
 const BestOffers = () => {
   const images = [fries, beerMug, hamburgerCut, women];
 
-  const lists: Omit<InferProps<[typeof MenuList]>, "className">[] = [
+  const lists: InferProps<[typeof MenuList]>[] = [
     {
       listName: "snacks",
       items: [
@@ -608,8 +608,6 @@ const Brands = () => {
           numItems={{ lg: 5, md: 3, sm: 2 }}
           buttonClass={{
             both: "text-black hover:bg-amber-500",
-            left: "-left-[2%] xl:-left-[5%]",
-            right: "-right-[2%] xl:-right-[5%]",
           }}
           itemGap="1rem"
         />

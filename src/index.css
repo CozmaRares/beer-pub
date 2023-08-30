@@ -38,7 +38,7 @@
 
   /* horizontal scroll list */
   .horizontal-list-container {
-    @apply relative isolate;
+    @apply relative isolate px-8;
   }
 
   .horizontal-list-container > div {
@@ -62,8 +62,8 @@
 
     --num-items: 1;
     --sm-num-items: 1;
-    --md-num-items: 1;
-    --lg-num-items: 1;
+    --md-num-items: var(--sm-num-items, 1);
+    --lg-num-items: var(--md-num-items, 1);
     --item-width: calc(
       (100% - (var(--num-items) - 1) * var(--gap)) / var(--num-items)
     );

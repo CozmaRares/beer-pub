@@ -52,7 +52,7 @@ const EyebrowHeading: React.FC<{
     descriptionElement = (
       <p
         className={tw(
-          "text-lg sm:text-xl md:text-2xl lg:text-3xl",
+          "sm:text-lg md:text-xl lg:text-2xl",
           description.className,
         )}
       >
