@@ -9,6 +9,7 @@ import anthony from "../assets/anthony.png";
 import thomas from "../assets/thomas.png";
 
 import beerMug from "../assets/beer-mug.svg";
+import { Link } from "react-router-dom";
 
 const About = () => (
   <>
@@ -130,12 +131,12 @@ const CallToAction = () => (
           bartenders.
         </p>
       </div>
-      <a
-        href="/contact"
+      <Link
+        to="/contact"
         className="text-lg font-bold uppercase underline hover:decoration-2"
       >
         Join our team
-      </a>
+      </Link>
       <img
         src={beerMug}
         className="absolute -right-2 -top-2 h-[100px] opacity-30 [rotate:z_-45deg]"

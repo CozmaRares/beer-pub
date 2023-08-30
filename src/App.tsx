@@ -1,9 +1,9 @@
-import { createHashRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, Link, RouterProvider } from "react-router-dom";
 import Home from "./routes/Home";
 import Error from "./routes/Error";
 import Social from "./components/Social";
 import SliderLink from "./components/SliderLink";
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import ButtonSkeleton from "./components/ButtonSkeleton";
 import About from "./routes/About";
 import Menu from "./routes/Menu";
@@ -23,13 +23,19 @@ import Clock from "./svg/Clock";
 
 const WithNavAndFooter: React.FC<{ children: React.ReactNode }> = ({
   children,
-}) => (
-  <>
-    <NavBar />
-    <main>{children}</main>
-    <Footer />
-  </>
-);
+}) => {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
+
+  return (
+    <>
+      <NavBar />
+      <main>{children}</main>
+      <Footer />
+    </>
+  );
+};
 
 const router = createHashRouter([
   {
@@ -74,9 +80,9 @@ const NavBar = () => {
 
   return (
     <header className="bounded-section relative z-[1] flex flex-row items-center justify-between py-8 text-base lg:text-lg">
-      <a
+      <Link
         className="w-full sm:w-auto sm:max-w-[40%]"
-        href="/"
+        to="/"
       >
         <img
           src={logo}
@@ -85,7 +91,7 @@ const NavBar = () => {
           className="max-w-full"
           alt=""
         />
-      </a>
+      </Link>
       <button
         className={`hamburger-button ${isOpen ? "open" : ""}`}
         onClick={() => setIsOpen(prev => !prev)}
@@ -163,14 +169,14 @@ const Footer = () => {
   return (
     <footer className="bounded-section flex grid-cols-[4fr,3fr,4fr,5fr] flex-col items-center gap-10 py-16 text-center text-white/70 lg:grid lg:text-left [&>*]:space-y-4 [&>*]:lg:h-full">
       <div className="flex w-fit flex-col items-center lg:items-start lg:justify-between">
-        <a href="/">
+        <Link to="/">
           <img
             src={logo}
             alt=""
             width="200px"
             height="auto"
           />
-        </a>
+        </Link>
         <p className="w-2/3 md:w-1/2 lg:w-4/5">
           Welcome to your favorite pub with draft and bottled beer from the best
           local and world-famous producers.

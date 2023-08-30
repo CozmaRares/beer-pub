@@ -41,6 +41,7 @@ import heineken from "../assets/heineken.svg";
 import corona from "../assets/corona.svg";
 import ButtonFull from "../components/ButtonFull";
 import HalfSection from "../components/HalfSection";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -90,12 +91,12 @@ const Hero = () => (
               with the <span className="text-accent">best foods</span>!
             </span>
           </p>
-          <a
+          <Link
             className="mx-auto block w-fit"
-            href="/menu"
+            to="/menu"
           >
             <ButtonFull>See Menu</ButtonFull>
-          </a>
+          </Link>
         </div>
       }
     />
@@ -178,12 +179,12 @@ const Menu = () => {
               <p className="mx-auto hidden transition-opacity toMd:block toMd:w-4/5 md:w-full lg:opacity-0 lg:group-hover:opacity-100">
                 {description}
               </p>
-              <a
-                href="/menu"
+              <Link
+                to="/menu"
                 className="mx-auto w-fit border-b border-transparent font-bold uppercase text-accent transition-opacity hover:border-current lg:opacity-0 lg:group-hover:opacity-100"
               >
                 See full menu
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
@@ -198,12 +199,12 @@ const Menu = () => {
               <p>
                 We offer a simple and tasty menu for true beer connoisseurs.
               </p>
-              <a
-                href="/menu"
+              <Link
+                to="/menu"
                 className="block w-fit"
               >
                 <ButtonSkeleton>Learn more</ButtonSkeleton>
-              </a>
+              </Link>
             </>
           }
         />
@@ -238,14 +239,14 @@ const Menu = () => {
               Get a 30% discount on the food menu every Friday!
             </p>
 
-            <a
-              href="/menu"
+            <Link
+              to="/menu"
               className="mx-auto block w-fit"
             >
               <ButtonFull className="bg-black text-accent hover:bg-neutral-800 hover:text-accent toMd:p-3">
                 Learn more
               </ButtonFull>
-            </a>
+            </Link>
           </>
         }
       />
@@ -414,12 +415,12 @@ const BestOffers = () => {
           <MenuList {...list} />
         ))}
       </div>
-      <a
-        href="/menu"
+      <Link
+        to="/menu"
         className="block"
       >
         <ButtonFull className="mx-auto w-fit px-4">See All Menu</ButtonFull>
-      </a>
+      </Link>
     </section>
   );
 };
@@ -446,12 +447,12 @@ const About = () => (
                 place to find the favorite beer flavor and learn more about the
                 drink.
               </p>
-              <a
-                href="/about"
+              <Link
+                to="/about"
                 className="block"
               >
                 <ButtonFull className="w-fit px-4">More About Us</ButtonFull>
-              </a>
+              </Link>
             </>
           }
         />
@@ -570,14 +571,14 @@ const Blog = () => {
               <p className="font-bold uppercase text-accent">{type}</p>
               <h3 className="font-teko text-3xl uppercase">{title}</h3>
               <p className="text-gray-400">{description}</p>
-              <a
-                href="/blog"
+              <Link
+                to="/blog"
                 className="block"
               >
                 <ButtonSkeleton className="w-fit border-white text-white hover:bg-white">
                   Read More
                 </ButtonSkeleton>
-              </a>
+              </Link>
             </article>
           </li>
         ))}
