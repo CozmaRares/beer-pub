@@ -152,7 +152,7 @@ const Menu = () => {
   ];
 
   return (
-    <section className="bounded-section">
+    <section className="bounded-section space-children">
       <div>
         <EyebrowHeading
           eyebrow={{ content: "Menu" }}
@@ -322,7 +322,7 @@ const BeerSpecials = () => {
   );
 
   return (
-    <section className="bounded-section">
+    <section className="bounded-section space-children">
       <EyebrowHeading
         className="text-center"
         eyebrow={{ content: "Bottled beer" }}
@@ -395,7 +395,7 @@ const BestOffers = () => {
   ];
 
   return (
-    <section className="bounded-section">
+    <section className="bounded-section space-children">
       <EyebrowHeading
         className="text-center"
         eyebrow={{ content: "Top choice" }}
@@ -489,7 +489,7 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="bounded-section">
+    <section className="bounded-section space-children">
       <EyebrowHeading
         className="text-center"
         eyebrow={{ content: "Testimonials" }}
@@ -553,7 +553,7 @@ const Blog = () => {
   ];
 
   return (
-    <section className="bounded-section">
+    <section className="bounded-section space-children">
       <EyebrowHeading
         className="text-center"
         eyebrow={{ content: "Latest posts" }}
@@ -603,7 +603,7 @@ const Brands = () => {
 
   return (
     <section className="bg-accent">
-      <div className="bounded-section py-4">
+      <div className="bounded-section space-children py-4">
         <HorizontalList
           listName="brands"
           component={Item}

@@ -6,7 +6,7 @@
 
 @layer components {
   .bounded-section {
-    @apply mx-auto w-page max-w-full space-y-8 px-3 sm:space-y-16 sm:px-8;
+    @apply mx-auto w-page max-w-full px-3 sm:px-8;
   }
 
   .space-children {

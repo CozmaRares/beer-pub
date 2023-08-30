@@ -14,7 +14,7 @@ const HalfSection: React.FC<{
     <div className={"p-4 sm:p-8" + (reverse ? " order-1" : "")}>{content}</div>
     <div
       className={tw(
-        "aspect-video h-full w-full md:aspect-auto",
+        "aspect-video h-full max-h-[600px] w-full md:aspect-auto",
         img.containerClassName,
       )}
     >

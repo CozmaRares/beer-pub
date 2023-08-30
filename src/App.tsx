@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createHashRouter, RouterProvider } from "react-router-dom";
 import Home from "./routes/Home";
 import Error from "./routes/Error";
 import Social from "./components/Social";
@@ -20,25 +20,39 @@ import Mail from "./svg/Mail";
 import Location from "./svg/Location";
 import Clock from "./svg/Clock";
 
-const router = createBrowserRouter([
+const WithNavAndFooter: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => (
+  <>
+    <NavBar />
+    <main className="py-8">{children}</main>
+    <Footer />
+  </>
+);
+
+const router = createHashRouter([
   {
     path: "/",
-    element: <Home />,
+    element: (
+      <WithNavAndFooter>
+        <Home />
+      </WithNavAndFooter>
+    ),
     errorElement: <Error />,
   },
   {
     path: "/about",
-    element: <About />,
+    element: (
+      <WithNavAndFooter>
+        <About />
+      </WithNavAndFooter>
+    ),
   },
 ]);
 
 const App = () => (
   <div className="isolate overflow-x-hidden bg-neutral-900 font-openSans text-white">
-    <NavBar />
-    <main className="py-8">
-      <RouterProvider router={router} />
-    </main>
-    <Footer />
+    <RouterProvider router={router} />
   </div>
 );
 
@@ -46,7 +60,7 @@ const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="bounded-section relative z-[1] flex flex-row items-center justify-between space-y-0 pt-8 text-base lg:text-lg">
+    <header className="bounded-section relative z-[1] flex flex-row items-center justify-between pt-8 text-base lg:text-lg">
       <a
         className="w-full sm:w-auto sm:max-w-[40%]"
         href="/"
@@ -134,7 +148,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bounded-section flex grid-cols-[4fr,3fr,4fr,5fr] flex-col items-center gap-10 space-y-0 pb-8 text-center text-white/70 lg:grid lg:text-left [&>*]:space-y-4 [&>*]:lg:h-full">
+    <footer className="bounded-section flex grid-cols-[4fr,3fr,4fr,5fr] flex-col items-center gap-10 pb-8 text-center text-white/70 lg:grid lg:text-left [&>*]:space-y-4 [&>*]:lg:h-full">
       <div className="flex w-fit flex-col items-center lg:items-start lg:justify-between">
         <a href="/">
           <img

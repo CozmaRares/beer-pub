@@ -90,7 +90,7 @@ const Staff = () => {
   ];
 
   return (
-    <section className="bounded-section">
+    <section className="bounded-section space-children">
       <EyebrowHeading
         className="text-center"
         eyebrow={{ content: "Our professional team" }}
@@ -119,7 +119,7 @@ const Staff = () => {
 };
 
 const CallToAction = () => (
-  <section className="bounded-section space-y-0 overflow-hidden">
+  <section className="bounded-section overflow-hidden">
     <div className="relative flex flex-col justify-around gap-12 bg-accent p-8 text-black md:flex-row md:items-center">
       <div className="space-y-8 text-xl md:w-3/5 ">
         <h2 className="font-teko text-4xl uppercase md:text-5xl">
