@@ -162,23 +162,20 @@ const Menu = () => {
         />
         <ul className="flex flex-col flex-wrap items-center justify-center gap-4 md:flex-row lg:flex-nowrap">
           {menuCards.map(({ img, title, description }) => (
-            // TODO: fix scroll on small screens
-            // TODO: fix md wrap
             <li
               key={title}
-              className="group relative isolate flex aspect-[4/5] w-full flex-col justify-center rounded-lg p-3 text-center sm:gap-3 toMd:w-2/3 md:w-2/5 md:px-8"
+              className="group relative isolate flex aspect-[4/5] w-full flex-col justify-center overflow-y-hidden rounded-lg p-3 text-center sm:gap-3 toMd:w-2/3 md:w-2/5 md:px-8"
               style={{
                 background: `url(${img})`,
                 backgroundSize: "cover",
                 resize: "both",
-                overflowY: "auto",
               }}
             >
               <div className="absolute left-0 right-0 top-0 -z-[1] h-full bg-black opacity-60 transition-opacity lg:opacity-0 lg:group-hover:opacity-60" />
               <h3 className="z-[1] font-teko text-3xl uppercase md:text-4xl lg:text-5xl">
                 {title}
               </h3>
-              <p className="mx-auto transition-opacity toMd:w-4/5 md:w-full lg:opacity-0 lg:group-hover:opacity-100">
+              <p className="mx-auto hidden transition-opacity toMd:block toMd:w-4/5 md:w-full lg:opacity-0 lg:group-hover:opacity-100">
                 {description}
               </p>
               <a

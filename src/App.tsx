@@ -38,7 +38,11 @@ const router = createHashRouter([
         <Home />
       </WithNavAndFooter>
     ),
-    errorElement: <Error />,
+    errorElement: (
+      <WithNavAndFooter>
+        <Error />
+      </WithNavAndFooter>
+    ),
   },
   {
     path: "/about",
