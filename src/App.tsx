@@ -1,13 +1,37 @@
+import * as z from "zod";
+
+const FormSchema = z.object({
+  email: z
+    .string({
+      required_error: "An email address is required",
+    })
+    .email(),
+});
+
 import { createHashRouter, Link, RouterProvider } from "react-router-dom";
 import Home from "@/routes/Home";
 import Error from "@/routes/Error";
 import Social from "@/components/Social";
 import SliderLink from "@/components/SliderLink";
 import { useLayoutEffect, useState } from "react";
-import ButtonSkeleton from "@/components/ButtonSkeleton";
 import About from "@/routes/About";
 import Menu from "@/routes/Menu";
 import Contact from "@/routes/Contact";
+import { Toaster } from "@/shadui/components/ui/toaster";
+import InferProps from "@/utils/InferProps";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { toast } from "@/shadui/components/ui/use-toast";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/shadui/components/ui/form";
+import { Input } from "@/shadui/components/ui/input";
+import { Button } from "@/shadui/components/ui/button";
 
 import Facebook from "@/svg/logos/Facebook";
 import GitHub from "@/svg/logos/GitHub";
@@ -21,8 +45,6 @@ import Phone from "@/svg/Phone";
 import Mail from "@/svg/Mail";
 import Location from "@/svg/Location";
 import Clock from "@/svg/Clock";
-import { Toaster } from "./shadui/components/ui/toaster";
-import InferProps from "./utils/InferProps";
 
 const WithNavAndFooter: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -258,24 +280,57 @@ const Footer = () => {
       </div>
       <div className="w-full md:w-2/3 lg:w-full">
         <span className="mb-4 font-teko text-4xl text-white">Newsletter</span>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Email Address"
-          className="mt-auto block w-full rounded-md bg-zinc-800 p-3 text-center"
-        />
-        <label
-          htmlFor="email"
-          className="sr-only"
-        >
-          Email Address
-        </label>
-        <button className="w-full ">
-          <ButtonSkeleton>subscribe</ButtonSkeleton>
-        </button>
+        <MyForm />
       </div>
     </footer>
+  );
+};
+
+const MyForm = () => {
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+  });
+
+  const onSubmit = () => {
+    toast({
+      title: "Subscribed!",
+    });
+  };
+
+  return (
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="space-y-10"
+      >
+        <FormField
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem className="relative">
+              <FormLabel className="sr-only">
+                Enter your email address
+              </FormLabel>
+              <FormControl>
+                <Input
+                  className="bg-zinc-800 p-5 text-center text-base"
+                  placeholder="Email address"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage className="absolute left-0 top-full" />
+            </FormItem>
+          )}
+        />
+        <Button
+          className="text-lightningYellow border-lightningYellow hover:bg-lightningYellow w-full bg-transparent p-3 text-base font-bold uppercase hover:text-black"
+          variant="outline"
+          type="submit"
+        >
+          Subscribe
+        </Button>
+      </form>
+    </Form>
   );
 };
 
