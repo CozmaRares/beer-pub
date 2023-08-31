@@ -1,18 +1,18 @@
 import { ChangeEventHandler, useState } from "react";
-import Clock from "../svg/Clock";
-import Mail from "../svg/Mail";
-import Phone from "../svg/Phone";
-import Banner from "../components/Banner";
-import ButtonFull from "../components/ButtonFull";
-import InferProps from "../utils/InferProps";
-import Social from "../components/Social";
-import Waze from "../svg/logos/Waze";
-import YouTube from "../svg/logos/YouTube";
-import TikTok from "../svg/logos/TikTok";
-import XLogo from "../svg/logos/X";
-import Instagram from "../svg/logos/Ingtagram";
-import Facebook from "../svg/logos/Facebook";
-import GitHub from "../svg/logos/GitHub";
+import Clock from "@/svg/Clock";
+import Mail from "@/svg/Mail";
+import Phone from "@/svg/Phone";
+import Banner from "@/components/Banner";
+import ButtonFull from "@/components/ButtonFull";
+import InferProps from "@/utils/InferProps";
+import Social from "@/components/Social";
+import Waze from "@/svg/logos/Waze";
+import YouTube from "@/svg/logos/YouTube";
+import TikTok from "@/svg/logos/TikTok";
+import XLogo from "@/svg/logos/X";
+import Instagram from "@/svg/logos/Ingtagram";
+import Facebook from "@/svg/logos/Facebook";
+import GitHub from "@/svg/logos/GitHub";
 
 const Contact = () => {
   const contacts: { icon: React.ReactNode; title: string; text: string }[] = [

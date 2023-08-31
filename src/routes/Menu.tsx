@@ -1,8 +1,8 @@
-import drinks from "../assets/drinks.png";
-import Banner from "../components/Banner";
-import EyebrowHeading from "../components/EyebrowHeading";
-import HorizontalList from "../components/HorizontalList";
-import MenuList from "../components/MenuItem";
+import drinks from "@/assets/drinks.png";
+import Banner from "@/components/Banner";
+import EyebrowHeading from "@/components/EyebrowHeading";
+import HorizontalList from "@/components/HorizontalList";
+import MenuList from "@/components/MenuItem";
 
 const Menu = () => (
   <>

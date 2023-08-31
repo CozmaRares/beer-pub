@@ -1,47 +1,47 @@
-import EyebrowHeading from "../components/EyebrowHeading";
-import ButtonSkeleton from "../components/ButtonSkeleton";
-import HorizontalList from "../components/HorizontalList";
-import InferProps from "../utils/InferProps";
-import MenuList from "../components/MenuItem";
-
-import heroBG from "../assets/background.mp4";
-import beer from "../assets/beer.png";
-import hamburger from "../assets/hamburger.png";
-import pretzels from "../assets/pretzels.png";
-
-import beerBottle from "../assets/beer-bottle.svg";
-import beerGlass from "../assets/beer-glass.svg";
-import sandwich from "../assets/sandwich.svg";
-import cocktail from "../assets/cocktail.svg";
-
-import IPA from "../assets/IPA.png";
-import lagerBeer from "../assets/lager-beer.png";
-import bitter from "../assets/bitter.png";
-
-import fries from "../assets/fries.png";
-import beerMug from "../assets/beer-mug.png";
-import hamburgerCut from "../assets/hamburger-cut.png";
-import women from "../assets/women.png";
-
-import about from "../assets/about.png";
-
-import samWhite from "../assets/sam-white.png";
-import bernardRedhead from "../assets/bernard-redhead.png";
-import group from "../assets/group.webp";
-
-import waiter from "../assets/waiter.png";
-import counter from "../assets/counter.png";
-import irish from "../assets/irish.png";
-
-import miller from "../assets/miller.svg";
-import hoegaarden from "../assets/hoegaarden.svg";
-import carlsberg from "../assets/carlsberg.svg";
-import budweiser from "../assets/budweiser.svg";
-import heineken from "../assets/heineken.svg";
-import corona from "../assets/corona.svg";
-import ButtonFull from "../components/ButtonFull";
-import HalfSection from "../components/HalfSection";
+import EyebrowHeading from "@/components/EyebrowHeading";
+import ButtonSkeleton from "@/components/ButtonSkeleton";
+import HorizontalList from "@/components/HorizontalList";
+import InferProps from "@/utils/InferProps";
+import MenuList from "@/components/MenuItem";
+import ButtonFull from "@/components/ButtonFull";
+import HalfSection from "@/components/HalfSection";
 import { Link } from "react-router-dom";
+
+import heroBG from "@/assets/background.mp4";
+import beer from "@/assets/beer.png";
+import hamburger from "@/assets/hamburger.png";
+import pretzels from "@/assets/pretzels.png";
+
+import beerBottle from "@/assets/beer-bottle.svg";
+import beerGlass from "@/assets/beer-glass.svg";
+import sandwich from "@/assets/sandwich.svg";
+import cocktail from "@/assets/cocktail.svg";
+
+import IPA from "@/assets/IPA.png";
+import lagerBeer from "@/assets/lager-beer.png";
+import bitter from "@/assets/bitter.png";
+
+import fries from "@/assets/fries.png";
+import beerMug from "@/assets/beer-mug.png";
+import hamburgerCut from "@/assets/hamburger-cut.png";
+import women from "@/assets/women.png";
+
+import about from "@/assets/about.png";
+
+import samWhite from "@/assets/sam-white.png";
+import bernardRedhead from "@/assets/bernard-redhead.png";
+import group from "@/assets/group.webp";
+
+import waiter from "@/assets/waiter.png";
+import counter from "@/assets/counter.png";
+import irish from "@/assets/irish.png";
+
+import miller from "@/assets/miller.svg";
+import hoegaarden from "@/assets/hoegaarden.svg";
+import carlsberg from "@/assets/carlsberg.svg";
+import budweiser from "@/assets/budweiser.svg";
+import heineken from "@/assets/heineken.svg";
+import corona from "@/assets/corona.svg";
 
 const Home = () => {
   return (

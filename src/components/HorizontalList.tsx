@@ -1,8 +1,8 @@
 import { PointerEventHandler, TouchEventHandler, useRef } from "react";
 import { twMerge as tw } from "tailwind-merge";
 
-import CaretLeft from "../svg/CaretLeft";
-import CaretRight from "../svg/CaretRight";
+import CaretLeft from "@/svg/CaretLeft";
+import CaretRight from "@/svg/CaretRight";
 
 const HorizontalList = <T,>({
   listName,

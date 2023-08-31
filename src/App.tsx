@@ -1,26 +1,26 @@
 import { createHashRouter, Link, RouterProvider } from "react-router-dom";
-import Home from "./routes/Home";
-import Error from "./routes/Error";
-import Social from "./components/Social";
-import SliderLink from "./components/SliderLink";
+import Home from "@/routes/Home";
+import Error from "@/routes/Error";
+import Social from "@/components/Social";
+import SliderLink from "@/components/SliderLink";
 import { useLayoutEffect, useState } from "react";
-import ButtonSkeleton from "./components/ButtonSkeleton";
-import About from "./routes/About";
-import Menu from "./routes/Menu";
-import Contact from "./routes/Contact";
+import ButtonSkeleton from "@/components/ButtonSkeleton";
+import About from "@/routes/About";
+import Menu from "@/routes/Menu";
+import Contact from "@/routes/Contact";
 
-import Facebook from "./svg/logos/Facebook";
-import GitHub from "./svg/logos/GitHub";
-import Instagram from "./svg/logos/Ingtagram";
-import logo from "./assets/logo.svg";
-import XLogo from "./svg/logos/X";
-import TikTok from "./svg/logos/TikTok";
-import YouTube from "./svg/logos/YouTube";
-import Waze from "./svg/logos/Waze";
-import Phone from "./svg/Phone";
-import Mail from "./svg/Mail";
-import Location from "./svg/Location";
-import Clock from "./svg/Clock";
+import Facebook from "@/svg/logos/Facebook";
+import GitHub from "@/svg/logos/GitHub";
+import Instagram from "@/svg/logos/Ingtagram";
+import logo from "@/assets/logo.svg";
+import XLogo from "@/svg/logos/X";
+import TikTok from "@/svg/logos/TikTok";
+import YouTube from "@/svg/logos/YouTube";
+import Waze from "@/svg/logos/Waze";
+import Phone from "@/svg/Phone";
+import Mail from "@/svg/Mail";
+import Location from "@/svg/Location";
+import Clock from "@/svg/Clock";
 
 const WithNavAndFooter: React.FC<{ children: React.ReactNode }> = ({
   children,
