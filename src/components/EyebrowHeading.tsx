@@ -1,5 +1,5 @@
 import { ReactNode, isValidElement } from "react";
-import { twMerge as tw } from "tailwind-merge";
+import { cn } from "@/shadui/utils";
 
 type DefaultElement = {
   content: string;
@@ -21,8 +21,8 @@ const EyebrowHeading: React.FC<{
     eyebrow = eyebrow as DefaultElement;
     eyebrowElement = (
       <p
-        className={tw(
-          "pb-1 font-shadows text-accent md:text-xl lg:text-2xl",
+        className={cn(
+          "pb-1 font-shadows text-lightningYellow md:text-xl lg:text-2xl",
           eyebrow.className,
         )}
       >
@@ -36,7 +36,7 @@ const EyebrowHeading: React.FC<{
     heading = heading as DefaultElement;
     headingElement = (
       <h2
-        className={tw(
+        className={cn(
           "font-teko text-3xl uppercase sm:text-4xl md:text-5xl lg:text-6xl",
           heading.className,
         )}
@@ -51,7 +51,7 @@ const EyebrowHeading: React.FC<{
     description = description as DefaultElement;
     descriptionElement = (
       <p
-        className={tw(
+        className={cn(
           "sm:text-lg md:text-xl lg:text-2xl",
           description.className,
         )}
@@ -62,7 +62,7 @@ const EyebrowHeading: React.FC<{
   }
 
   return (
-    <div className={tw("space-y-1", className)}>
+    <div className={cn("space-y-1", className)}>
       {eyebrowElement}
       {headingElement}
       {descriptionElement}

@@ -21,6 +21,7 @@ import Phone from "@/svg/Phone";
 import Mail from "@/svg/Mail";
 import Location from "@/svg/Location";
 import Clock from "@/svg/Clock";
+import { Toaster } from "./shadui/components/ui/toaster";
 
 const WithNavAndFooter: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -79,9 +80,12 @@ const router = createHashRouter([
 ]);
 
 const App = () => (
-  <div className="isolate overflow-x-hidden bg-neutral-900 font-openSans text-white">
-    <RouterProvider router={router} />
-  </div>
+  <>
+    <div className="isolate overflow-x-hidden bg-neutral-900 font-openSans text-white">
+      <RouterProvider router={router} />
+    </div>
+    <Toaster />
+  </>
 );
 
 const NavBar = () => {
@@ -260,7 +264,7 @@ const Footer = () => {
               key={idx}
               className="flex flex-row items-center justify-center gap-3 lg:justify-start"
             >
-              <span className="text-accent">{icon}</span>
+              <span className="text-lightningYellow">{icon}</span>
               <span>{text}</span>
             </li>
           ))}

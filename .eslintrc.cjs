@@ -6,7 +6,12 @@ module.exports = {
     "plugin:@typescript-eslint/recommended",
     "plugin:react-hooks/recommended",
   ],
-  ignorePatterns: ["dist", ".eslintrc.cjs", "src/utils/InferProps.ts"],
+  ignorePatterns: [
+    "dist",
+    ".eslintrc.cjs",
+    "src/utils/InferProps.ts",
+    "src/shadui",
+  ],
   parser: "@typescript-eslint/parser",
   plugins: ["react-refresh"],
   rules: {

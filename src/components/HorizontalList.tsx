@@ -1,5 +1,5 @@
 import { PointerEventHandler, TouchEventHandler, useRef } from "react";
-import { twMerge as tw } from "tailwind-merge";
+import { cn } from "@/shadui/utils";
 
 import CaretLeft from "@/svg/CaretLeft";
 import CaretRight from "@/svg/CaretRight";
@@ -80,8 +80,8 @@ const HorizontalList = <T,>({
       ref={containerRef}
     >
       <button
-        className={tw(
-          "absolute -left-[2%] top-1/2 z-[1] flex aspect-square min-h-fit -translate-y-1/2 items-center justify-center rounded-full p-3 text-2xl text-accent transition-colors hover:bg-neutral-700 xl:-left-[5%]",
+        className={cn(
+          "absolute -left-[2%] top-1/2 z-[1] flex aspect-square min-h-fit -translate-y-1/2 items-center justify-center rounded-full p-3 text-2xl text-lightningYellow transition-colors hover:bg-neutral-700 xl:-left-[5%]",
           buttonClass?.both,
           buttonClass?.left,
         )}
@@ -91,8 +91,8 @@ const HorizontalList = <T,>({
         <CaretLeft />
       </button>
       <button
-        className={tw(
-          "absolute -right-[2%] top-1/2 z-[1] flex aspect-square min-h-fit -translate-y-1/2 items-center justify-center rounded-full p-3 text-2xl text-accent transition-colors hover:bg-neutral-700 xl:-right-[5%]",
+        className={cn(
+          "absolute -right-[2%] top-1/2 z-[1] flex aspect-square min-h-fit -translate-y-1/2 items-center justify-center rounded-full p-3 text-2xl text-lightningYellow transition-colors hover:bg-neutral-700 xl:-right-[5%]",
           buttonClass?.both,
           buttonClass?.right,
         )}

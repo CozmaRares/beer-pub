@@ -1,4 +1,4 @@
-import { twMerge as tw } from "tailwind-merge";
+import { cn } from "@/shadui/utils";
 
 const Social: React.FC<{
   icon: React.ReactNode;
@@ -7,8 +7,8 @@ const Social: React.FC<{
   className?: string;
 }> = ({ icon, name, link, className }) => (
   <a
-    className={tw(
-      "flex aspect-square w-[2em] cursor-pointer items-center justify-center rounded-[3px] border border-accent text-accent transition-colors hover:bg-accent hover:text-black",
+    className={cn(
+      "flex aspect-square w-[2em] cursor-pointer items-center justify-center rounded-[3px] border border-lightningYellow text-lightningYellow transition-colors hover:bg-lightningYellow hover:text-black",
       className,
     )}
     href={link}

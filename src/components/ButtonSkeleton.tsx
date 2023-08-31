@@ -1,12 +1,12 @@
-import { twMerge as tw } from "tailwind-merge";
+import { cn } from "@/shadui/utils";
 
 const ButtonSkeleton: React.FC<{
   children: React.ReactNode;
   className?: string;
 }> = ({ children, className }) => (
   <span
-    className={tw(
-      "block rounded-md border border-accent p-3 font-bold uppercase text-accent transition-colors hover:bg-accent hover:text-black",
+    className={cn(
+      "block rounded-md border border-lightningYellow p-3 font-bold uppercase text-lightningYellow transition-colors hover:bg-lightningYellow hover:text-black",
       className,
     )}
   >

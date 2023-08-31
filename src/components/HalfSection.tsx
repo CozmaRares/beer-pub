@@ -1,4 +1,4 @@
-import { twMerge as tw } from "tailwind-merge";
+import { cn } from "@/shadui/utils";
 
 const HalfSection: React.FC<{
   content: React.ReactNode;
@@ -10,17 +10,17 @@ const HalfSection: React.FC<{
   className?: string;
   reverse?: boolean;
 }> = ({ content, img, className, reverse }) => (
-  <div className={tw("grid gap-4 bg-black md:grid-cols-2", className)}>
+  <div className={cn("grid gap-4 bg-black md:grid-cols-2", className)}>
     <div className={"p-4 sm:p-8" + (reverse ? " order-1" : "")}>{content}</div>
     <div
-      className={tw(
+      className={cn(
         "aspect-video h-full max-h-[600px] w-full md:aspect-auto",
         img.containerClassName,
       )}
     >
       <img
         src={img.src}
-        className={tw("h-full w-full object-cover", img.className)}
+        className={cn("h-full w-full object-cover", img.className)}
       />
     </div>
   </div>

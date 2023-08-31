@@ -5,7 +5,7 @@ const MenuList: React.FC<{
 }> = ({ listName, items, displayTitle }) => (
   <div>
     {displayTitle && (
-      <h2 className="mb-8 font-teko text-2xl uppercase text-accent sm:text-3xl lg:text-4xl">
+      <h2 className="mb-8 font-teko text-2xl uppercase text-lightningYellow sm:text-3xl lg:text-4xl">
         {listName}
       </h2>
     )}
@@ -14,8 +14,10 @@ const MenuList: React.FC<{
         <li key={listName + name}>
           <div className="flex flex-row justify-between pb-1.5 font-teko text-2xl sm:text-3xl lg:text-4xl">
             <h3 className="uppercase">{name}</h3>
-            <div className="flex-grow border-b border-dotted border-accent" />
-            <span className="text-accent before:content-['$']">{price}</span>
+            <div className="flex-grow border-b-2 border-dotted border-lightningYellow" />
+            <span className="text-lightningYellow before:content-['$']">
+              {price}
+            </span>
           </div>
           <p className="text-sm text-gray-400 sm:text-base">{description}</p>
         </li>

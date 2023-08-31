@@ -2,7 +2,7 @@ import EyebrowHeading from "@/components/EyebrowHeading";
 import ButtonSkeleton from "@/components/ButtonSkeleton";
 import HorizontalList from "@/components/HorizontalList";
 import InferProps from "@/utils/InferProps";
-import MenuList from "@/components/MenuItem";
+import MenuList from "@/components/MenuList";
 import ButtonFull from "@/components/ButtonFull";
 import HalfSection from "@/components/HalfSection";
 import { Link } from "react-router-dom";
@@ -77,7 +77,7 @@ const Hero = () => (
       className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center md:left-[70%]"
       eyebrow={{ content: "Enjoy your beer!", className: "text-white" }}
       heading={
-        <h1 className="font-teko text-3xl uppercase text-accent sm:text-5xl md:text-7xl lg:text-8xl">
+        <h1 className="font-teko text-3xl uppercase text-lightningYellow sm:text-5xl md:text-7xl lg:text-8xl">
           Beer Boutique
         </h1>
       }
@@ -85,10 +85,10 @@ const Hero = () => (
         <div className="mt-1 space-y-3 text-xs sm:mt-4 sm:text-base md:text-lg lg:text-2xl">
           <p>
             <span className="md:block">
-              The <span className="text-accent">best beer</span> comes
+              The <span className="text-lightningYellow">best beer</span> comes
             </span>{" "}
             <span className="md:block">
-              with the <span className="text-accent">best foods</span>!
+              with the <span className="text-lightningYellow">best foods</span>!
             </span>
           </p>
           <Link
@@ -173,15 +173,15 @@ const Menu = () => {
               }}
             >
               <div className="absolute left-0 right-0 top-0 -z-[1] h-full bg-black opacity-60 transition-opacity lg:opacity-0 lg:group-hover:opacity-60" />
-              <h3 className="z-[1] font-teko text-3xl uppercase md:text-4xl lg:text-5xl">
+              <h3 className="z-[1] font-teko text-xl sm:text-3xl uppercase md:text-4xl lg:text-5xl">
                 {title}
               </h3>
-              <p className="mx-auto hidden transition-opacity toMd:block toMd:w-4/5 md:w-full lg:opacity-0 lg:group-hover:opacity-100">
+              <p className="mx-auto text-xs sm:text-sm toMd:text-base transition-opacity toMd:block toMd:w-4/5 md:w-full lg:opacity-0 lg:group-hover:opacity-100">
                 {description}
               </p>
               <Link
                 to="/menu"
-                className="mx-auto w-fit border-b border-transparent font-bold uppercase text-accent transition-opacity hover:border-current lg:opacity-0 lg:group-hover:opacity-100"
+                className="mx-auto w-fit border-b border-transparent text-xs sm:text-sm toMd:text-base font-bold uppercase text-lightningYellow transition-opacity hover:border-current lg:opacity-0 lg:group-hover:opacity-100"
               >
                 See full menu
               </Link>
@@ -230,7 +230,7 @@ const Menu = () => {
         </ul>
       </div>
       <EyebrowHeading
-        className="space-y-4 bg-accent px-4 py-8 text-center text-black md:py-16"
+        className="space-y-4 bg-lightningYellow px-4 py-8 text-center text-black md:py-16"
         eyebrow={{ content: "-30% every Friday", className: "text-black" }}
         heading={{ content: "friday deal" }}
         description={
@@ -243,7 +243,7 @@ const Menu = () => {
               to="/menu"
               className="mx-auto block w-fit"
             >
-              <ButtonFull className="bg-black text-accent hover:bg-neutral-800 hover:text-accent toMd:p-3">
+              <ButtonFull className="bg-black text-lightningYellow hover:bg-neutral-800 hover:text-lightningYellow toMd:p-3">
                 Learn more
               </ButtonFull>
             </Link>
@@ -300,10 +300,10 @@ const BeerSpecials = () => {
     ibu,
     taste,
   }) => (
-    <div className="flex flex-col items-center justify-center gap-4 toMd:flex-row toMd:px-16">
+    <div className="flex flex-col items-center justify-center gap-4 toMd:flex-row toMd:px-4">
       <img
         src={img}
-        className="h-[200px] max-h-[90vh] toMd:h-[400px]"
+        className="h-[200px] max-h-[70vh] toMd:h-[400px]"
       />
       <div className="w-2/3 space-y-4 pt-8">
         <h3 className="font-teko text-3xl font-bold capitalize toMd:text-4xl">
@@ -508,7 +508,7 @@ const Testimonials = () => {
             >
               {text}
             </p>
-            <time className="block font-bold text-accent">{date}</time>
+            <time className="block font-bold text-lightningYellow">{date}</time>
           </li>
         ))}
       </ul>
@@ -568,7 +568,7 @@ const Blog = () => {
                 src={img}
                 className="rounded-md"
               />
-              <p className="font-bold uppercase text-accent">{type}</p>
+              <p className="font-bold uppercase text-lightningYellow">{type}</p>
               <h3 className="font-teko text-3xl uppercase">{title}</h3>
               <p className="text-gray-400">{description}</p>
               <Link
@@ -600,7 +600,7 @@ const Brands = () => {
   );
 
   return (
-    <section className="bg-accent">
+    <section className="bg-lightningYellow">
       <div className="bounded-section space-children py-4">
         <HorizontalList
           listName="brands"

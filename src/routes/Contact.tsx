@@ -1,9 +1,58 @@
-import { ChangeEventHandler, useState } from "react";
+import * as z from "zod";
+
+const FormSchema = z.object({
+  name: z
+    .string({
+      required_error: "Name must be between 2 and 30 letters long",
+    })
+    .min(2)
+    .max(30)
+    .regex(/[a-z]+\s?[a-z]+/i),
+  phone: z
+    .string({
+      required_error: "Phone number must be between 5 and 15 digits long",
+    })
+    .min(5)
+    .max(15)
+    .regex(/\d*/),
+  guests: z
+    .string({
+      required_error: "The number of guests must be between 1 and 8",
+    })
+    .min(1)
+    .max(1)
+    .regex(/[1-8]/),
+  date: z.date({
+    required_error: "A reservation date is required",
+  }),
+});
+
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/shadui/components/ui/form";
+import { Input } from "@/shadui/components/ui/input";
+import { Button } from "@/shadui/components/ui/button";
+import { format } from "date-fns";
+import { CalendarIcon } from "lucide-react";
+import { cn } from "@/shadui/utils";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/shadui/components/ui/popover";
+import { toast } from "@/shadui/components/ui/use-toast";
+
 import Clock from "@/svg/Clock";
 import Mail from "@/svg/Mail";
 import Phone from "@/svg/Phone";
 import Banner from "@/components/Banner";
-import ButtonFull from "@/components/ButtonFull";
 import InferProps from "@/utils/InferProps";
 import Social from "@/components/Social";
 import Waze from "@/svg/logos/Waze";
@@ -13,44 +62,13 @@ import XLogo from "@/svg/logos/X";
 import Instagram from "@/svg/logos/Ingtagram";
 import Facebook from "@/svg/logos/Facebook";
 import GitHub from "@/svg/logos/GitHub";
+import { Calendar } from "@/shadui/components/ui/calendar";
 
 const Contact = () => {
   const contacts: { icon: React.ReactNode; title: string; text: string }[] = [
     { icon: <Phone />, title: "Phone", text: "+1 (234) 567 89 00" },
     { icon: <Mail />, title: "Email", text: "beerboutique@fake.email.com" },
     { icon: <Clock />, title: "Working Hours", text: "4 PM — 2 AM" },
-  ];
-
-  const formInputs: {
-    name: string;
-    placeholder: string;
-    pattern?: string;
-    label?: string;
-    title?: string;
-  }[] = [
-    {
-      name: "name",
-      placeholder: "Name",
-    },
-    {
-      name: "phone",
-      placeholder: "Phone number",
-      pattern: "\\d*",
-      title: "Must be a number",
-    },
-    {
-      name: "guests",
-      placeholder: "Number of guests",
-      pattern: "\\d*",
-      title: "Must be a number",
-    },
-    {
-      name: "date",
-      placeholder: "dd/mm/yy",
-      pattern: "(0[1-9]|[12][0-9]|3[01])/(0[1-9]|1[1,2])/20\\d{2}",
-      label: "Date of reservation",
-      title: "Must be of format day/month/year",
-    },
   ];
 
   const socials: Omit<InferProps<[typeof Social]>, "className">[] = [
@@ -91,30 +109,6 @@ const Contact = () => {
     },
   ];
 
-  const [form, setForm] = useState<Record<string, string>>({
-    name: "",
-    phone: "",
-    guests: "",
-    date: "",
-  });
-
-  const handleChange: ChangeEventHandler<HTMLInputElement> = e => {
-    setForm(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value,
-    }));
-  };
-
-  const submit = () => {
-    console.log(form);
-    setForm({
-      name: "",
-      phone: "",
-      guests: "",
-      date: "",
-    });
-  };
-
   return (
     <div className="space-children">
       <Banner text="Contact" />
@@ -138,7 +132,7 @@ const Contact = () => {
         <ul className="h-fit w-fit space-y-8 overflow-hidden md:m-auto">
           {contacts.map(({ icon, title, text }) => (
             <li className="flex flex-row items-center gap-4">
-              <span className="flex aspect-square items-center justify-center rounded-full bg-black p-4 text-2xl text-accent">
+              <span className="text-lightningYellow flex aspect-square items-center justify-center rounded-full bg-black p-4 text-2xl">
                 {icon}
               </span>
               <p>
@@ -150,39 +144,130 @@ const Contact = () => {
             </li>
           ))}
         </ul>
-        <form className="flex max-w-full flex-col justify-between gap-8 rounded-md bg-black px-8 py-16">
-          {formInputs.map(({ name, placeholder, pattern, label, title }) => (
-            <>
-              <label
-                htmlFor={name}
-                className="sr-only"
-              >
-                {label ?? name}
-              </label>
-              <input
-                className="w-full rounded-lg bg-neutral-900 px-2 py-4 sm:px-4"
-                type="text"
-                name={name}
-                id={name}
-                placeholder={placeholder}
-                onChange={handleChange}
-                value={form[name]}
-                required
-                pattern={pattern}
-                title={title}
-              />
-            </>
-          ))}
-          <button
-            onClick={submit}
-            className="block w-full"
-            type="button"
-          >
-            <ButtonFull className="w-full">Reserve</ButtonFull>
-          </button>
-        </form>
+        <MyForm />
       </div>
     </div>
+  );
+};
+
+const MyForm = () => {
+  const form = useForm<z.infer<typeof FormSchema>>({
+    resolver: zodResolver(FormSchema),
+  });
+
+  const onSubmit = (data: z.infer<typeof FormSchema>) => {
+    toast({
+      title: "Reservation made",
+      description: (
+        <pre className="mt-2 w-[340px] rounded-md bg-slate-950 p-4">
+          <code className="text-white">{JSON.stringify(data, null, 2)}</code>
+        </pre>
+      ),
+    });
+  };
+
+  return (
+    <Form {...form}>
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="flex max-w-full flex-col justify-between space-y-10 rounded-md bg-black p-8"
+      >
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem className="relative">
+              <FormLabel className="sr-only">Enter your name</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Name"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage className="absolute left-0 top-full" />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="phone"
+          render={({ field }) => (
+            <FormItem className="relative">
+              <FormLabel className="sr-only">Enter your phone number</FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Phone number"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage className="absolute left-0 top-full" />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="guests"
+          render={({ field }) => (
+            <FormItem className="relative">
+              <FormLabel className="sr-only">
+                Enter the number of guests, max 8
+              </FormLabel>
+              <FormControl>
+                <Input
+                  placeholder="Number of guests (max 8)"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage className="absolute left-0 top-full" />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="date"
+          render={({ field }) => (
+            <FormItem className="relative flex flex-col">
+              <FormLabel className="sr-only">
+                Choose date of reservation
+              </FormLabel>
+              <Popover>
+                <PopoverTrigger asChild>
+                  <FormControl>
+                    <Button
+                      variant={"outline"}
+                      className={cn(
+                        "pl-3 text-left font-normal",
+                        !field.value && "text-muted-foreground",
+                      )}
+                    >
+                      {field.value ? (
+                        format(field.value, "PPP")
+                      ) : (
+                        <span>Pick a date</span>
+                      )}
+                      <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
+                    </Button>
+                  </FormControl>
+                </PopoverTrigger>
+                <PopoverContent
+                  className="w-auto p-0"
+                  align="start"
+                >
+                  <Calendar
+                    mode="single"
+                    selected={field.value}
+                    onSelect={field.onChange}
+                    disabled={date => date <= new Date()}
+                  />
+                </PopoverContent>
+              </Popover>
+              <FormMessage className="absolute left-0 top-full" />
+            </FormItem>
+          )}
+        />
+        <Button className="bg-lightningYellow hover:bg-orange-500 text-base" type="submit">Reserve</Button>
+      </form>
+    </Form>
   );
 };
 

@@ -110,7 +110,9 @@ const Staff = () => {
               />
             </div>
             <h3 className="font-teko text-3xl uppercase">{name}</h3>
-            <h4 className="font-bold uppercase text-accent">{title}</h4>
+            <h4 className="font-bold uppercase text-lightningYellow">
+              {title}
+            </h4>
             <p className="text-gray-400">{description}</p>
           </li>
         ))}
@@ -121,7 +123,7 @@ const Staff = () => {
 
 const CallToAction = () => (
   <section className="bounded-section overflow-hidden">
-    <div className="relative flex flex-col justify-around gap-12 bg-accent p-8 text-black md:flex-row md:items-center">
+    <div className="relative flex flex-col justify-around gap-12 bg-lightningYellow p-8 text-black md:flex-row md:items-center">
       <div className="space-y-8 text-xl md:w-3/5 ">
         <h2 className="font-teko text-4xl uppercase md:text-5xl">
           We are hiring!
