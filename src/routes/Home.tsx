@@ -172,16 +172,16 @@ const Menu = () => {
                 resize: "both",
               }}
             >
-              <div className="absolute left-0 right-0 top-0 -z-[1] h-full bg-black opacity-60 transition-opacity lg:opacity-0 lg:group-hover:opacity-60" />
-              <h3 className="z-[1] font-teko text-xl sm:text-3xl uppercase md:text-4xl lg:text-5xl">
+              <div className="absolute left-0 right-0 top-0 -z-[1] h-full bg-black opacity-60 transition-opacity lg:opacity-0 lg:group-focus-within:opacity-60 lg:group-hover:opacity-60" />
+              <h3 className="z-[1] font-teko text-xl uppercase sm:text-3xl md:text-4xl lg:text-5xl">
                 {title}
               </h3>
-              <p className="mx-auto text-xs sm:text-sm toMd:text-base transition-opacity toMd:block toMd:w-4/5 md:w-full lg:opacity-0 lg:group-hover:opacity-100">
+              <p className="mx-auto text-xs transition-opacity sm:text-sm toMd:block toMd:w-4/5 toMd:text-base md:w-full lg:opacity-0 lg:group-focus-within:opacity-100 lg:group-hover:opacity-100">
                 {description}
               </p>
               <Link
                 to="/menu"
-                className="mx-auto w-fit border-b border-transparent text-xs sm:text-sm toMd:text-base font-bold uppercase text-lightningYellow transition-opacity hover:border-current lg:opacity-0 lg:group-hover:opacity-100"
+                className="mx-auto w-fit border-b border-transparent text-xs font-bold uppercase text-lightningYellow transition-opacity hover:border-current sm:text-sm toMd:text-base lg:opacity-0 lg:group-focus-within:opacity-100 lg:group-hover:opacity-100"
               >
                 See full menu
               </Link>
@@ -417,9 +417,9 @@ const BestOffers = () => {
       </div>
       <Link
         to="/menu"
-        className="block"
+        className="mx-auto block w-fit"
       >
-        <ButtonFull className="mx-auto w-fit px-4">See All Menu</ButtonFull>
+        <ButtonFull className="px-4">See All Menu</ButtonFull>
       </Link>
     </section>
   );
@@ -449,9 +449,9 @@ const About = () => (
               </p>
               <Link
                 to="/about"
-                className="block"
+                className="block w-fit"
               >
-                <ButtonFull className="w-fit px-4">More About Us</ButtonFull>
+                <ButtonFull className="px-4">More About Us</ButtonFull>
               </Link>
             </>
           }
@@ -573,9 +573,9 @@ const Blog = () => {
               <p className="text-gray-400">{description}</p>
               <Link
                 to="/blog"
-                className="block"
+                className="block w-fit"
               >
-                <ButtonSkeleton className="w-fit border-white text-white hover:bg-white">
+                <ButtonSkeleton className="border-white text-white hover:bg-white">
                   Read More
                 </ButtonSkeleton>
               </Link>

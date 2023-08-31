@@ -132,7 +132,7 @@ const Contact = () => {
         <ul className="h-fit w-fit space-y-8 overflow-hidden md:m-auto">
           {contacts.map(({ icon, title, text }) => (
             <li className="flex flex-row items-center gap-4">
-              <span className="text-lightningYellow flex aspect-square items-center justify-center rounded-full bg-black p-4 text-2xl">
+              <span className="flex aspect-square items-center justify-center rounded-full bg-black p-4 text-2xl text-lightningYellow">
                 {icon}
               </span>
               <p>
@@ -265,7 +265,12 @@ const MyForm = () => {
             </FormItem>
           )}
         />
-        <Button className="bg-lightningYellow hover:bg-orange-500 text-base" type="submit">Reserve</Button>
+        <Button
+          className="bg-lightningYellow text-base hover:bg-orange-500"
+          type="submit"
+        >
+          Reserve
+        </Button>
       </form>
     </Form>
   );

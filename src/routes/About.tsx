@@ -51,6 +51,7 @@ const Story = () => (
       }
       img={{
         src: story,
+        className: "md:min-h-[500px]",
       }}
       reverse
     />
