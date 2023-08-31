@@ -402,7 +402,10 @@ const BestOffers = () => {
       />
       <ul className="mx-auto grid max-w-[400px] grid-cols-1 gap-4 sm:grid-cols-2 md:max-w-full md:grid-cols-4 md:[&>:first-child>img]:rounded-tl-[100px] md:[&>:last-child>img]:rounded-br-[100px]">
         {images.map(img => (
-          <li className="aspect-square w-full">
+          <li
+            key={img}
+            className="aspect-square w-full"
+          >
             <img
               className="h-full w-full rounded-2xl object-cover"
               src={img}
@@ -412,7 +415,10 @@ const BestOffers = () => {
       </ul>
       <div className="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-8">
         {lists.map(list => (
-          <MenuList {...list} />
+          <MenuList
+            key={list.listName}
+            {...list}
+          />
         ))}
       </div>
       <Link
@@ -496,7 +502,10 @@ const Testimonials = () => {
       />
       <ul className="flex flex-col gap-16 md:flex-row">
         {testimonials.map(({ img, name, text, date }) => (
-          <li className="space-y-6 rounded-md bg-black px-6 py-8 text-center">
+          <li
+            key={img}
+            className="space-y-6 rounded-md bg-black px-6 py-8 text-center"
+          >
             <img
               src={img}
               className="mx-auto aspect-square h-[100px] rounded-full"
@@ -562,7 +571,7 @@ const Blog = () => {
       />
       <ul className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {posts.map(({ img, type, title, description }) => (
-          <li>
+          <li key={img}>
             <article className="flex h-full flex-col justify-between gap-4">
               <img
                 src={img}

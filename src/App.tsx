@@ -22,6 +22,7 @@ import Mail from "@/svg/Mail";
 import Location from "@/svg/Location";
 import Clock from "@/svg/Clock";
 import { Toaster } from "./shadui/components/ui/toaster";
+import InferProps from "./utils/InferProps";
 
 const WithNavAndFooter: React.FC<{ children: React.ReactNode }> = ({
   children,
@@ -88,8 +89,33 @@ const App = () => (
   </>
 );
 
+const navLinks: Omit<InferProps<[typeof SliderLink]>, "className">[] = [
+  { text: "About Us", link: "/about" },
+  { text: "Menu", link: "/menu" },
+  { text: "Blog", link: "/blog" },
+  { text: "Contact", link: "/contact" },
+];
+
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const socials: Omit<InferProps<[typeof Social]>, "className">[] = [
+    {
+      icon: <GitHub />,
+      name: "GitHub",
+      link: "#",
+    },
+    {
+      icon: <Facebook />,
+      name: "Facebook",
+      link: "#",
+    },
+    {
+      icon: <Instagram />,
+      name: "Instagram",
+      link: "#",
+    },
+  ];
 
   return (
     <header className="bounded-section relative z-[1] flex flex-row items-center justify-between py-8 text-base lg:text-lg">
@@ -118,53 +144,25 @@ const NavBar = () => {
       </button>
       <nav className={`hamburger-menu ${isOpen ? "open" : ""}`}>
         <ul className="flex flex-col md:flex-row md:gap-8">
-          <li>
-            <SliderLink
-              text="About Us"
-              link="/about"
-            />
-          </li>
-          <li>
-            <SliderLink
-              text="Menu"
-              link="/menu"
-            />
-          </li>
-          <li>
-            <SliderLink
-              text="Blog"
-              link="/blog"
-            />
-          </li>
-          <li>
-            <SliderLink
-              text="Contact"
-              link="/contact"
-            />
-          </li>
+          {navLinks.map(({ text, link }) => (
+            <li key={text}>
+              <SliderLink
+                text={text}
+                link={link}
+              />
+            </li>
+          ))}
         </ul>
         <ul className="mx-auto flex flex-row gap-3 md:m-0 md:p-0">
-          <li>
-            <Social
-              icon={<GitHub />}
-              name="GitHub"
-              link="#"
-            />
-          </li>
-          <li>
-            <Social
-              icon={<Facebook />}
-              name="Facebook"
-              link="#"
-            />
-          </li>
-          <li>
-            <Social
-              icon={<Instagram />}
-              name="Instagram"
-              link="#"
-            />
-          </li>
+          {socials.map(({ icon, name, link }) => (
+            <li key={name}>
+              <Social
+                icon={icon}
+                name={name}
+                link={link}
+              />
+            </li>
+          ))}
         </ul>
       </nav>
     </header>
@@ -177,6 +175,29 @@ const Footer = () => {
     { icon: <Mail />, text: "beerboutique@fake.email.com" },
     { icon: <Location />, text: "Somewhere in New York" },
     { icon: <Clock />, text: "4 PM — 2 AM" },
+  ];
+
+  const socials: Omit<InferProps<[typeof Social]>, "className">[] = [
+    {
+      icon: <XLogo />,
+      name: "X",
+      link: "#",
+    },
+    {
+      icon: <TikTok />,
+      name: "TikTok",
+      link: "#",
+    },
+    {
+      icon: <YouTube />,
+      name: "YouTube",
+      link: "#",
+    },
+    {
+      icon: <Waze />,
+      name: "Waze",
+      link: "#",
+    },
   ];
 
   return (
@@ -195,73 +216,38 @@ const Footer = () => {
           local and world-famous producers.
         </p>
         <ul className="flex flex-row gap-3">
-          <li>
-            <Social
-              icon={<XLogo />}
-              name="X"
-              link="#"
-            />
-          </li>
-          <li>
-            <Social
-              icon={<TikTok />}
-              name="TikTok"
-              link="#"
-            />
-          </li>
-          <li>
-            <Social
-              icon={<YouTube />}
-              name="YouTube"
-              link="#"
-            />
-          </li>
-          <li>
-            <Social
-              icon={<Waze />}
-              name="Waze"
-              link="#"
-            />
-          </li>
+          {socials.map(({ icon, name, link }) => (
+            <li key={name}>
+              <Social
+                icon={icon}
+                name={name}
+                link={link}
+              />
+            </li>
+          ))}
         </ul>
       </div>
       <div>
         <span className="mb-4 font-teko text-4xl text-white">Navigation</span>
         <nav>
           <ul className="space-y-3 text-gray-400">
-            <li>
-              <SliderLink
-                text="About Us"
-                link="/about"
-              />
-            </li>
-            <li>
-              <SliderLink
-                text="Menu"
-                link="/menu"
-              />
-            </li>
-            <li>
-              <SliderLink
-                text="Blog"
-                link="/blog"
-              />
-            </li>
-            <li>
-              <SliderLink
-                text="Contact"
-                link="/contact"
-              />
-            </li>
+            {navLinks.map(({ text, link }) => (
+              <li key={text}>
+                <SliderLink
+                  text={text}
+                  link={link}
+                />
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
       <div className="flex-col justify-between lg:flex">
         <span className="mb-4 font-teko text-4xl text-white">Contacts</span>
         <ul className="contents space-y-3 text-gray-400">
-          {contacts.map(({ icon, text }, idx) => (
+          {contacts.map(({ icon, text }) => (
             <li
-              key={idx}
+              key={text}
               className="flex flex-row items-center justify-center gap-3 lg:justify-start"
             >
               <span className="text-lightningYellow">{icon}</span>

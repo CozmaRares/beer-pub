@@ -118,7 +118,7 @@ const Contact = () => {
         </h2>
         <ul className="mx-auto flex w-full flex-row flex-wrap justify-center gap-4">
           {socials.map(({ icon, name, link }) => (
-            <li>
+            <li key={name}>
               <Social
                 icon={icon}
                 name={name}
@@ -131,7 +131,10 @@ const Contact = () => {
       <div className="bounded-section grid content-center gap-8 md:grid-cols-2">
         <ul className="h-fit w-fit space-y-8 overflow-hidden md:m-auto">
           {contacts.map(({ icon, title, text }) => (
-            <li className="flex flex-row items-center gap-4">
+            <li
+              key={title}
+              className="flex flex-row items-center gap-4"
+            >
               <span className="flex aspect-square items-center justify-center rounded-full bg-black p-4 text-2xl text-lightningYellow">
                 {icon}
               </span>

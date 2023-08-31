@@ -103,7 +103,10 @@ const Staff = () => {
       />
       <ul className="flex flex-col flex-wrap justify-center gap-8 text-center md:flex-row lg:flex-nowrap">
         {staff.map(({ img, name, title, description, imgPosition }) => (
-          <li className="h-full space-y-4 md:w-2/5 lg:w-full">
+          <li
+            key={img}
+            className="h-full space-y-4 md:w-2/5 lg:w-full"
+          >
             <div className="aspect-[7/8] w-full">
               <img
                 src={img}
