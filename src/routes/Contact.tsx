@@ -75,37 +75,37 @@ const Contact = () => {
     {
       icon: <GitHub />,
       name: "GitHub",
-      link: "#",
+      link: "https://github.com/CozmaRares/beer-pub-landing",
     },
     {
       icon: <Facebook />,
       name: "Facebook",
-      link: "#",
+      link: "https://www.facebook.com/",
     },
     {
       icon: <Instagram />,
       name: "Instagram",
-      link: "#",
+      link: "https://www.instagram.com/",
     },
     {
       icon: <XLogo />,
       name: "X",
-      link: "#",
+      link: "https://twitter.com/",
     },
     {
       icon: <TikTok />,
       name: "TikTok",
-      link: "#",
+      link: "https://www.tiktok.com/",
     },
     {
       icon: <YouTube />,
       name: "YouTube",
-      link: "#",
+      link: "https://www.youtube.com/",
     },
     {
       icon: <Waze />,
       name: "Waze",
-      link: "#",
+      link: "https://www.waze.com/live-map/",
     },
   ];
 
