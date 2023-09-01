@@ -110,35 +110,6 @@
     transform-origin: left;
   }
 
-  /* parallax */
-  .parallax-container {
-    min-height: fit;
-    height: 90vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    perspective: 10px;
-  }
-
-  .parallax {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    transform-style: preserve-3d;
-    z-index: -1;
-  }
-
-  .parallax-background {
-    transform: translateZ(-10px) scale(2);
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-    z-index: -1;
-    filter: grayscale(100%) brightness(0.5);
-  }
-
   /* horizontal scroll list */
   .horizontal-list-container {
     @apply relative isolate px-8;

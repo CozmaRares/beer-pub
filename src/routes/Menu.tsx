@@ -271,23 +271,22 @@ const Menu = () => {
   );
 };
 
-// TODO: fix parallax
 const Friday = () => (
   <section
     id="friday-deal"
-    className="parallax-container"
+    style={{
+      backgroundImage: `url(${fridayBg})`,
+      backgroundSize: "cover",
+      backgroundPositionX: "50%",
+    }}
   >
-    <div className="parallax">
-      <img
-        src={fridayBg}
-        className="parallax-background"
-      />
-      <div className="bounded-section grid items-center md:grid-cols-2">
+    <div className=" flex h-full items-center justify-center py-32 backdrop-brightness-50 backdrop-grayscale">
+      <div className="bounded-section col-span-full row-span-full grid items-center gap-8 lg:grid-cols-2 lg:gap-0">
         <img
           src={friday}
-          className="mx-auto h-full max-h-[500px] object-cover"
+          className="mx-auto object-cover lg:max-h-[500px]"
         />
-        <div className="flex-center flex h-full flex-col items-center gap-8 rounded-lg bg-black/70 p-16">
+        <div className="h-full flex-col space-y-8 rounded-lg bg-black/70 p-16">
           <EyebrowHeading
             className="text-center"
             eyebrow={{ content: "Special price" }}
