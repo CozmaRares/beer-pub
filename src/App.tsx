@@ -323,7 +323,7 @@ const MyForm = () => {
           )}
         />
         <Button
-          className="text-lightningYellow border-lightningYellow hover:bg-lightningYellow w-full bg-transparent p-3 text-base font-bold uppercase hover:text-black"
+          className="w-full border-lightningYellow bg-transparent p-3 text-base font-bold uppercase text-lightningYellow hover:bg-lightningYellow hover:text-black"
           variant="outline"
           type="submit"
         >
