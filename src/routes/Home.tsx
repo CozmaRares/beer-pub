@@ -482,13 +482,13 @@ const Testimonials = () => {
       img: samWhite,
       name: "Sam White",
       text: "This place is definitely worth visiting and making friends there. I don't know how you do it, but it is a strange combination of a posh place for beer snobs and a local pub at the same time. It's so weird that it works. Love it!",
-      date: "May 28, 2022",
+      date: "May 28th, 2022",
     },
     {
       img: bernardRedhead,
       name: "Bernard Redhead",
       text: "I am definitely a beer person, and my girlfriend loves cider offered at Beer Boutique as well. We love to taste different craft beer varieties on Sundays here. Besides, the concerts there are amazing. Rock it on!",
-      date: "March 15, 2022",
+      date: "March 15th, 2022",
     },
   ];
 

@@ -16,6 +16,7 @@ import SliderLink from "@/components/SliderLink";
 import { useLayoutEffect, useState } from "react";
 import About from "@/routes/About";
 import Menu from "@/routes/Menu";
+import Blog from "@/routes/Blog";
 import Contact from "@/routes/Contact";
 import { Toaster } from "@/shadui/components/ui/toaster";
 import InferProps from "@/utils/InferProps";
@@ -89,6 +90,14 @@ const router = createHashRouter([
     element: (
       <WithNavAndFooter>
         <Menu />
+      </WithNavAndFooter>
+    ),
+  },
+  {
+    path: "/blog",
+    element: (
+      <WithNavAndFooter>
+        <Blog />
       </WithNavAndFooter>
     ),
   },
