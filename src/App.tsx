@@ -47,7 +47,8 @@ import Mail from "@/svg/Mail";
 import Location from "@/svg/Location";
 import Clock from "@/svg/Clock";
 
-const WithNavAndFooter: React.FC<{ children: React.ReactNode }> = ({
+const WithNavAndFooter: React.FC<{path:string; children: React.ReactNode }> = ({
+  path,
   children,
 }) => {
   useLayoutEffect(() => {
@@ -56,7 +57,7 @@ const WithNavAndFooter: React.FC<{ children: React.ReactNode }> = ({
 
   return (
     <>
-      <NavBar />
+      <NavBar key={path} />
       <main>{children}</main>
       <Footer />
     </>
@@ -67,12 +68,12 @@ const router = createHashRouter([
   {
     path: "/",
     element: (
-      <WithNavAndFooter>
+      <WithNavAndFooter path="/">
         <Home />
       </WithNavAndFooter>
     ),
     errorElement: (
-      <WithNavAndFooter>
+      <WithNavAndFooter path="error">
         <Error />
       </WithNavAndFooter>
     ),
@@ -80,7 +81,7 @@ const router = createHashRouter([
   {
     path: "/about",
     element: (
-      <WithNavAndFooter>
+      <WithNavAndFooter path="/about">
         <About />
       </WithNavAndFooter>
     ),
@@ -88,7 +89,7 @@ const router = createHashRouter([
   {
     path: "/menu",
     element: (
-      <WithNavAndFooter>
+      <WithNavAndFooter path="/menu">
         <Menu />
       </WithNavAndFooter>
     ),
@@ -96,7 +97,7 @@ const router = createHashRouter([
   {
     path: "/blog",
     element: (
-      <WithNavAndFooter>
+      <WithNavAndFooter path="/blog">
         <Blog />
       </WithNavAndFooter>
     ),
@@ -104,7 +105,7 @@ const router = createHashRouter([
   {
     path: "/contact",
     element: (
-      <WithNavAndFooter>
+      <WithNavAndFooter path="/contact">
         <Contact />
       </WithNavAndFooter>
     ),
