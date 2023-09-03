@@ -38,7 +38,7 @@ import Image from "@/components/Image";
 import Facebook from "@/svg/logos/Facebook";
 import GitHub from "@/svg/logos/GitHub";
 import Instagram from "@/svg/logos/Ingtagram";
-import logo from "@/assets/logo.svg";
+import logo from "@/assets/svg/logo.svg";
 import XLogo from "@/svg/logos/X";
 import TikTok from "@/svg/logos/TikTok";
 import YouTube from "@/svg/logos/YouTube";

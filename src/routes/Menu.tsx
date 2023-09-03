@@ -1,13 +1,13 @@
-import drinks from "@/assets/drinks.png";
+import drinks from "@/assets/images/drinks.png";
 import Banner from "@/components/Banner";
 import EyebrowHeading from "@/components/EyebrowHeading";
 import HorizontalList from "@/components/HorizontalList";
 import MenuList from "@/components/MenuList";
-import fridayBg from "@/assets/friday-bg.png";
-import friday from "@/assets/friday.svg";
-import paleAle from "@/assets/pale-ale.png";
-import crutons from "@/assets/crutons.png";
-import sausages from "@/assets/sausages.png";
+import fridayBg from "@/assets/images/friday-bg.png";
+import friday from "@/assets/svg/friday.svg";
+import paleAle from "@/assets/images/pale-ale.png";
+import crutons from "@/assets/images/crutons.png";
+import sausages from "@/assets/images/sausages.png";
 import Image from "@/components/Image";
 
 const Menu = () => {

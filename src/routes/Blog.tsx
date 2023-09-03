@@ -1,4 +1,5 @@
-import blogImg from "@/assets/blog-img.jpg";
+import blogImg from "@/assets/images/blog-img.jpg";
+import Banner from "@/components/Banner";
 import Image from "@/components/Image";
 import { cn } from "@/shadui/utils";
 import InferProps from "@/utils/InferProps";
@@ -13,6 +14,8 @@ const BLOG_PROPS: Omit<InferProps<[typeof BlogPost]>, "className"> = {
 };
 
 const Blog = () => (
+  <>
+  <Banner text="Blog"/>
   <div className="bounded-section space-y-8 py-4">
     <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-[3fr,2fr]">
       <BlogPost
@@ -31,6 +34,7 @@ const Blog = () => (
       ))}
     </div>
   </div>
+  </>
 );
 
 const BlogPost: React.FC<{

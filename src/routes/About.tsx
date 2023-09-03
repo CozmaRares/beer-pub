@@ -2,13 +2,13 @@ import Banner from "@/components/Banner";
 import HalfSection from "@/components/HalfSection";
 import EyebrowHeading from "@/components/EyebrowHeading";
 
-import story from "@/assets/story.png";
+import story from "@/assets/images/story.png";
 
-import john from "@/assets/john.png";
-import anthony from "@/assets/anthony.png";
-import thomas from "@/assets/thomas.png";
+import john from "@/assets/images/john.png";
+import anthony from "@/assets/images/anthony.png";
+import thomas from "@/assets/images/thomas.png";
 
-import beerMug from "@/assets/beer-mug.svg";
+import beerMug from "@/assets/svg/beer-mug.svg";
 import { Link } from "react-router-dom";
 import { cn } from "@/shadui/utils";
 import Image from "@/components/Image";
