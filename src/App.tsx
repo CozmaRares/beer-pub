@@ -33,6 +33,7 @@ import {
 } from "@/shadui/components/ui/form";
 import { Input } from "@/shadui/components/ui/input";
 import { Button } from "@/shadui/components/ui/button";
+import Image from "@/components/Image";
 
 import Facebook from "@/svg/logos/Facebook";
 import GitHub from "@/svg/logos/GitHub";
@@ -157,12 +158,12 @@ const NavBar = () => {
         className="w-full sm:w-auto sm:max-w-[40%]"
         to="/"
       >
-        <img
+        <Image
           src={logo}
+          alt="site logo"
           width="200px"
           height="auto"
           className="max-w-full"
-          alt=""
         />
       </Link>
       <button
@@ -238,11 +239,12 @@ const Footer = () => {
     <footer className="bounded-section flex grid-cols-[4fr,3fr,4fr,5fr] flex-col items-center gap-10 py-16 text-center text-white/70 lg:grid lg:text-left [&>*]:space-y-4 [&>*]:lg:h-full">
       <div className="flex w-fit flex-col items-center lg:items-start lg:justify-between">
         <Link to="/">
-          <img
+          <Image
             src={logo}
-            alt=""
+            alt="site logo"
             width="200px"
             height="auto"
+            className="max-w-full"
           />
         </Link>
         <p className="w-2/3 md:w-1/2 lg:w-4/5">

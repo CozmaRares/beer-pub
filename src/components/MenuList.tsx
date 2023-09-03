@@ -1,8 +1,14 @@
 import { cn } from "@/shadui/utils";
+import Image from "@/components/Image";
 
 const MenuList: React.FC<{
   listName: string;
-  items: { img?: string; name: string; price: number; description: string }[];
+  items: {
+    img?: { src: string; alt: string };
+    name: string;
+    price: number;
+    description: string;
+  }[];
   displayName?: boolean;
 }> = ({ listName, items, displayName }) => (
   <div>
@@ -18,8 +24,9 @@ const MenuList: React.FC<{
           className={cn({ "grid grid-cols-[70px,1fr] gap-x-6": !!img })}
         >
           {img && (
-            <img
-              src={img}
+            <Image
+              src={img.src}
+              alt={img.alt}
               className="row-span-2 aspect-square rounded-full"
             />
           )}

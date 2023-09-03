@@ -42,6 +42,7 @@ import carlsberg from "@/assets/carlsberg.svg";
 import budweiser from "@/assets/budweiser.svg";
 import heineken from "@/assets/heineken.svg";
 import corona from "@/assets/corona.svg";
+import Image from "@/components/Image";
 
 const Home = () => {
   return (
@@ -214,10 +215,10 @@ const Menu = () => {
               key={title}
               className="contents"
             >
-              <img
+              <Image
                 src={img}
                 className="mx-auto w-1/2 sm:h-full sm:max-w-full"
-                alt=""
+                alt="icon"
               />
               <div>
                 <h3 className="font-teko text-3xl uppercase sm:text-2xl md:text-4xl">
@@ -301,8 +302,9 @@ const BeerSpecials = () => {
     taste,
   }) => (
     <div className="flex flex-col items-center justify-center gap-4 toMd:flex-row toMd:px-4">
-      <img
+      <Image
         src={img}
+        alt="photo"
         className="h-[200px] max-h-[70vh] toMd:h-[400px]"
       />
       <div className="w-2/3 space-y-4 pt-8">
@@ -406,7 +408,8 @@ const BestOffers = () => {
             key={img}
             className="aspect-square w-full"
           >
-            <img
+            <Image
+              alt="image placeholder"
               className="h-full w-full rounded-2xl object-cover"
               src={img}
             />
@@ -465,6 +468,7 @@ const About = () => (
       }
       img={{
         src: about,
+        alt: "image placeholder",
         className: "object-[50%,30%]",
       }}
     />
@@ -506,7 +510,8 @@ const Testimonials = () => {
             key={img}
             className="space-y-6 rounded-md bg-black px-6 py-8 text-center"
           >
-            <img
+            <Image
+              alt="profile picture placeholder"
               src={img}
               className="mx-auto aspect-square h-[100px] rounded-full"
             />
@@ -521,7 +526,8 @@ const Testimonials = () => {
           </li>
         ))}
       </ul>
-      <img
+      <Image
+        alt="image placeholder"
         src={group}
         className="min-h-[300px] rounded-md object-cover"
       />
@@ -573,7 +579,8 @@ const Blog = () => {
         {posts.map(({ img, type, title, description }) => (
           <li key={img}>
             <article className="flex h-full flex-col justify-between gap-4">
-              <img
+              <Image
+                alt="image placeholder"
                 src={img}
                 className="rounded-md"
               />
@@ -601,7 +608,8 @@ const Brands = () => {
 
   const Item: React.FC<string> = img => (
     <div className="flex h-[90px] items-center justify-center bg-neutral-500/20 px-8 py-4">
-      <img
+      <Image
+        alt="brand logo"
         src={img}
         className="max-h-[40px] opacity-90"
       />

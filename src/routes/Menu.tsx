@@ -8,6 +8,7 @@ import friday from "@/assets/friday.svg";
 import paleAle from "@/assets/pale-ale.png";
 import crutons from "@/assets/crutons.png";
 import sausages from "@/assets/sausages.png";
+import Image from "@/components/Image";
 
 const Menu = () => {
   return (
@@ -138,8 +139,9 @@ const Menu = () => {
             ]}
           />
         </section>
-        <img
+        <Image
           src={drinks}
+          alt="image placeholder"
           className="aspect-video w-full object-cover"
         />
         <section className="space-children pb-16">
@@ -282,11 +284,12 @@ const Friday = () => (
   >
     <div className=" flex h-full items-center justify-center py-32 backdrop-brightness-50 backdrop-grayscale">
       <div className="bounded-section col-span-full row-span-full grid items-center gap-8 lg:grid-cols-2 lg:gap-0">
-        <img
+        <Image
+          alt="illutsration"
           src={friday}
           className="mx-auto object-cover lg:max-h-[500px]"
         />
-        <div className="h-full flex-col space-y-8 rounded-lg bg-black/70 p-16">
+        <div className="h-full flex-col space-y-8 rounded-lg bg-black/40 p-8 backdrop-blur-sm toMd:p-16">
           <EyebrowHeading
             className="text-center"
             eyebrow={{ content: "Special price" }}
@@ -297,21 +300,21 @@ const Friday = () => (
             listName="friday"
             items={[
               {
-                img: paleAle,
+                img: { src: paleAle, alt: "illutsration" },
                 name: "Pale Ale",
                 price: 3.5,
                 description:
                   "Enjoy draft pale ale at Beer Boutique with its mild taste and tender aroma",
               },
               {
-                img: crutons,
+                img: { src: crutons, alt: "illutsration" },
                 name: "Croutons & Sauce",
                 price: 7,
                 description:
                   "Croutons with cheese and chilli sauces are the best beer accompaniment",
               },
               {
-                img: sausages,
+                img: { src: sausages, alt: "illutsration" },
                 name: "Pan With Sausages",
                 price: 15,
                 description:

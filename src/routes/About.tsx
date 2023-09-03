@@ -10,6 +10,8 @@ import thomas from "@/assets/thomas.png";
 
 import beerMug from "@/assets/beer-mug.svg";
 import { Link } from "react-router-dom";
+import { cn } from "@/shadui/utils";
+import Image from "@/components/Image";
 
 const About = () => (
   <>
@@ -51,6 +53,7 @@ const Story = () => (
       }
       img={{
         src: story,
+        alt: "image placeholder",
         className: "md:min-h-[500px]",
       }}
       reverse
@@ -108,9 +111,10 @@ const Staff = () => {
             className="h-full space-y-4 md:w-2/5 lg:w-full"
           >
             <div className="aspect-[7/8] w-full">
-              <img
+              <Image
                 src={img}
-                className={"h-full w-full object-cover " + (imgPosition ?? "")}
+                alt="illustration"
+                className={cn("h-full w-full object-cover", imgPosition)}
               />
             </div>
             <h3 className="font-teko text-3xl uppercase">{name}</h3>
@@ -143,9 +147,11 @@ const CallToAction = () => (
       >
         Join our team
       </Link>
-      <img
+      <Image
         src={beerMug}
+        alt=""
         className="absolute -right-2 -top-2 h-[100px] opacity-30 [rotate:z_-45deg]"
+        aria-hidden
       />
     </div>
   </section>

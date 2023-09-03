@@ -1,9 +1,11 @@
 import { cn } from "@/shadui/utils";
+import Image from "@/components/Image";
 
 const HalfSection: React.FC<{
   content: React.ReactNode;
   img: {
     src: string;
+    alt: string;
     className?: string;
     containerClassName?: string;
   };
@@ -18,8 +20,9 @@ const HalfSection: React.FC<{
         img.containerClassName,
       )}
     >
-      <img
+      <Image
         src={img.src}
+        alt={img.alt}
         className={cn("h-full w-full object-cover", img.className)}
       />
     </div>

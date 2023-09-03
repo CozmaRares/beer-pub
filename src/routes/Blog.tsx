@@ -1,13 +1,15 @@
 import blogImg from "@/assets/blog-img.jpg";
+import Image from "@/components/Image";
 import { cn } from "@/shadui/utils";
 import InferProps from "@/utils/InferProps";
+import { format } from "date-fns";
 
 const BLOG_PROPS: Omit<InferProps<[typeof BlogPost]>, "className"> = {
-  img: blogImg,
+  img: { src: blogImg, alt: "image placeholder" },
   title: "Title",
   type: "Type",
   author: "Author",
-  date: "September 1st, 2023",
+  date: format(new Date(), "PPP"),
 };
 
 const Blog = () => (
@@ -32,7 +34,7 @@ const Blog = () => (
 );
 
 const BlogPost: React.FC<{
-  img: string;
+  img: { src: string; alt: string };
   title: string;
   type: string;
   author: string;
@@ -40,8 +42,9 @@ const BlogPost: React.FC<{
   className?: string;
 }> = ({ img, title, type, author, date, className }) => (
   <article className={cn("relative", className)}>
-    <img
-      src={img}
+    <Image
+      src={img.src}
+      alt={img.alt}
       className="h-full w-full rounded-md object-cover"
     />
     <div className="absolute bottom-0 left-0 right-0 space-y-1 rounded-b-md bg-black/80 p-2 sm:p-4">
