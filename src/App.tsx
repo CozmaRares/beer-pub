@@ -47,10 +47,10 @@ import Mail from "@/svg/Mail";
 import Location from "@/svg/Location";
 import Clock from "@/svg/Clock";
 
-const WithNavAndFooter: React.FC<{path:string; children: React.ReactNode }> = ({
-  path,
-  children,
-}) => {
+const WithNavAndFooter: React.FC<{
+  path: string;
+  children: React.ReactNode;
+}> = ({ path, children }) => {
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   });
@@ -73,9 +73,11 @@ const router = createHashRouter([
       </WithNavAndFooter>
     ),
     errorElement: (
-      <WithNavAndFooter path="error">
-        <Error />
-      </WithNavAndFooter>
+      <div className="flex min-h-[100dvh] flex-col justify-between">
+        <WithNavAndFooter path="error">
+          <Error />
+        </WithNavAndFooter>
+      </div>
     ),
   },
   {
@@ -185,7 +187,7 @@ const NavBar = () => {
             </li>
           ))}
         </ul>
-        <ul className="mx-auto flex flex-row gap-3 md:m-0 md:p-0">
+        <ul className="mx-auto mt-2 flex flex-row gap-3 md:m-0">
           {socials.map(({ icon, name, link }) => (
             <li key={name}>
               <Social
