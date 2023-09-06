@@ -1,13 +1,13 @@
-import drinks from "@/assets/images/drinks.png";
+import drinks from "@/assets/images/drinks.webp";
 import Banner from "@/components/Banner";
 import EyebrowHeading from "@/components/EyebrowHeading";
 import HorizontalList from "@/components/HorizontalList";
 import MenuList from "@/components/MenuList";
-import fridayBg from "@/assets/images/friday-bg.png";
+import fridayBg from "@/assets/images/friday-bg.webp";
 import friday from "@/assets/svg/friday.svg";
-import paleAle from "@/assets/images/pale-ale.png";
-import crutons from "@/assets/images/crutons.png";
-import sausages from "@/assets/images/sausages.png";
+import paleAle from "@/assets/images/pale-ale.webp";
+import crutons from "@/assets/images/crutons.webp";
+import sausages from "@/assets/images/sausages.webp";
 import Image from "@/components/Image";
 
 const Menu = () => {
@@ -288,6 +288,7 @@ const Friday = () => (
           alt="illutsration"
           src={friday}
           className="mx-auto object-cover lg:max-h-[500px]"
+          loading="eager"
         />
         <div className="h-full flex-col space-y-8 rounded-lg bg-black/40 p-8 backdrop-blur-sm toMd:p-16">
           <EyebrowHeading

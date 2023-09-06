@@ -2,11 +2,11 @@ import Banner from "@/components/Banner";
 import HalfSection from "@/components/HalfSection";
 import EyebrowHeading from "@/components/EyebrowHeading";
 
-import story from "@/assets/images/story.png";
+import story from "@/assets/images/story.webp";
 
-import john from "@/assets/images/john.png";
-import anthony from "@/assets/images/anthony.png";
-import thomas from "@/assets/images/thomas.png";
+import john from "@/assets/images/john.webp";
+import anthony from "@/assets/images/anthony.webp";
+import thomas from "@/assets/images/thomas.webp";
 
 import beerMug from "@/assets/svg/beer-mug.svg";
 import { Link } from "react-router-dom";
@@ -55,6 +55,7 @@ const Story = () => (
         src: story,
         alt: "image placeholder",
         className: "md:min-h-[500px]",
+        loading: "eager",
       }}
       reverse
     />

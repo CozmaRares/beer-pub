@@ -1,5 +1,13 @@
 const Image: React.FC<
-  { src: string; alt: string } & React.HTMLProps<HTMLImageElement>
-> = props => <img {...props} />;
+  {
+    src: string;
+    alt: string;
+  } & React.ImgHTMLAttributes<HTMLImageElement>
+> = props => (
+  <img
+    loading="lazy"
+    {...props}
+  />
+);
 
 export default Image;

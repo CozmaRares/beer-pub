@@ -1,4 +1,4 @@
-import blogImg from "@/assets/images/blog-img.jpg";
+import blogImg from "@/assets/images/blog-img.webp";
 import Banner from "@/components/Banner";
 import Image from "@/components/Image";
 import { cn } from "@/shadui/utils";
@@ -15,25 +15,26 @@ const BLOG_PROPS: Omit<InferProps<[typeof BlogPost]>, "className"> = {
 
 const Blog = () => (
   <>
-  <Banner text="Blog"/>
-  <div className="bounded-section space-y-8 py-4">
-    <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-[3fr,2fr]">
-      <BlogPost
-        {...BLOG_PROPS}
-        className="md:col-span-2 lg:col-span-1 lg:row-span-2"
-      />
-      <BlogPost {...BLOG_PROPS} />
-      <BlogPost {...BLOG_PROPS} />
-    </div>
-    <div className="flex flex-row flex-wrap justify-center gap-8">
-      {new Array(Math.floor(Math.random() * 8) + 2).fill(0).map(() => (
+    <Banner text="Blog" />
+    <div className="bounded-section space-y-8 py-4">
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-[3fr,2fr]">
         <BlogPost
           {...BLOG_PROPS}
-          className="md:w-[calc((100%-2rem)/2)] lg:w-[calc((100%-4rem)/3)]"
+          className="md:col-span-2 lg:col-span-1 lg:row-span-2"
         />
-      ))}
+        <BlogPost {...BLOG_PROPS} />
+        <BlogPost {...BLOG_PROPS} />
+      </div>
+      <div className="flex flex-row flex-wrap justify-center gap-8">
+        {new Array(Math.floor(Math.random() * 8) + 2).fill(0).map((_, idx) => (
+          <BlogPost
+            key={idx}
+            {...BLOG_PROPS}
+            className="md:w-[calc((100%-2rem)/2)] lg:w-[calc((100%-4rem)/3)]"
+          />
+        ))}
+      </div>
     </div>
-  </div>
   </>
 );
 
@@ -49,6 +50,7 @@ const BlogPost: React.FC<{
     <Image
       src={img.src}
       alt={img.alt}
+      loading="eager"
       className="h-full w-full rounded-md object-cover"
     />
     <div className="absolute bottom-0 left-0 right-0 space-y-1 rounded-b-md bg-black/80 p-2 sm:p-4">

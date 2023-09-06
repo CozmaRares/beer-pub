@@ -7,34 +7,35 @@ import ButtonFull from "@/components/ButtonFull";
 import HalfSection from "@/components/HalfSection";
 import { Link } from "react-router-dom";
 
-import heroBG from "@/assets/background.mp4";
-import beer from "@/assets/images/beer.png";
-import hamburger from "@/assets/images/hamburger.png";
-import pretzels from "@/assets/images/pretzels.png";
+import beerFilling from "@/assets/beer-glass-filling.mp4";
+
+import beer from "@/assets/images/beer.webp";
+import hamburger from "@/assets/images/hamburger.webp";
+import pretzels from "@/assets/images/pretzels.webp";
 
 import beerBottle from "@/assets/svg/beer-bottle.svg";
 import beerGlass from "@/assets/svg/beer-glass.svg";
 import sandwich from "@/assets/svg/sandwich.svg";
 import cocktail from "@/assets/svg/cocktail.svg";
 
-import IPA from "@/assets/images/IPA.png";
-import lagerBeer from "@/assets/images/lager-beer.png";
-import bitter from "@/assets/images/bitter.png";
+import IPA from "@/assets/images/IPA.webp";
+import lagerBeer from "@/assets/images/lager-beer.webp";
+import bitter from "@/assets/images/bitter.webp";
 
-import fries from "@/assets/images/fries.png";
-import beerMug from "@/assets/images/beer-mug.png";
-import hamburgerCut from "@/assets/images/hamburger-cut.png";
-import women from "@/assets/images/women.png";
+import fries from "@/assets/images/fries.webp";
+import beerMug from "@/assets/images/beer-mug.webp";
+import hamburgerCut from "@/assets/images/hamburger-cut.webp";
+import women from "@/assets/images/women.webp";
 
-import about from "@/assets/images/about.png";
+import about from "@/assets/images/about.webp";
 
-import samWhite from "@/assets/images/sam-white.png";
-import bernardRedhead from "@/assets/images/bernard-redhead.png";
-import group from "@/assets/images/group.png";
+import samWhite from "@/assets/images/sam-white.webp";
+import bernardRedhead from "@/assets/images/bernard-redhead.webp";
+import group from "@/assets/images/group.webp";
 
-import waiter from "@/assets/images/waiter.png";
-import counter from "@/assets/images/counter.png";
-import irish from "@/assets/images/irish.png";
+import waiter from "@/assets/images/waiter.webp";
+import counter from "@/assets/images/counter.webp";
+import irish from "@/assets/images/irish.webp";
 
 import miller from "@/assets/svg/miller.svg";
 import hoegaarden from "@/assets/svg/hoegaarden.svg";
@@ -69,7 +70,7 @@ const Hero = () => (
       className="pointer-events-none h-[100vmin] w-full object-cover"
     >
       <source
-        src={heroBG}
+        src={beerFilling}
         type="video/mp4"
       />
     </video>
@@ -469,7 +470,7 @@ const About = () => (
       img={{
         src: about,
         alt: "image placeholder",
-        className: "object-[50%,30%]",
+        className: "object-[50%,35%]",
       }}
     />
   </section>

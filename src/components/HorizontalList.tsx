@@ -86,6 +86,7 @@ const HorizontalList = <T,>({
           buttonClass?.left,
         )}
         onClick={() => handleScroll(-1)}
+        aria-label="scroll-left"
       >
         <CaretLeft />
       </button>
@@ -96,6 +97,7 @@ const HorizontalList = <T,>({
           buttonClass?.right,
         )}
         onClick={() => handleScroll(1)}
+        aria-label="scroll-right"
       >
         <CaretRight />
       </button>

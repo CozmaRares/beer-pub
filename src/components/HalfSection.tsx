@@ -6,9 +6,8 @@ const HalfSection: React.FC<{
   img: {
     src: string;
     alt: string;
-    className?: string;
     containerClassName?: string;
-  };
+  } & React.ImgHTMLAttributes<HTMLImageElement>;
   className?: string;
   reverse?: boolean;
 }> = ({ content, img, className, reverse }) => (
@@ -21,8 +20,7 @@ const HalfSection: React.FC<{
       )}
     >
       <Image
-        src={img.src}
-        alt={img.alt}
+        {...img}
         className={cn("h-full w-full object-cover", img.className)}
       />
     </div>

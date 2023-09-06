@@ -9,7 +9,7 @@
     "dev": "vite --port 3000",
     "build": "npm run lint && tsc && vite build",
     "preview": "vite preview --port 5000",
-    "report": "npm run build && concurrently -k \"npm run preview\" \"./report.sh -p 5000\"",
+    "report": "concurrently -k \"npm run preview\" \"./report.sh -p 5000\"",
     "deploy": "npm run build && echo beerpub.raru.dev > ./dist/CNAME && gh-pages -d dist"
   },
   "dependencies": {
