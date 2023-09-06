@@ -1,27 +1,113 @@
-# React + TypeScript + Vite
+# Beer Pub Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> [Working Demo](https://cozmarares.github.io/nft-landing/)
 
-Currently, two official plugins are available:
+## Project Description
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A styilsh mock website of a beer pub.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Prerequisites
 
-- Configure the top-level `parserOptions` property like this:
+- nodejs
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+  Debian/Ubuntu:
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+  ```sh
+  sudo apt install nodejs
+  ```
+
+- npm
+
+  Debian/Ubuntu:
+
+  ```sh
+  sudo apt install npm
+  ```
+
+- Lighthouse (optional)
+
+  ```sh
+  npm install -g lighthouse
+  ```
+
+### Installation
+
+1. Clone the repo
+
+   ```sh
+   git clone https://github.com/CozmaRares/beer-pub.git
+   cd beer-pub
+   ```
+
+2. Install the dependencies
+
+   ```sh
+   npm install
+   ```
+
+3. Start the development server
+
+   ```sh
+   npm run dev
+   ```
+
+4. Build for production
+
+   ```sh
+   npm run build
+   ```
+
+   or build and deploy (configured deploy on GitHub Pages)
+
+   ```sh
+   npm run deploy
+   ```
+
+   > **Note** By default, the deploy script will push to the current `origin`.
+   > If you cloned this repository, the `origin` will be set to **MY** GitHub
+   > repository and domain. Be sure to remove the `origin` and set it yoursef,
+   > and change the `deploy:domain` script if you plan on deploying to GitHub Pages.
+
+    <!---->
+
+   > Remove origin
+   >
+   > ```sh
+   > git remote remove origin
+   > ```
+
+5. (optional) Generate Lighthouse report
+
+   ```sh
+   npm run report
+   ```
+
+   > **Note** Runs a bash script (`report.sh`) under the hood. Make sure your OS
+   > can run bash scripts.
+
+   <!-- -->
+
+   > **Note** `report.sh` requires some additional configuration.
+
+## Reflection
+
+This is a remake of the [original project](https://github.com/CozmaRares/odin-project-restaurant),
+included in [The Odin Project](https://www.theodinproject.com/) curriculum, and
+uses the design of [this template website](https://beerpub.weblium.site/).
+
+The objective of the original project was to create a homepage for a restaurant
+using `JavaScript` to manipulate the DOM and package the code with `Webpack`. I
+recreated the site using `ReactJS`, as the framework also manipulates the DOM
+behind the scenes, and `ViteJS` as the build tool.
+
+Utilizing the knowledge gained from [the previous project](https://github.com/CozmaRares/nft-landing),
+designing the website's responsive layout became significantly more
+straightforward. I began by focusing on the mobile view and then adjusted the
+layout for larger screens, in alignment with the mobile-first breakpoint system
+of `TailwindCSS`.
+
+The sole distinction in this project's tech stack compared to the previous one
+lies in the addition of `React Router` and the utilization of the component
+library [shadcn/ui](https://ui.shadcn.com/).

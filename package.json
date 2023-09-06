@@ -10,7 +10,8 @@
     "build": "npm run lint && tsc && vite build",
     "preview": "vite preview --port 5000",
     "report": "concurrently -k \"npm run preview\" \"./report.sh -p 5000\"",
-    "deploy": "npm run build && echo beerpub.raru.dev > ./dist/CNAME && gh-pages -d dist"
+    "deploy:domain":"echo beerpub.raru.dev > ./dist/CNAME",
+    "deploy": "npm run build && npm run deploy:domain && gh-pages -d dist"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.1",
