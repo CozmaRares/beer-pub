@@ -13,6 +13,7 @@ const Social: React.FC<{
     )}
     href={link}
     rel="noreferrer"
+    target="_blank"
   >
     <p className="sr-only">{name}</p>
     {icon}

@@ -85,6 +85,7 @@
     @apply space-y-8 sm:space-y-16;
   }
 
+  /* slider link */
   .slider-link {
     position: relative;
     padding: 0.35rem;

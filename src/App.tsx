@@ -13,7 +13,7 @@ import Home from "@/routes/Home";
 import Error from "@/routes/Error";
 import Social from "@/components/Social";
 import SliderLink from "@/components/SliderLink";
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import About from "@/routes/About";
 import Menu from "@/routes/Menu";
 import Blog from "@/routes/Blog";
@@ -52,14 +52,21 @@ const WithNavAndFooter: React.FC<{
   path: string;
   children: React.ReactNode;
 }> = ({ path, children }) => {
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
+    document.querySelector("[data-transition]")!.classList.remove("opacity-0");
   });
 
   return (
     <>
-      <NavBar key={path} />
-      <main>{children}</main>
+      <NavBar />
+      <main
+        key={path}
+        data-transition
+        className="opacity-0 transition-opacity duration-500"
+      >
+        {children}
+      </main>
       <Footer />
     </>
   );
