@@ -1,6 +1,6 @@
 # Beer Pub Website
 
-> [Working Demo](https://cozmarares.github.io/nft-landing/)
+> [Working Demo](https://beerpub.raru.dev/)
 
 ## Project Description
 
@@ -99,8 +99,8 @@ uses the design of [this template website](https://beerpub.weblium.site/).
 
 The objective of the original project was to create a homepage for a restaurant
 using `JavaScript` to manipulate the DOM and package the code with `Webpack`. I
-recreated the site using `ReactJS`, as the framework also manipulates the DOM
-behind the scenes, and `ViteJS` as the build tool.
+recreated the site using `React`, as the framework also manipulates the DOM
+behind the scenes, and `Vite` as the build tool.
 
 Utilizing the knowledge gained from [the previous project](https://github.com/CozmaRares/nft-landing),
 designing the website's responsive layout became significantly more
